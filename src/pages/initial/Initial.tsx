@@ -1,5 +1,6 @@
 import { ArrowRight, Car, ListCheck, MapPin, Navigation, ShieldCheck, UserCheck } from 'lucide-react'
-import FooterInitial from './footerinitial/FooterIntial'
+import Footer from '../../components/footer/Footer';
+
 
 const Initial = () => {
   return (
@@ -107,7 +108,7 @@ const Initial = () => {
           </div>
         </section>
       </main>
-      <FooterInitial />
+      <Footer />
     </div>
     
   )
