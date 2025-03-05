@@ -1,4 +1,5 @@
-import { ArrowRight, Car, ListCheck, MapPin, Navigation, ShieldCheck, UserCheck, UserPlus } from 'lucide-react'
+import { ArrowRight, Car, ListCheck, MapPin, Navigation, ShieldCheck, UserCheck } from 'lucide-react'
+import FooterInitial from './footerinitial/FooterIntial'
 
 const Initial = () => {
   return (
@@ -48,29 +49,29 @@ const Initial = () => {
         <section className='mt-20'>
           <h2 className='font-semibold text-2xl text-center'>Nossos serviços</h2>
           <div className='bg-[#D8DFE9] p-10'>
-          <p>Escolha o Vammo perfeito para a sua viagem: </p>
+          <p className='text-center'>Escolha o Vammo perfeito para a sua viagem: </p>
             <div className='flex items-center justify-center gap-20 p-10'>
 
             <div id='card' className='text-center'>
-              <img src="https://ik.imagekit.io/grupo03/Vammo/assets%20-%20initial%20page/car1.png" alt="" />
+              <img className='transition duration-0.3 hover:scale-110' src="https://ik.imagekit.io/grupo03/Vammo/assets%20-%20initial%20page/car1.png" alt="" />
               <h3 className='font-semibold text-xl mt-5'>Vammo Easy</h3>
               <p>Mais Promoções</p>
             </div>
 
             <div id='card' className='text-center'>
-              <img src="https://ik.imagekit.io/grupo03/Vammo/assets%20-%20initial%20page/moto.png" alt="" />
+              <img className='transition duration-0.3 hover:scale-110' src="https://ik.imagekit.io/grupo03/Vammo/assets%20-%20initial%20page/moto.png" alt="" />
               <h3 className='font-semibold text-xl mt-5'>Vammo Max</h3>
               <p>Mais rapidez</p>
             </div>
 
             <div id='card' className='text-center'>
-              <img src="https://ik.imagekit.io/grupo03/Vammo/assets%20-%20initial%20page/car3.png" alt="" />
+              <img className='transition duration-0.3 hover:scale-110' src="https://ik.imagekit.io/grupo03/Vammo/assets%20-%20initial%20page/car3.png" alt="" />
               <h3 className='font-semibold text-xl mt-5'>Vammo Quick</h3>
               <p>Para caber toda a galera</p>
             </div>
 
             <div id='card' className='text-center'>
-              <img src="https://ik.imagekit.io/grupo03/Vammo/assets%20-%20initial%20page/car2.png" alt="" />
+              <img className='transition duration-0.3 hover:scale-110'src="https://ik.imagekit.io/grupo03/Vammo/assets%20-%20initial%20page/car2.png" alt="" />
               <h3 className='font-semibold text-xl mt-5'>Vammo Green</h3>
               <p>Carros elétricos</p>
             </div>
@@ -106,8 +107,10 @@ const Initial = () => {
           </div>
         </section>
       </main>
+      <FooterInitial />
     </div>
+    
   )
 }
 
-export default Initial
+export default Initial;
