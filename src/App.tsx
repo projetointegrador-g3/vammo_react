@@ -11,10 +11,11 @@ function App() {
   
   return (
     <>
+      <AuthProvider>
       <ToastContainer />
-
       <Routes>
         <Route path="/" element={<Initial />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/home" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/veiculos" element={<ListaVeiculos />} />
@@ -22,6 +23,7 @@ function App() {
         <Route path="/editarveiculo/:id" element={<FormVeiculo />} />
         <Route path="/deletarveiculo/:id" element={<DeletarVeiculo />} />
       </Routes>
+      </AuthProvider>
     </>
   )
 }

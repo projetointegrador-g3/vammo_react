@@ -1,5 +1,17 @@
+@import "tailwindcss";
+
 body {
     font-family: "Urbanist", sans-serif;
     background-color: #f6f5fa;
     color: #212121;
+}
+
+.bginitial{
+    background-image: url(./pages/initial/fundo.png);
+    margin-top: 5rem;
+}
+#topicos {
+   display: flex;
+   align-items: center;
+   gap: 0.75rem;
 }
