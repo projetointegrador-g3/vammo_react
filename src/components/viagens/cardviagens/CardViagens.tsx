@@ -1,6 +1,5 @@
 import { Heart, PencilLine, Trash } from '@phosphor-icons/react';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
 import { Viagem } from '../../../model/Viagem';
 
 interface CardViagensProps {

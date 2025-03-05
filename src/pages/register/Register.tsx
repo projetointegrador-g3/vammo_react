@@ -26,7 +26,7 @@ export default function AuthPage() {
     usuario: '',
     senha: '',
     foto: '',
-    avaliacao: '',
+    avaliacao: 0,
   });
 
   useEffect(() => {
@@ -131,7 +131,8 @@ export default function AuthPage() {
                 <Label htmlFor='data_aniversario'>Data de nascimento</Label>
                 <Input id='data_aniversario' 
                 value={usuario.data_aniversario}
-                type='date' onChange={atualizarEstado} />
+                type='date' 
+                name='data_aniversario' onChange={atualizarEstado} />
 
                 <Label htmlFor='password'>Escolha uma senha</Label>
                 <Input
@@ -149,6 +150,7 @@ export default function AuthPage() {
                   id='confirmarSenha'
                   type='password'
                   placeholder='********'
+                  name='senha'
                   value={confirmarSenha}
                   onChange={handleConfirmarSenha}
                   required
