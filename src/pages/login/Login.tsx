@@ -39,6 +39,8 @@ export function Login ({
         handleLogin(usuarioLogin)
     }
 
+    console.log(JSON.stringify(usuarioLogin))
+
 
     return (
       <div className='grid h-screen lg:grid-cols-2'>

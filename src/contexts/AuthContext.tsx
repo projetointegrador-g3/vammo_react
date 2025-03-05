@@ -37,6 +37,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
         try {
             await login(`/usuarios/login`, usuarioLogin, setUsuario)
             alert("O Usuário foi autenticado com sucesso!")
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         } catch (error) {
             alert("Os Dados do usuário estão inconsistentes!")
         }
