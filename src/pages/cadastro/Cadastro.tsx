@@ -22,7 +22,7 @@ function Cadastro() {
     usuario: '',
     senha: '',
     foto: '',
-    avaliacao: '',
+    avaliacao: 0,
 
   })
   
