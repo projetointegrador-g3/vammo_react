@@ -1,3 +1,15 @@
+@import "tailwindcss";
+
 body {
     font-family: "Urbanist", sans-serif;
+    background-color: #f6f5fa;
+}
+
+:root{
+    --black: #212121;
+    --white: #f6f5fa;
+    --gainsboro: #E6E6E6;
+    --blue: #7524F3;
+    --yellow: #D8F505;
+    --green: #9CBABB;
 }
