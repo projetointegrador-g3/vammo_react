@@ -1,4 +1,5 @@
 import { Usuario } from "./Usuario";
+import { Veiculo } from "./Veiculo";
 
 export interface Viagem {
     id: number;
@@ -9,6 +10,6 @@ export interface Viagem {
     velocidade: string;
     duracao: string;
     status: string;
-    veiculo?: Viagem | null;
-    usuario?: Viagem | null;
+    veiculo?: Veiculo | null;
+    usuario?: Usuario | null;
 }

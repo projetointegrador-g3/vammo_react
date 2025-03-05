@@ -1,3 +1,5 @@
+import { Viagem } from "./Viagem";
+
 export interface Veiculo {
     id: number;
     modelo: string;
@@ -5,5 +7,5 @@ export interface Veiculo {
     ano_fabricacao: number;
     observacao: string;
     disponivel: string;
-    viagem?: Veiculo | null;
+    viagem?: Viagem | null;
 }
