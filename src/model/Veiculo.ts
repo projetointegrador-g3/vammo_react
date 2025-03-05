@@ -4,6 +4,7 @@ export interface Veiculo {
     id: number;
     modelo: string;
     placa: string;
+    cor: string;
     ano_fabricacao: number;
     observacao: string;
     disponivel: string;
