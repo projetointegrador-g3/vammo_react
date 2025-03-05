@@ -7,6 +7,6 @@ export interface Usuario {
     usuario: string;
     senha: string;
     foto: string;
-    avaliacao: string;
+    avaliacao: number;
     viagem?: Usuario | null;
 }

@@ -1,11 +1,11 @@
 import { createContext, ReactNode, useState } from "react"
 import { login } from "../services/Service"
-import Login from "../model/Login"
+import UsuarioLogin from "../model/UsuarioLogin"
 
 interface AuthContextProps {
-    usuario: Login
+    usuario: UsuarioLogin
     handleLogout(): void
-    handleLogin(usuario: Login): Promise<void>
+    handleLogin(usuario: UsuarioLogin): Promise<void>
     isLoading: boolean
 }
 
@@ -17,7 +17,7 @@ export const AuthContext = createContext({} as AuthContextProps)
 
 export function AuthProvider({ children }: AuthProviderProps) {
 
-    const [usuario, setUsuario] = useState<Login>({
+    const [usuario, setUsuario] = useState<UsuarioLogin>({
         id: 0,
         tipo_user: "",
         nome: "",
@@ -26,13 +26,13 @@ export function AuthProvider({ children }: AuthProviderProps) {
         usuario: "",
         senha: "",
         foto: "",
-        avaliacao: "",
+        avaliacao: 0,
         token: ""
     })
 
     const [isLoading, setIsLoading] = useState<boolean>(false)
 
-    async function handleLogin(usuarioLogin: Login) {
+    async function handleLogin(usuarioLogin: UsuarioLogin) {
         setIsLoading(true)
         try {
             await login(`/usuarios/login`, usuarioLogin, setUsuario)
@@ -53,7 +53,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
             usuario: "",
             senha: "",
             foto: "",
-            avaliacao: "",
+            avaliacao: 0,
             token: ""
         })
     }
