@@ -82,16 +82,16 @@ export default function AuthPage() {
       </div>
 
         {/* Logo */}
-      <div className='flex flex-col p-6 md:p-10'>
+      <div className='flex flex-col md:p-10'>
         <div className='flex justify-end'>
           <Link to='/' className=''>
                 <img 
                 src='https://ik.imagekit.io/grupo03/Vammo/vammoblack.png?updatedAt=1741184618721'
-                className='w-30' />
+                className='w-20 h-20' />
           </Link>
         </div>
 
-        <div className='flex flex-1 items-center justify-center'>
+        <div className='flex flex-1  items-center justify-center'>
           <div className='w-full max-w-xs'>
             <div className='flex flex-col items-center gap-2 text-center'>
               <h1 className='text-2xl font-bold'>Crie uma conta</h1>
@@ -128,8 +128,10 @@ export default function AuthPage() {
                   required
                 />
 
-                <Label htmlFor='foto'>Foto</Label>
-                <Input id='foto' type='file' name='foto' onChange={atualizarEstado} />
+                <Label htmlFor='data_aniversario'>Data de nascimento</Label>
+                <Input id='data_aniversario' 
+                value={usuario.data_aniversario}
+                type='date' onChange={atualizarEstado} />
 
                 <Label htmlFor='password'>Escolha uma senha</Label>
                 <Input
@@ -153,7 +155,7 @@ export default function AuthPage() {
                 />
               </div>
 
-              <Button type='submit' className='w-full mb-5'>
+              <Button type='submit'>
                 {isLoading ? (
                   <RotatingLines strokeColor='white' strokeWidth='5' animationDuration='0.75' width='24' visible />
                 ) : (
@@ -168,7 +170,7 @@ export default function AuthPage() {
 
             <div className='text-center text-sm'>
               Você já tem uma conta?{' '}
-              <Link to='/login' className='underline underline-offset-4 '>
+              <Link to='/login' className='underline underline-offset-4 font-semibold'>
                 Entre!
               </Link>
             </div>
