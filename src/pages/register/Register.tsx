@@ -103,7 +103,7 @@ export default function AuthPage() {
             {/* Form */}
             <form className={cn('flex flex-col gap-6')} onSubmit={cadastrarNovoUsuario}>
 
-              <div className='grid gap-2'>
+              <div className='grid gap-2 b-0'>
                 <Label htmlFor='nome'>Nome</Label>
                 <Input
                   id='nome'
