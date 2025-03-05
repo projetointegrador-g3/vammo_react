@@ -1,10 +1,8 @@
 import { NavLink } from "react-router-dom"
 import { LoginForm } from "../../components/forms/LoginForm"
 
-
 const Login = () => {
   return (
-    
     <div className='grid min-h-svh lg:grid-cols-2'>
       <div className='flex flex-col gap-4 p-6 md:p-5'>
         <div className='flex justify-center gap-2 md:justify-start'>
@@ -12,7 +10,7 @@ const Login = () => {
             <div className='flex h-6 w-6 items-center justify-center rounded-md bg-primary text-primary-foreground'>
             </div>
             <img 
-            src='https://ik.imagekit.io/grupo03/DishDash/DishDash-logo.png?updatedAt=1740667879038'
+            src='https://ik.imagekit.io/grupo03/Vammo/VAMMO%20(1)%201.png?updatedAt=1741183646285'
             className='w-25' />
           </NavLink>
         </div>
