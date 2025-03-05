@@ -3,17 +3,23 @@ import { Route, Routes } from 'react-router-dom'
 import Home from './pages/home/Home'
 import About from './pages/about/About'
 import Initial from './pages/initial/Initial'
+<<<<<<< HEAD
 import { AuthProvider } from './contexts/AuthContext'
 import ListaViagens from './components/viagens/listarviagem/ListarViagem'
 import FormViagens from './components/viagens/formviagens/FormViagens'
 import Login from './pages/login/Login'
 import Register from './pages/register/Register'
+=======
+import Navbar from './components/navbar/Navbar' 
+import Sidebar from './components/sidebar/Sidebar'
+>>>>>>> origin/01_home
 
 function App() {
   return (
     <>
       <AuthProvider>
       <ToastContainer />
+<<<<<<< HEAD
       
         <Routes>
           <Route path="/" element={<Initial />} />
@@ -29,6 +35,15 @@ function App() {
           {/* <Route path="/consultarviagem/:historico" element={<ListarViagemsPorHistorico />} /> */} 
         </Routes>
       </AuthProvider>
+=======
+      <Navbar/>
+      <Sidebar/>
+      <Routes>
+        <Route path="/" element={<Initial />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+>>>>>>> origin/01_home
     </>
   );
 }
