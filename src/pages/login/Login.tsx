@@ -1,11 +1,4 @@
-<<<<<<< HEAD
-import { Link, useNavigate } from 'react-router-dom';
-import './Login.css';
-import { AuthContext } from '../../contexts/AuthContext';
-import { ChangeEvent, useContext, useEffect, useState } from 'react';
-import Login from '../../model/Login';
-=======
-import { Link, NavLink, useNavigate } from "react-router-dom"
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { ChangeEvent, useContext, useEffect, useState } from "react";
 import UsuarioLogin from "../../model/UsuarioLogin";
 import { AuthContext } from "../../contexts/AuthContext";
@@ -13,7 +6,6 @@ import { cn } from "../../utils/cn";
 import { Label } from "../../components/ui/label";
 import { Input } from "../../components/ui/input";
 import { Button } from "../../components/ui/button";
->>>>>>> origin/05_security
 import { RotatingLines } from 'react-loader-spinner';
 
 export function Login ({
