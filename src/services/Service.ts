@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-    baseURL: 'https://dish-dash-1.onrender.com/'
+    baseURL: 'https://vammo.onrender.com/'
     
 })
 

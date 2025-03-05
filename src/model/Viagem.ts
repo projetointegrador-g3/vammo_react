@@ -1,3 +1,5 @@
+import { Usuario } from "./Usuario";
+
 export interface Viagem {
     id: number;
     data_ida: string;
@@ -8,5 +10,5 @@ export interface Viagem {
     duracao: string;
     status: string;
     veiculo?: Viagem | null;
-
+    usuario?: Viagem | null;
 }
