@@ -1,3 +1,6 @@
+@import 'tailwindcss';
+
+/*Configurações gerais*/
 body {
     font-family: "Urbanist", sans-serif;
     background-color: #f6f5fa;
