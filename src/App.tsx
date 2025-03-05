@@ -25,8 +25,8 @@ function App() {
         <Route path="/cadastrarviagem" element={<FormViagens />} />
         <Route path="/editarviagem/:id" element={<FormViagens />} />
         <Route path="/deletarviagem/:id" element={<DeletarViagem />} />
-        <Route path="/consultarviagem/:origem" element={<ListarViagensOrigem />} /> 
-        <Route path="/consultarviagem/:historico" element={<ListarViagensHistorico />}  />
+        <Route path="/viagens/origem" element={<ListarViagensOrigem />} /> 
+        <Route path="/consultarviagem/historico/:usuario" element={<ListarViagensHistorico />} />
       </Routes>
       </AuthProvider>
     </>

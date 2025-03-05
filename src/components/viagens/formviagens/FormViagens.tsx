@@ -140,7 +140,7 @@ function FormViagens() {
 
     return (  
         <>  
-            <div className="container flex flex-col items-center bg-#f6f5fa text-#212121">  
+            <div className=" flex flex-col items-center bg-#f6f5fa text-#212121">  
                 <h1 className="text-4xl text-center my-8">  
                     {id !== undefined ? 'Editar Viagem' : 'Cadastrar Viagem'}  
                 </h1>  
