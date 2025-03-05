@@ -1,97 +1,35 @@
-import { Link, useNavigate } from 'react-router-dom';
-import './Login.css';
-import { ChangeEvent, useContext, useEffect, useState } from 'react';
-import { RotatingLines } from 'react-loader-spinner';
-import { AuthContext } from '../../contexts/AuthContext';
+import { NavLink } from "react-router-dom"
+import { LoginForm } from "../../components/forms/LoginForm"
 
-function Login() {
-
-    const navigate = useNavigate();
-
-    const { usuario, handleLogin, isLoading } = useContext(AuthContext)
-
-    const [usuario, setUsuarioLogin] = useState<Login>(
-        {} as Login
-    )
-
-    useEffect(() => {
-        if (usuario.token !== "") {
-            navigate('/home')
-        }
-    }, [usuario])
-
-    function atualizarEstado(e: ChangeEvent<HTMLInputElement>) {
-        setUsuarioLogin({
-            ...usuarioLogin,
-            [e.target.name]: e.target.value
-        })
-    }
-
-    function login(e: ChangeEvent<HTMLFormElement>) {
-        e.preventDefault()
-        handleLogin(usuarioLogin)
-    }
-
-    return (
-        <>
-            <div className="grid grid-cols-1 lg:grid-cols-2 
-                    h-screen place-items-center font-bold ">
-                <form className="flex justify-center items-center flex-col w-1/2 gap-4"
-                    onSubmit={login}>
-                    <h2 className="text-slate-900 text-5xl ">Entrar</h2>
-                    <div className="flex flex-col w-full">
-                        <label htmlFor="usuario">Usuário</label>
-                        <input
-                            type="text"
-                            id="usuario"
-                            name="usuario"
-                            placeholder="Usuario"
-                            className="border-2 border-slate-700 rounded p-2"
-                            value={usuarioLogin.usuario}
-                            onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
-                        />
-                    </div>
-                    <div className="flex flex-col w-full">
-                        <label htmlFor="senha">Senha</label>
-                        <input
-                            type="password"
-                            id="senha"
-                            name="senha"
-                            placeholder="Senha"
-                            className="border-2 border-slate-700 rounded p-2"
-                            value={usuarioLogin.senha}
-                            onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
-                        />
-                    </div>
-                    <button
-                        type='submit'
-                        className="rounded bg-indigo-400 flex justify-center
-                                   hover:bg-indigo-900 text-white w-1/2 py-2">
-                                    
-                        {isLoading ? <RotatingLines
-                            strokeColor="white"
-                            strokeWidth="5"
-                            animationDuration="0.75"
-                            width="24"
-                            visible={true}
-                        /> :
-                            <span>Entrar</span>
-                        }
-                    </button>
-
-                    <hr className="border-slate-800 w-full" />
-
-                    <p>
-                        Ainda não tem uma conta?{' '}
-                        <Link to="/cadastro" className="text-indigo-800 hover:underline">
-                            Cadastre-se
-                        </Link>
-                    </p>
-                </form>
-                <div className="fundoLogin hidden lg:block"></div>
+const Login = () => {
+  return (
+    <div className='grid min-h-svh lg:grid-cols-2'>
+      <div className='flex flex-col gap-4 p-6 md:p-5'>
+        <div className='flex justify-center gap-2 md:justify-start'>
+          <NavLink to='/' className='flex items-center gap-2 font-medium'>
+            <div className='flex h-6 w-6 items-center justify-center rounded-md bg-primary text-primary-foreground'>
             </div>
-        </>
-    );
+            <img 
+            src='https://ik.imagekit.io/grupo03/Vammo/VAMMO%20(1)%201.png?updatedAt=1741183646285'
+            className='w-25' />
+          </NavLink>
+        </div>
+
+      <div className='flex flex-1 items-center justify-center'>
+        <div className='w-full max-w-xs'>
+          <LoginForm />
+        </div>
+      </div>
+    </div>
+    <div className='relative hidden bg-muted lg:block'>
+      <img
+        src='https://ik.imagekit.io/grupo03/DishDash/Copy?updatedAt=1740668460868'
+        alt='Imagem'
+        className='h-[100vh] w-[100vh] mx-15'
+      />
+    </div>
+  </div> 
+  )
 }
 
 export default Login;
