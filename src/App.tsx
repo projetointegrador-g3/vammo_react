@@ -4,6 +4,7 @@ import Home from './pages/home/Home'
 import About from './pages/about/About'
 import Initial from './pages/initial/Initial'
 import Login from './pages/login/Login'
+import { AuthProvider } from './contexts/AuthContext'
 
 function App() {
   
