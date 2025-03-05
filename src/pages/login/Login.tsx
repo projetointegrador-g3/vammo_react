@@ -1,9 +1,8 @@
 import { Link, useNavigate } from 'react-router-dom';
 import './Login.css';
-import { AuthContext } from '../../contexts/AuthContext';
 import { ChangeEvent, useContext, useEffect, useState } from 'react';
-import Login from '../../models/Login';
 import { RotatingLines } from 'react-loader-spinner';
+import { AuthContext } from '../../contexts/AuthContext';
 
 function Login() {
 
@@ -11,7 +10,7 @@ function Login() {
 
     const { usuario, handleLogin, isLoading } = useContext(AuthContext)
 
-    const [usuarioLogin, setUsuarioLogin] = useState<Login>(
+    const [usuario, setUsuarioLogin] = useState<Login>(
         {} as Login
     )
 

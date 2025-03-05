@@ -30,7 +30,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
         token: ""
     })
 
-    const [isLoading, setIsLoading] = useState(false)
+    const [isLoading, setIsLoading] = useState<boolean>(false)
 
     async function handleLogin(usuarioLogin: Login) {
         setIsLoading(true)
