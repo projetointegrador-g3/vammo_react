@@ -1,6 +1,6 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 import { Usuario } from '../../model/Usuario';
-import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { cadastrarUsuario } from '../../services/Service';
 import { Label } from '../../components/ui/label';
 import { Input } from '../../components/ui/input';
