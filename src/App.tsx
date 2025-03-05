@@ -5,6 +5,7 @@ import About from './pages/about/About'
 import Initial from './pages/initial/Initial'
 import DeletarVeiculo from './components/veiculos/deletarveiculo/DeletarVeiculos'
 import ListaVeiculos from './components/veiculos/listaveiculos/ListaVeiculos'
+import FormVeiculo from './components/veiculos/formveiculo/FormVeiculo'
 
 function App() {
   
@@ -17,8 +18,8 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/veiculos" element={<ListaVeiculos />} />
-        <Route path="/cadastrarveiculo" element={<FormVeiculos />} />
-        <Route path="/editarveiculo/:id" element={<FormVeiculos />} />
+        <Route path="/cadastrarveiculo" element={<FormVeiculo />} />
+        <Route path="/editarveiculo/:id" element={<FormVeiculo />} />
         <Route path="/deletarveiculo/:id" element={<DeletarVeiculo />} />
       </Routes>
     </>
