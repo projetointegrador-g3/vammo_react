@@ -1,5 +1,4 @@
 import { ToastContainer } from 'react-toastify'
-import './App.css'
 import { Route, Routes } from 'react-router-dom'
 import Home from './pages/home/Home'
 import About from './pages/about/About'
