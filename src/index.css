@@ -1,7 +1,7 @@
-
+@import 'tailwindcss';
 
 body {
     font-family: "Urbanist", sans-serif;
-    background-color: #f6f5fa;
+    background-color: #E6E6E6;
     color: #212121;
 }
