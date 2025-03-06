@@ -1,4 +1,4 @@
-import { Search } from 'lucide-react';
+import { Search, Sidebar } from 'lucide-react';
 import { PieChart, Pie, Cell, Tooltip } from 'recharts';
 
 const Home = () => {
@@ -9,6 +9,7 @@ const Home = () => {
   ];
 
   return (
+    
       <main className="flex-1 p-6">
 
         {/* Seção de pesquisa de viagens */}
