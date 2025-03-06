@@ -87,7 +87,8 @@ export default function AuthPage() {
           <Link to='/' className=''>
                 <img 
                 src='https://ik.imagekit.io/grupo03/Vammo/vammoblack.png?updatedAt=1741184618721'
-                className='w-30' />
+                className='w-30'
+                id='logo' />
           </Link>
         </div>
 

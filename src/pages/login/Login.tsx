@@ -44,6 +44,7 @@ export function Login({
               src='https://ik.imagekit.io/grupo03/Vammo/vammoblack.png?updatedAt=1741184618721'
               className='w-30' 
               alt="Logo"
+              id='logo'
             />
           </NavLink>
         </div>

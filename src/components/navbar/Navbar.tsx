@@ -9,7 +9,7 @@ const Navbar = () => {
   if (location.pathname==="/" || location.pathname==="/about")
   return (
     <div className="flex pl-18">
-      <img src="https://ik.imagekit.io/grupo03/Vammo/vammoblack.png?updatedAt=1741184618721" alt="Logo da Vammo!" className="w-25"></img>
+      <img id="logo" src="https://ik.imagekit.io/grupo03/Vammo/vammoblack.png?updatedAt=1741184618721" alt="Logo da Vammo!" className="w-25"></img>
 
       <div className="flex gap-5 pl-170 items-center">
         <Link to="/">Início</Link>
@@ -21,7 +21,7 @@ const Navbar = () => {
     </div>
   )
 
-  if (location.pathname==="/home" || location.pathname==="/veiculo" || location.pathname==="/configuracoes" || location.pathname==="/perfil" || location.pathname==="/viagens")
+  if (location.pathname==="/home" || location.pathname==="/veiculo" || location.pathname==="/configuracao" || location.pathname==="/perfil" || location.pathname==="/viagens")
   return(
     <div className="flex pl-30 pt-8">
       <div className="flex">
