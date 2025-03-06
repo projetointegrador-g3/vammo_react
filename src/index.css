@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 @import 'tailwindcss';
 
 /*Configurações gerais*/
@@ -10,9 +9,6 @@
     --yellow: #D8F505;
     --green: #9CBABB;
 }
-=======
-@import "tailwindcss";
->>>>>>> origin/03_viagens
 
 body {
     font-family: "Urbanist", sans-serif;
