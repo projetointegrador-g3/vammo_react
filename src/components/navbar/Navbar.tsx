@@ -11,11 +11,11 @@ const Navbar = () => {
     <div className="flex pl-30 pr-30">
       <img src="https://ik.imagekit.io/grupo03/Vammo/vammoblack.png?updatedAt=1741184618721" alt="Logo da Vammo!" className="w-25"></img>
 
-      <div className="flex gap-5 pl-140 items-center">
+      <div className="flex gap-5 pl-135 items-center">
         <Link to="/">Início</Link>
-        <Link to="/servicos">Serviços</Link>
-        <Link to="/sobre">Sobre nós</Link>
-        <Link to="/contato">Contato</Link>
+        <Link to="#service">Serviços</Link>
+        <Link to="/about">Sobre nós</Link>
+        <Link to="/contact">Contato</Link>
         <Link to="/login" className="bg-[#212121] rounded-full w-15 text-center text-[#f6f5fa]">Login</Link>
       </div>
     </div>
