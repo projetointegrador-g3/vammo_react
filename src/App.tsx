@@ -18,6 +18,8 @@ function App() {
     <>
       <AuthProvider>
         <ToastContainer />
+        <Navbar/>
+        <Sidebar/>
       
         <Routes>
           <Route path="/" element={<Initial />} />

@@ -1,7 +1,7 @@
 import { Bell, MagnifyingGlass, SignOut } from "@phosphor-icons/react"
 import { useContext } from "react"
-import { Link } from "react-router-dom"
 import { AuthContext } from "../../contexts/AuthContext"
+import { Link } from "react-router-dom"
 const Navbar = () => {
 
   const {usuario}=useContext(AuthContext)
