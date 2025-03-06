@@ -9,19 +9,30 @@ function FormVeiculo() {
     const navigate = useNavigate();
     const { id } = useParams<{ id: string }>();
     const { usuario, handleLogout } = useContext(AuthContext);
-    const token = usuario.token;
+    const token = usuario?.token || "";
 
-    const [veiculo, setVeiculo] = useState<Veiculo>({} as Veiculo);
+    // Estado inicial corrigido
+    const [veiculo, setVeiculo] = useState<Veiculo>({
+        modelo: "",
+        placa: "",
+        cor: "",
+        ano_fabricacao: "",
+        observacao: "",
+        disponivel: "",
+        idViagem: "",
+    });
 
+    // Verifica se o usuário está autenticado
     useEffect(() => {
-        if (token === "") {
+        if (!token) {
             ToastAlert("Você precisa estar logado", "info");
             navigate("/");
         }
-    }, [token]);
+    }, [token, navigate]);
 
+    // Busca os dados do veículo se houver um ID
     useEffect(() => {
-        if (id) {
+        if (id && token) {
             buscar(`/veiculos/${id}`, setVeiculo, {
                 headers: { Authorization: token },
             }).catch((error) => {
@@ -30,7 +41,7 @@ function FormVeiculo() {
                 }
             });
         }
-    }, [id]);
+    }, [id, token, handleLogout]);
 
     function atualizarEstado(e: ChangeEvent<HTMLInputElement>) {
         setVeiculo({
@@ -48,12 +59,12 @@ function FormVeiculo() {
 
         try {
             if (id) {
-                await atualizar(`/veiculo`, veiculo, setVeiculo, {
+                await atualizar(`/veiculos`, veiculo, setVeiculo, {
                     headers: { Authorization: token },
                 });
                 ToastAlert("Veículo atualizado com sucesso", "sucesso");
             } else {
-                await cadastrar(`/veiculo`, veiculo, setVeiculo, {
+                await cadastrar(`/veiculos`, veiculo, setVeiculo, {
                     headers: { Authorization: token },
                 });
                 ToastAlert("Veículo cadastrado com sucesso", "sucesso");
@@ -69,9 +80,10 @@ function FormVeiculo() {
     }
 
     return (
-        <div className=" flex flex-col items-center bg-#f6f5fa text-#212121">
+        <div className="flex flex-col items-center bg-[#f6f5fa] text-[#212121]">
             <h1 className="text-4xl text-center my-8">
-                {id ? "Editar Veículo" : "Cadastrar Veículo"}</h1>
+                {id ? "Editar Veículo" : "Cadastrar Veículo"}
+            </h1>
 
             <form className="flex flex-col w-1/2 gap-4" onSubmit={gerarNovoVeiculo}>
                 <div>
@@ -81,8 +93,8 @@ function FormVeiculo() {
                         placeholder="Modelo"
                         name="modelo"
                         required
-                        value={veiculo.modelo || ""}
-                        onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+                        value={veiculo.modelo}
+                        onChange={atualizarEstado}
                     />
                 </div>
                 <div>
@@ -92,8 +104,8 @@ function FormVeiculo() {
                         placeholder="Placa"
                         name="placa"
                         required
-                        value={veiculo.placa || ""}
-                        onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+                        value={veiculo.placa}
+                        onChange={atualizarEstado}
                     />
                 </div>
                 <div>
@@ -103,8 +115,8 @@ function FormVeiculo() {
                         placeholder="Cor"
                         name="cor"
                         required
-                        value={veiculo.cor || ""}
-                        onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+                        value={veiculo.cor}
+                        onChange={atualizarEstado}
                     />
                 </div>
                 <div>
@@ -113,8 +125,8 @@ function FormVeiculo() {
                         type="date"
                         name="ano_fabricacao"
                         required
-                        value={veiculo.ano_fabricacao || ""}
-                        onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+                        value={veiculo.ano_fabricacao}
+                        onChange={atualizarEstado}
                     />
                 </div>
                 <div>
@@ -124,8 +136,8 @@ function FormVeiculo() {
                         placeholder="Observação"
                         name="observacao"
                         required
-                        value={veiculo.observacao || ""}
-                        onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+                        value={veiculo.observacao}
+                        onChange={atualizarEstado}
                     />
                 </div>
                 <div>
@@ -134,8 +146,8 @@ function FormVeiculo() {
                         type="date"
                         name="disponivel"
                         required
-                        value={veiculo.disponivel || ""}
-                        onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+                        value={veiculo.disponivel}
+                        onChange={atualizarEstado}
                     />
                 </div>
 
@@ -145,8 +157,8 @@ function FormVeiculo() {
                         type="text"
                         placeholder="ID da Viagem"
                         name="idViagem"
-                        value={'Viagem.id' || ""}
-                        onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+                        value={viagem.id}
+                        onChange={atualizarEstado}
                     />
                 </div>
 
