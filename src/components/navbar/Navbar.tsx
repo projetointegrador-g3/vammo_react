@@ -1,11 +1,12 @@
 import { Bell, MagnifyingGlass, SignOut } from "@phosphor-icons/react"
 import { useContext } from "react"
 import { Link } from "react-router-dom"
-const NavbarHome = () => {
+import { AuthContext } from "../../contexts/AuthContext"
+const Navbar = () => {
 
-  {/*const {usuario}=useContext(AuthContext)*/}
+  const {usuario}=useContext(AuthContext)
 
-  if (location.pathname==="/" || location.pathname==="/sobre")
+  if (location.pathname==="/" || location.pathname==="/about")
   return (
     <div className="flex pl-30 pr-30">
       <img src="https://ik.imagekit.io/grupo03/Vammo/vammoblack.png?updatedAt=1741184618721" alt="Logo da Vammo!" className="w-25"></img>
@@ -30,7 +31,7 @@ const NavbarHome = () => {
 
       <div className="flex gap-8 pl-140 items-center">
         <Link to="notificacoes"><Bell/></Link>
-        {/*<img src={usuario.foto} alt={`Foto de perfil de ${usuario.nome}`}></img>*/}
+        <img src={usuario.foto} alt={`Foto de perfil de ${usuario.nome}`}></img>
         <div className="flex">
           <Link to="/login">Sair<SignOut className="absolute top-11 ml-9"/></Link>
         </div>
@@ -38,9 +39,9 @@ const NavbarHome = () => {
     </div>
   )
 
-  if (location.pathname==="/login")
+  if (location.pathname==="/login" || location.pathname==="/register")
   return(
     <></>
   )
 } 
-export default NavbarHome
+export default Navbar
