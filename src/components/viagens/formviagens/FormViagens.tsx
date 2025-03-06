@@ -1,4 +1,4 @@
-import { ChangeEvent, useEffect, useState } from "react";  
+import { ChangeEvent, useContext, useEffect, useState } from "react";  
 import { useNavigate, useParams } from "react-router-dom";  
 import { Veiculo } from "../../../model/Veiculo";  
 import { Usuario } from "../../../model/Usuario";  
@@ -8,6 +8,7 @@ import { ToastAlert } from "../../../utils/ToastAlert";
 import { RotatingLines } from "react-loader-spinner";  
 import { Input } from "../input";
 import { Button } from "../button";
+import { AuthContext } from "../../../contexts/AuthContext";
 
 function FormViagens() {  
     const navigate = useNavigate();  
@@ -22,65 +23,71 @@ function FormViagens() {
         ano_fabricacao: 0,  
         observacao: '',  
         disponivel: true, 
-    });  
-    const [usuario, setUsuario] = useState<Usuario>({  
-        id: 0,  
-        tipo_user: '',  
-        nome: '',  
-        data_aniversario: '',  
-        genero: '',  
-        usuario: '',  
-        senha: '',  
-        foto: '',  
-        avaliacao: 0,   
-    });  
+    });
+
     const [viagem, setViagem] = useState<Viagem>({} as Viagem);  
     const { id } = useParams<{ id: string }>();  
 
+    const { usuario, handleLogout } = useContext(AuthContext)
+    const token = usuario.token
+
     async function buscarViagemPorID(id: string) {  
         try {  
-            await buscar(`/viagens/${id}`, setViagem, {});  
-        } catch (error) {  
-            console.error("Erro ao buscar viagem:", error);  
-        }  
+            await buscar(`/viagens/${id}`, setViagem, {
+                headers: { Authorization: token }
+            });  
+        } catch (error: any) {
+            if (error.toString().includes('401')) {
+                handleLogout()
+            }
+        }
     }  
 
     async function buscarVeiculoPorID(id: string) {  
         try {  
-            await buscar(`/veiculos/${id}`, setVeiculo, {});  
-        } catch (error) {  
-            console.error("Erro ao buscar veículo:", error);  
-        }  
-    }  
-
-    async function buscarUsuarioPorID(id: string) {  
-        try {  
-            await buscar(`/usuarios/${id}`, setUsuario, {});  
-        } catch (error) {  
-            console.error("Erro ao buscar usuário:", error);  
-        }  
-    }  
+            await buscar(`/veiculo/${id}`, setVeiculo, {
+                headers: { Authorization: token }
+            });  
+        } catch (error: any) {
+            if (error.toString().includes('401')) {
+                handleLogout()
+            }
+        }
+    }
 
     async function buscarVeiculos() {  
         try {  
-            await buscar('/veiculos', setVeiculos, {});  
-        } catch (error) {  
-            console.error("Erro ao buscar veículos:", error);  
-        }  
-    }  
+            await buscar('/veiculo', setVeiculos, {
+                headers: { Authorization: token }
+            });  
+        }   catch (error: any) {
+                if (error.toString().includes('401')) {
+                    handleLogout()
+                }
+            }
+        }
 
-    async function buscarUsuarios() {  
-        try {  
-            await buscar('/usuarios', setUsuarios, {});  
-        } catch (error) {  
-            console.error("Erro ao buscar usuários:", error);  
-        }  
-    }  
-
+    // async function buscarUsuarios() {  
+    //     try {  
+    //         await buscar('/usuarios', setUsuarios, {
+    //             headers: { Authorization: token }
+    //         });  
+    //     } catch (error) {  
+    //         console.error("Erro ao buscar usuários:", error);  
+    //     }  
+    // }
+    
+    useEffect(() => {
+        if (token === '') {
+            ToastAlert('Você precisa estar logado', 'info');
+            navigate('/');
+        }
+    }, [token])
+    
     useEffect(() => {  
         buscarVeiculos();  
-        buscarUsuarios();  
-        if (id !== undefined) {  
+        // buscarUsuarios();  
+        if (id !== undefined) {   
             buscarViagemPorID(id);  
         }  
     }, [id]);  
@@ -89,17 +96,18 @@ function FormViagens() {
         setViagem({  
             ...viagem,  
             veiculo: veiculo,  
-            usuario: usuario,  
+            // usuario: usuario,  
         });  
-    }, [veiculo, usuario]);  
+    }, [veiculo]);  
 
-    function atualizarEstado(e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) {  
-        const { name, value } = e.target;  
-        setViagem({  
-            ...viagem,  
-            [name]: value,  
-        });  
-    }  
+    function atualizarEstado(e: ChangeEvent<HTMLInputElement>) {
+        setViagem({
+            ...viagem,
+            [e.target.name]: e.target.value,
+            veiculo: veiculo,
+            usuario: usuario,
+        });
+    }
 
     function retornar() {  
         navigate('/viagens');  
@@ -108,35 +116,38 @@ function FormViagens() {
     async function gerarNovaViagem(e: ChangeEvent<HTMLFormElement>) {  
         e.preventDefault();  
         setIsLoading(true);  
-
-        const viagemParaEnviar = {  
-            ...viagem,  
-            preco: parseFloat(viagem.preco.toString()),  
-            distancia: parseFloat(viagem.distancia.toString()),  
-            velocidade: parseFloat(viagem.velocidade.toString()),  
-            duracao: parseFloat(viagem.duracao.toString()),  
-            veiculo: veiculo,  
-            usuario: usuario,  
-        };  
-
-        try {  
-            if (id !== undefined) {  
-                await atualizar('/viagens', viagemParaEnviar, setViagem, {});  
-                ToastAlert('Viagem atualizada com sucesso!', 'sucesso');  
-            } else {  
-                await cadastrar('/viagens', viagemParaEnviar, setViagem, {});  
-                ToastAlert('Viagem cadastrada com sucesso!', 'sucesso');  
-            }  
-        } catch (error: any) {  
-            console.error("Erro ao cadastrar/atualizar a viagem:", error);  
-            ToastAlert('Erro ao cadastrar/atualizar a Viagem!', 'erro');  
-        }  
-
-        setIsLoading(false);  
-        retornar();  
+        if (id !== undefined) {
+            try {
+                await atualizar('/viagens', viagem, setViagem, {
+                    headers: { Authorization: token }
+                })
+                ToastAlert('Atualizado com sucesso', 'info')
+            } catch (error: any) {
+                if (error.toString().includes('401')) {
+                    handleLogout()
+                } else {
+                    ToastAlert('Erro ao atualizar a Viagem', 'erro')
+                }
+            }
+        } else {
+            try {
+                await cadastrar('/viagens', viagem, setViagem, {
+                    headers: { Authorization: token }
+                })
+                ToastAlert('Cadastrado com sucesso', 'info')
+            } catch (error: any) {
+                if (error.toString().includes('401')) {
+                    handleLogout()
+                } else {
+                    ToastAlert('Erro ao cadastrar a Viagem', 'erro')
+                }
+            }
+        }
+        setIsLoading(false)    
+        retornar()
     }  
 
-    const carregamentoDependencias = veiculo.id === 0 || usuario.id === 0;  
+    const carregamentoDependencias = veiculo.modelo === '' ;  
 
     return (  
         <>  
@@ -152,7 +163,7 @@ function FormViagens() {
                             placeholder="Data de Ida"  
                             name="data_ida"  
                             required  
-                            value={viagem.data_ida || ''}  
+                            value={viagem.data_ida}  
                             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}  
                         />  
                     </div>  
@@ -162,7 +173,7 @@ function FormViagens() {
                             placeholder="Origem"  
                             name="origem"  
                             required  
-                            value={viagem.origem || ''}  
+                            value={viagem.origem}  
                             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}  
                         />  
                     </div>  
@@ -172,7 +183,7 @@ function FormViagens() {
                             placeholder="Destino"  
                             name="destino"  
                             required  
-                            value={viagem.destino || ''}  
+                            value={viagem.destino}  
                             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}  
                         />  
                     </div>  
@@ -182,7 +193,7 @@ function FormViagens() {
                             placeholder="Distância (km)"  
                             name="distancia"  
                             required  
-                            value={viagem.distancia || ''}  
+                            value={viagem.distancia}  
                             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}  
                         />  
                     </div>  
@@ -192,7 +203,7 @@ function FormViagens() {
                             placeholder="Velocidade Média (km/h)"  
                             name="velocidade"  
                             required  
-                            value={viagem.velocidade || ''}  
+                            value={viagem.velocidade}  
                             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}  
                         />  
                     </div>  
@@ -202,20 +213,20 @@ function FormViagens() {
                             placeholder="Preço (R$)"  
                             name="preco"  
                             required  
-                            value={viagem.preco || ''}  
+                            value={viagem.preco}  
                             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}  
                         />  
                     </div>  
-                    <div>  
+                    {/* <div>  
                         <Input  
                             type="number"   
                             placeholder="Duração (horas)"  
                             name="duracao"  
                             required  
                             value={viagem.duracao || ''}  
-                            onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}  
-                        />  
-                    </div>  
+                            onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}   */}
+                        {/* />   */}
+                    {/* </div>   */}
                     <div className="flex flex-col gap-2">  
                         <p>Status da Viagem</p>  
                         <select  
@@ -223,7 +234,7 @@ function FormViagens() {
                             id="status"  
                             className="flex h-10 w-full rounded-md border border-stone-400 bg-background px-3 py-2 text-sm"  
                             required  
-                            onChange={(e) => atualizarEstado(e)}  
+                            // onChange={(e) => atualizarEstado(e)}  
                         >  
                             <option value="" disabled selected>Selecione o Status</option>  
                             <option value="Pendente">Pendente</option>  
@@ -254,7 +265,7 @@ function FormViagens() {
                             name="usuario"  
                             id="usuario"  
                             className="flex h-10 w-full rounded-md border border-stone-400 bg-background px-3 py-2 text-sm"  
-                            onChange={(e) => buscarUsuarioPorID(e.currentTarget.value)}  
+                            // onChange={(e) => buscarUsuarioPorID(e.currentTarget.value)}  
                         >  
                             <option value="" selected disabled>Selecione um Usuário</option>  
                             {usuarios.map((usuario) => (  

@@ -8,6 +8,11 @@ import ListaViagens from './components/viagens/listarviagem/ListarViagem'
 import FormViagens from './components/viagens/formviagens/FormViagens'
 import Login from './pages/login/Login'
 import Register from './pages/register/Register'
+<<<<<<< HEAD
+=======
+import Navbar from './components/navbar/Navbar'
+import Sidebar from './components/sidebar/Sidebar'
+>>>>>>> c6b63d016b9bcd1412bb0048a99630895251f73b
 
 function App() {
   return (
@@ -23,10 +28,10 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/viagens" element={<ListaViagens />} />
           <Route path="/cadastrarviagem" element={<FormViagens />} />
-          {/* <Route path="/editarviagem/:id" element={<FormViagens />} />
+          <Route path="/editarviagem/:id" element={<FormViagens />} />
           <Route path="/deletarviagem/:id" element={<DeletarViagem />} />
-          <Route path="/consultarviagem/:origem" element={<ListarViagemsPorOrigem />} /> */} 
-          {/* <Route path="/consultarviagem/:historico" element={<ListarViagemsPorHistorico />} /> */} 
+          <Route path="/consultarviagem/:origem" element={<ListarViagensOrigem />} />
+          {/* <Route path="/consultarviagem/:historico" element={<ListarViagensHistorico />} />   */}
         </Routes>
       </AuthProvider>
     </>
