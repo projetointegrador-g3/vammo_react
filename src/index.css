@@ -35,23 +35,20 @@ body.dark {
   
     
     select {
-      background-color: var(--colorOffWhite);
-      color: var(--colorGrey);
+      background-color: var(--white);
+      color: var(--black);
     }
   
     input {
-      color: var(--colorWhite);
+      color: var(--white);
       background-color: transparent;
     }
   
     input[type="radio"] {
-      accent-color: var(--colorRed);
+      accent-color: var(--yellow);
       
     }
   
-    a {
-      color: var(--colorOffWhite);
-    }
     #logo {
         content:url('https://ik.imagekit.io/grupo03/Vammo/VAMMO%20(1)%201.png?updatedAt=1741183646285');
     }
