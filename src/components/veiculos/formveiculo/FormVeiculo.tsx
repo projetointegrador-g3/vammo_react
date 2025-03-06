@@ -69,10 +69,11 @@ function FormVeiculo() {
     }
 
     return (
-        <div>
-            <h1>{id ? "Editar Veículo" : "Cadastrar Veículo"}</h1>
+        <div className=" flex flex-col items-center bg-#f6f5fa text-#212121">
+            <h1 className="text-4xl text-center my-8">
+                {id ? "Editar Veículo" : "Cadastrar Veículo"}</h1>
 
-            <form onSubmit={gerarNovoVeiculo}>
+            <form className="flex flex-col w-1/2 gap-4" onSubmit={gerarNovoVeiculo}>
                 <div>
                     <label htmlFor="modelo">Modelo do Veículo</label>
                     <input
@@ -81,7 +82,7 @@ function FormVeiculo() {
                         name="modelo"
                         required
                         value={veiculo.modelo || ""}
-                        onChange={atualizarEstado}
+                        onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
                     />
                 </div>
                 <div>
@@ -92,7 +93,7 @@ function FormVeiculo() {
                         name="placa"
                         required
                         value={veiculo.placa || ""}
-                        onChange={atualizarEstado}
+                        onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
                     />
                 </div>
                 <div>
@@ -103,7 +104,7 @@ function FormVeiculo() {
                         name="cor"
                         required
                         value={veiculo.cor || ""}
-                        onChange={atualizarEstado}
+                        onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
                     />
                 </div>
                 <div>
@@ -113,7 +114,7 @@ function FormVeiculo() {
                         name="ano_fabricacao"
                         required
                         value={veiculo.ano_fabricacao || ""}
-                        onChange={atualizarEstado}
+                        onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
                     />
                 </div>
                 <div>
@@ -124,7 +125,7 @@ function FormVeiculo() {
                         name="observacao"
                         required
                         value={veiculo.observacao || ""}
-                        onChange={atualizarEstado}
+                        onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
                     />
                 </div>
                 <div>
@@ -134,7 +135,7 @@ function FormVeiculo() {
                         name="disponivel"
                         required
                         value={veiculo.disponivel || ""}
-                        onChange={atualizarEstado}
+                        onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
                     />
                 </div>
 
@@ -144,8 +145,8 @@ function FormVeiculo() {
                         type="text"
                         placeholder="ID da Viagem"
                         name="idViagem"
-                        value={veiculo.idViagem || ""}
-                        onChange={atualizarEstado}
+                        value={'Viagem.id' || ""}
+                        onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
                     />
                 </div>
 
