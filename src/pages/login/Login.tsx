@@ -126,7 +126,7 @@ export function Login({
             {/* Cadastro */}
             <div className='text-center text-sm'>
               Ainda não tem uma conta?{' '}
-              <Link to='/register' className='text-purple-800 hover:underline'>
+              <Link to='/register' className='text-[var(--purple)] hover:underline'>
                 Cadastre-se!
               </Link>
             </div>
