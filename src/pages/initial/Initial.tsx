@@ -37,7 +37,7 @@ const Initial = () => {
                 
                 </section>
 
-                <section className="p-2 bg-[#E2F26B] rounded-full flex items-center gap-2">
+                <section className="p-2 bg-[var(--yellow)] text-[var(--black)] rounded-full flex items-center gap-2">
                     <div className='px-2 flex items-center flex-1 gap-2'>
                       Verificar Preços
                     </div>

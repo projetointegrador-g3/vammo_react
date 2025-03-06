@@ -12,6 +12,9 @@ import Navbar from './components/navbar/Navbar'
 import Sidebar from './components/sidebar/Sidebar'
 import DeletarViagem from './components/viagens/deletarviagens/DeletarViagens'
 import ListarViagensOrigem from './components/viagens/listarviagemorigem/ListarViagemOrigem'
+import ListaVeiculos from './components/veiculos/listaveiculos/ListaVeiculos'
+import FormVeiculo from './components/veiculos/formveiculo/FormVeiculo'
+import DeletarVeiculo from './components/veiculos/deletarveiculo/DeletarVeiculos'
 
 function App() {
 
@@ -41,6 +44,10 @@ function App() {
           <Route path="/deletarviagem/:id" element={<DeletarViagem />} />
           <Route path="/consultarviagem/:origem" element={<ListarViagensOrigem />} />
           {/* <Route path="/consultarviagem/:historico" element={<ListarViagensHistorico />} />   */}
+          <Route path="/veiculos" element={<ListaVeiculos />} />
+          <Route path="/cadastrarveiculo" element={<FormVeiculo />} />
+          <Route path="/editarveiculo/:id" element={<FormVeiculo />} />
+          <Route path="/deletarveiculo/:id" element={<DeletarVeiculo />} />
         </Routes>
       </AuthProvider>
     </>
