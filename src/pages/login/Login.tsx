@@ -39,7 +39,7 @@ export function Login({
       {/* Coluna Esquerda */}
       <div className='flex flex-col gap-4 p-6 md:p-5'>
         <div className='flex justify-center gap-2 md:justify-start'>
-          <NavLink to='/' className='flex items-center gap-2 font-medium'>
+          <NavLink to="/" className='flex items-center gap-2 font-medium'>
             <img 
               src='https://ik.imagekit.io/grupo03/Vammo/vammoblack.png?updatedAt=1741184618721'
               className='w-30' 

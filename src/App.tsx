@@ -1,5 +1,5 @@
 import { ToastContainer } from 'react-toastify'
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, useLocation } from 'react-router-dom'
 import Home from './pages/home/Home'
 import About from './pages/about/About'
 import Initial from './pages/initial/Initial'
@@ -17,13 +17,21 @@ import FormVeiculo from './components/veiculos/formveiculo/FormVeiculo'
 import DeletarVeiculo from './components/veiculos/deletarveiculo/DeletarVeiculos'
 
 function App() {
+
+  const location=useLocation()
+
   return (
     <>
       <AuthProvider>
         <ToastContainer />
-          <Navbar/>
-          <Sidebar/>
-      
+
+        {location.pathname !=="/login" && location.pathname !=="/register" && (
+          <>
+            <Navbar/>
+            <Sidebar/>
+          </>
+        )}
+        
         <Routes>
           <Route path="/" element={<Initial />} />
           <Route path="/login" element={<Login />} />

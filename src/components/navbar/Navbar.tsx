@@ -21,7 +21,7 @@ const Navbar = () => {
     </div>
   )
 
-  if (location.pathname==="/home" || location.pathname==="/veiculo" || location.pathname==="/configuracoes" || location.pathname==="/perfil")
+  if (location.pathname==="/home" || location.pathname==="/veiculo" || location.pathname==="/configuracoes" || location.pathname==="/perfil" || location.pathname==="/viagens")
   return(
     <div className="flex pl-30 pt-8">
       <div className="flex">
@@ -33,7 +33,7 @@ const Navbar = () => {
         <Link to="notificacoes"><Bell/></Link>
         <img src={usuario.foto} alt={`Foto de perfil de ${usuario.nome}`}></img>
         <div className="flex">
-          <Link to="/login">Sair<SignOut className="absolute top-11 ml-9"/></Link>
+          <Link to="/">Sair<SignOut className="absolute top-11 ml-8"/></Link>
         </div>
       </div>
     </div>

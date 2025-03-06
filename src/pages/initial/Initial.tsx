@@ -41,17 +41,17 @@ const Initial = () => {
                     <div className='px-2 flex items-center flex-1 gap-2'>
                       Verificar Preços
                     </div>
-                
-                  <Link to="/login" className='bg-[#212121] rounded-full px-5 py-2 flex items-center gap-2 cursor-pointer'>
+                <Link to="/login">
+                  <button type='submit' className='bg-[#212121] rounded-full px-5 py-2 flex items-center gap-2 cursor-pointer'>
                     <ArrowRight className='size-5 text-[#F6F5FA]' />
-                  </Link>
-                
+                  </button>
+                </Link>
                 </section>
             </form>
         </section>
 
         <section className='mt-20'>
-          <h2 id='service' className='font-semibold text-2xl text-center'>Nossos serviços</h2>
+          <h2 id="service" className='font-semibold text-2xl text-center'>Nossos serviços</h2>
           <div className='bg-[#D8DFE9] p-10'>
           <p className='text-center'>Escolha o Vammo perfeito para a sua viagem: </p>
             <div className='flex items-center justify-center gap-20 p-10'>
