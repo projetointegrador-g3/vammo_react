@@ -8,6 +8,7 @@ import ListaVeiculos from './components/veiculos/listaveiculos/ListaVeiculos'
 import FormVeiculo from './components/veiculos/formveiculo/FormVeiculo'
 import { AuthProvider } from './contexts/AuthContext'
 import Login from './pages/login/Login'
+import Navbar from './components/navbarHome/NavbarHome'
 
 function App() {
   
@@ -15,6 +16,7 @@ function App() {
     <>
       <AuthProvider>
       <ToastContainer />
+      <Navbar />
       <Routes>
         <Route path="/" element={<Initial />} />
         <Route path="/login" element={<Login />} />
