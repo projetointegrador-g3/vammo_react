@@ -6,6 +6,8 @@ import Initial from './pages/initial/Initial'
 import DeletarVeiculo from './components/veiculos/deletarveiculo/DeletarVeiculos'
 import ListaVeiculos from './components/veiculos/listaveiculos/ListaVeiculos'
 import FormVeiculo from './components/veiculos/formveiculo/FormVeiculo'
+import { AuthProvider } from './contexts/AuthContext'
+import Login from './pages/login/Login'
 
 function App() {
   

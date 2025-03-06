@@ -1,38 +1,36 @@
-import { ChangeEvent, useEffect, useState } from "react";
+import { ChangeEvent, useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Veiculo } from "../../../model/Veiculo";
 import { atualizar, buscar, cadastrar } from "../../../services/Service";
 import { ToastAlert } from "../../../utils/ToastAlert";
+import { AuthContext } from "../../../contexts/AuthContext";
 
-function FormVeiculo(){
-    
+function FormVeiculo() {
     const navigate = useNavigate();
+    const { id } = useParams<{ id: string }>();
+    const { usuario, handleLogout } = useContext(AuthContext);
+    const token = usuario.token;
 
-    const [veiculo, setVeiculo] = useState<Veiculo>({} as Veiculo)
+    const [veiculo, setVeiculo] = useState<Veiculo>({} as Veiculo);
 
-    const {id} = useParams<{ id: string }>()
-
-    /*const { usuario, handleLogout } = useContext(AuthContext)
-    const token = usuario.token*/
-
-    async function buscarPorId(id: string){
-        try{
-            await buscar(`/veiculos/${id}`,setVeiculo,{
-                /*headers: {
-                    Authorization: token,
-                },*/
-            })
-        } catch (error:any){
-            if(error.toString().includes('403')){ /* handleLogout() */ }
+    useEffect(() => {
+        if (token === "") {
+            ToastAlert("Você precisa estar logado", "info");
+            navigate("/");
         }
-    }
+    }, [token]);
 
-    /*useEffect(() => {
-        if (token === '') {
-            ToastAlerta('Você precisa estar logado', "info")
-            navigate('/');
+    useEffect(() => {
+        if (id) {
+            buscar(`/veiculos/${id}`, setVeiculo, {
+                headers: { Authorization: token },
+            }).catch((error) => {
+                if (error.toString().includes("403")) {
+                    handleLogout();
+                }
+            });
         }
-    }, [token])*/
+    }, [id]);
 
     function atualizarEstado(e: ChangeEvent<HTMLInputElement>) {
         setVeiculo({
@@ -42,131 +40,121 @@ function FormVeiculo(){
     }
 
     function retornar() {
-        navigate('/veiculo');
+        navigate("/veiculo");
     }
 
-    async function gerarNovoVeiculo(e:ChangeEvent<HTMLFormElement>) {
-        e.preventDefault()
-        
-        if (id !== undefined) {
-            try{
-                await atualizar (`/veiculo`, veiculo, setVeiculo, {
-                    /*headers: {
-                        Authorization: token,
-                    },*/
+    async function gerarNovoVeiculo(e: ChangeEvent<HTMLFormElement>) {
+        e.preventDefault();
+
+        try {
+            if (id) {
+                await atualizar(`/veiculo`, veiculo, setVeiculo, {
+                    headers: { Authorization: token },
                 });
-
-                ToastAlert('Veiculo atualizado com sucesso', "sucesso")
-            } catch (error: any) {
-                if (error.toString().includes('403')) {
-                    /*handleLogout()*/
-                } else {
-                    ToastAlert('Erro ao atualizar o Veiculo', "erro")
-                }
-            }
-        } else {
-            try {
+                ToastAlert("Veículo atualizado com sucesso", "sucesso");
+            } else {
                 await cadastrar(`/veiculo`, veiculo, setVeiculo, {
-                    /*headers: {
-                        Authorization: token,
-                    },*/
-                })
-
-                ToastAlert('Veiculo cadastrado com sucesso', "sucesso");
-
-            } catch (error: any) {
-                if (error.toString().includes('403')) {
-                    /*handleLogout()*/
-                } else {
-                    ToastAlert('Erro ao cadastrar o Veiculo', "erro");
-                }
+                    headers: { Authorization: token },
+                });
+                ToastAlert("Veículo cadastrado com sucesso", "sucesso");
+            }
+        } catch (error: any) {
+            if (error.toString().includes("403")) {
+                handleLogout();
+            } else {
+                ToastAlert("Erro ao salvar o veículo", "erro");
             }
         }
-        retornar()
+        retornar();
     }
 
     return (
         <div>
-            <h1 >
-                {id !== undefined ? 'Editar Veiculo' : 'Cadastrar Veiculo'}
-            </h1>
+            <h1>{id ? "Editar Veículo" : "Cadastrar Veículo"}</h1>
 
             <form onSubmit={gerarNovoVeiculo}>
                 <div>
-                    <label htmlFor="titulo">Modelo de Veiculo</label>
+                    <label htmlFor="modelo">Modelo do Veículo</label>
                     <input
                         type="text"
                         placeholder="Modelo"
                         name="modelo"
                         required
-                        value={veiculo.modelo}
-                        onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+                        value={veiculo.modelo || ""}
+                        onChange={atualizarEstado}
                     />
                 </div>
                 <div>
-                    <label htmlFor="titulo">Placa de Veiculo</label>
+                    <label htmlFor="placa">Placa do Veículo</label>
                     <input
                         type="text"
                         placeholder="Placa"
                         name="placa"
                         required
-                        value={veiculo.placa}
-                        onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+                        value={veiculo.placa || ""}
+                        onChange={atualizarEstado}
                     />
                 </div>
                 <div>
-                    <label htmlFor="titulo">Cor de Veiculo</label>
+                    <label htmlFor="cor">Cor do Veículo</label>
                     <input
                         type="text"
                         placeholder="Cor"
                         name="cor"
                         required
-                        value={veiculo.cor}
-                        onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+                        value={veiculo.cor || ""}
+                        onChange={atualizarEstado}
                     />
                 </div>
                 <div>
-                    <label htmlFor="titulo">Ano de Fabricacao do Veiculo</label>
+                    <label htmlFor="ano_fabricacao">Ano de Fabricação</label>
                     <input
                         type="date"
-                        placeholder="Ano de Fabricacao"
                         name="ano_fabricacao"
                         required
-                        value={veiculo.ano_fabricacao}
-                        onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+                        value={veiculo.ano_fabricacao || ""}
+                        onChange={atualizarEstado}
                     />
                 </div>
                 <div>
-                    <label htmlFor="titulo">Observações sobre o Veiculo</label>
+                    <label htmlFor="observacao">Observações</label>
                     <input
                         type="text"
                         placeholder="Observação"
-                        name="Observação"
+                        name="observacao"
                         required
-                        value={veiculo.observacao}
-                        onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+                        value={veiculo.observacao || ""}
+                        onChange={atualizarEstado}
                     />
                 </div>
                 <div>
-                    <label htmlFor="titulo">Disponibilidade do Veiculo</label>
+                    <label htmlFor="disponivel">Disponibilidade</label>
                     <input
                         type="date"
-                        placeholder="Ano de Fabricacao"
-                        name="ano_fabricacao"
+                        name="disponivel"
                         required
-                        value={veiculo.disponivel}
-                        onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+                        value={veiculo.disponivel || ""}
+                        onChange={atualizarEstado}
                     />
                 </div>
-                <button
-                    type='submit'
-                >
-                    {<span>{id !== undefined ? 'Atualizar' : 'Cadastrar'}</span>}
+
+                <div>
+                    <label htmlFor="idViagem">ID da Viagem</label>
+                    <input
+                        type="text"
+                        placeholder="ID da Viagem"
+                        name="idViagem"
+                        value={veiculo.idViagem || ""}
+                        onChange={atualizarEstado}
+                    />
+                </div>
+
+                <button type="submit">
+                    <span>{id ? "Atualizar" : "Cadastrar"}</span>
                 </button>
             </form>
         </div>
     );
-
 }
 
-export default FormVeiculo
+export default FormVeiculo;
