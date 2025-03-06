@@ -1,4 +1,7 @@
-import { ArrowRight, Car, ListCheck, MapPin, Navigation, ShieldCheck, UserCheck, UserPlus } from 'lucide-react'
+import { ArrowRight, Car, ListCheck, MapPin, Navigation, ShieldCheck, UserCheck } from 'lucide-react'
+import Footer from '../../components/footer/Footer';
+import { Link } from 'react-router-dom'
+
 
 const Initial = () => {
   return (
@@ -34,43 +37,45 @@ const Initial = () => {
                 
                 </section>
 
-                <section className="p-2 bg-[#E2F26B] rounded-full flex items-center gap-2">
+                <section className="p-2 bg-[var(--yellow)] text-[var(--black)] rounded-full flex items-center gap-2">
                     <div className='px-2 flex items-center flex-1 gap-2'>
                       Verificar Preços
                     </div>
-                <button type='submit' className='bg-[#212121] rounded-full px-5 py-2 flex items-center gap-2 cursor-pointer'>
-                  <ArrowRight className='size-5 text-[#F6F5FA]' />
-                </button>
+                <Link to="/login">
+                  <button type='submit' className='bg-[#212121] rounded-full px-5 py-2 flex items-center gap-2 cursor-pointer'>
+                    <ArrowRight className='size-5 text-[#F6F5FA]' />
+                  </button>
+                </Link>
                 </section>
             </form>
         </section>
 
         <section className='mt-20'>
-          <h2 className='font-semibold text-2xl text-center'>Nossos serviços</h2>
+          <h2 id="service" className='font-semibold text-2xl text-center'>Nossos serviços</h2>
           <div className='bg-[#D8DFE9] p-10'>
-          <p>Escolha o Vammo perfeito para a sua viagem: </p>
+          <p id='card' className='text-center'>Escolha o Vammo perfeito para a sua viagem: </p>
             <div className='flex items-center justify-center gap-20 p-10'>
 
             <div id='card' className='text-center'>
-              <img src="https://ik.imagekit.io/grupo03/Vammo/assets%20-%20initial%20page/car1.png" alt="" />
+              <img className='transition duration-0.3 hover:scale-110' src="https://ik.imagekit.io/grupo03/Vammo/assets%20-%20initial%20page/car1.png" alt="" />
               <h3 className='font-semibold text-xl mt-5'>Vammo Easy</h3>
               <p>Mais Promoções</p>
             </div>
 
             <div id='card' className='text-center'>
-              <img src="https://ik.imagekit.io/grupo03/Vammo/assets%20-%20initial%20page/moto.png" alt="" />
+              <img className='transition duration-0.3 hover:scale-110' src="https://ik.imagekit.io/grupo03/Vammo/assets%20-%20initial%20page/moto.png" alt="" />
               <h3 className='font-semibold text-xl mt-5'>Vammo Max</h3>
               <p>Mais rapidez</p>
             </div>
 
             <div id='card' className='text-center'>
-              <img src="https://ik.imagekit.io/grupo03/Vammo/assets%20-%20initial%20page/car3.png" alt="" />
+              <img className='transition duration-0.3 hover:scale-110' src="https://ik.imagekit.io/grupo03/Vammo/assets%20-%20initial%20page/car3.png" alt="" />
               <h3 className='font-semibold text-xl mt-5'>Vammo Quick</h3>
               <p>Para caber toda a galera</p>
             </div>
 
             <div id='card' className='text-center'>
-              <img src="https://ik.imagekit.io/grupo03/Vammo/assets%20-%20initial%20page/car2.png" alt="" />
+              <img className='transition duration-0.3 hover:scale-110'src="https://ik.imagekit.io/grupo03/Vammo/assets%20-%20initial%20page/car2.png" alt="" />
               <h3 className='font-semibold text-xl mt-5'>Vammo Green</h3>
               <p>Carros elétricos</p>
             </div>
@@ -106,8 +111,10 @@ const Initial = () => {
           </div>
         </section>
       </main>
+      <Footer />
     </div>
+    
   )
 }
 
-export default Initial
+export default Initial;

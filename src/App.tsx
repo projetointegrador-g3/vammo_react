@@ -1,35 +1,59 @@
 import { ToastContainer } from 'react-toastify'
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, useLocation } from 'react-router-dom'
 import Home from './pages/home/Home'
 import About from './pages/about/About'
 import Initial from './pages/initial/Initial'
-import DeletarVeiculo from './components/veiculos/deletarveiculo/DeletarVeiculos'
+import { AuthProvider } from './contexts/AuthContext'
+import ListaViagens from './components/viagens/listarviagem/ListarViagem'
+import FormViagens from './components/viagens/formviagens/FormViagens'
+import Login from './pages/login/Login'
+import Register from './pages/register/Register'
+import Navbar from './components/navbar/Navbar'
+import Sidebar from './components/sidebar/Sidebar'
+import DeletarViagem from './components/viagens/deletarviagens/DeletarViagens'
+import ListarViagensOrigem from './components/viagens/listarviagemorigem/ListarViagemOrigem'
 import ListaVeiculos from './components/veiculos/listaveiculos/ListaVeiculos'
 import FormVeiculo from './components/veiculos/formveiculo/FormVeiculo'
-import { AuthProvider } from './contexts/AuthContext'
-import Login from './pages/login/Login'
-import Navbar from './components/navbarHome/NavbarHome'
+import DeletarVeiculo from './components/veiculos/deletarveiculo/DeletarVeiculos'
+import Configuracao from './components/configuracoes/Configuracao'
 
 function App() {
-  
+
+  const location=useLocation()
+
   return (
     <>
       <AuthProvider>
-      <ToastContainer />
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Initial />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/veiculos" element={<ListaVeiculos />} />
-        <Route path="/cadastrarveiculo" element={<FormVeiculo />} />
-        <Route path="/editarveiculo/:id" element={<FormVeiculo />} />
-        <Route path="/deletarveiculo/:id" element={<DeletarVeiculo />} />
-      </Routes>
+        <ToastContainer />
+
+        {location.pathname !=="/login" && location.pathname !=="/register" && (
+          <>
+            <Navbar/>
+            <Sidebar/>
+          </>
+        )}
+        
+        <Routes>
+          <Route path="/" element={<Initial />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/viagens" element={<ListaViagens />} />
+          <Route path="/cadastrarviagem" element={<FormViagens />} />
+          <Route path="/editarviagem/:id" element={<FormViagens />} />
+          <Route path="/deletarviagem/:id" element={<DeletarViagem />} />
+          <Route path="/consultarviagem/:origem" element={<ListarViagensOrigem />} />
+          {/* <Route path="/consultarviagem/:historico" element={<ListarViagensHistorico />} />   */}
+          <Route path="/veiculos" element={<ListaVeiculos />} />
+          <Route path="/cadastrarveiculo" element={<FormVeiculo />} />
+          <Route path="/editarveiculo/:id" element={<FormVeiculo />} />
+          <Route path="/deletarveiculo/:id" element={<DeletarVeiculo />} />
+          <Route path="/configuracao" element={<Configuracao />} />
+        </Routes>
       </AuthProvider>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

@@ -8,6 +8,7 @@ export interface Viagem {
     destino: string;
     distancia: string;
     velocidade: string;
+    preco: number;
     duracao: string;
     status: string;
     veiculo?: Veiculo | null;

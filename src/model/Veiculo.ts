@@ -7,6 +7,6 @@ export interface Veiculo {
     cor: string;
     ano_fabricacao: number;
     observacao: string;
-    disponivel: string;
+    disponivel: boolean;
     viagem?: Viagem | null;
 }

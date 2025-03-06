@@ -1,9 +1,20 @@
-@import "tailwindcss";
+@import 'tailwindcss';
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*Configurações gerais*/
+:root{
+    --black: #212121;
+    --white: #f6f5fa;
+    --gainsboro: #E6E6E6;
+    --purple: #7524F3;
+    --yellow: #D8F505;
+    --blue: #D8DFE9;
+}
 
 body {
     font-family: "Urbanist", sans-serif;
-    background-color: #f6f5fa;
-    color: #212121;
+    background-color: var(--gainsboro);
+    color: var(--black);
 }
 
 .bginitial{
@@ -15,3 +26,34 @@ body {
    align-items: center;
    gap: 0.75rem;
 }
+
+/*Estilos para modo escuro*/
+body.dark {
+    background-color: var(--black);
+    color: var(--white);
+    transition: background-color 0.3s ease;
+  
+    
+    select {
+      background-color: var(--white);
+      color: var(--black);
+    }
+  
+    input {
+      color: var(--white);
+      background-color: transparent;
+    }
+  
+    input[type="radio"] {
+      accent-color: var(--yellow);
+      
+    }
+  
+    #logo {
+        content:url('https://ik.imagekit.io/grupo03/Vammo/VAMMO%20(1)%201.png?updatedAt=1741183646285');
+    }
+
+    #card {
+        color: var(--black);
+    }
+  }
