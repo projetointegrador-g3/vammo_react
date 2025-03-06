@@ -24,9 +24,11 @@ function CardViagens({ viagem }: CardViagensProps) {
             </div>
 
             <main className="flex flex-col items-center gap-2">
-                <p className="font-bold mt-3 text-center">Destino</p>
-                <p className='text-[var(--colorCyan)] font-semibold text-center'>Distância:  km</p>
-                <p className='text-[var(--colorGrey)] text-sm text-center'>Duração:  horas</p>
+                <p className="font-bold mt-3 text-center">Destino = {viagem.destino} </p>
+                <p className='text-[var(--colorCyan)] font-semibold text-center'>Distância:  {viagem.distancia} km</p>
+                <p className='text-[var(--colorGrey)] text-sm text-center'>Velocidade:  {viagem.velocidade} KM/H</p>
+                <p className='text-[var(--colorGrey)] text-sm text-center'>Duração:  {viagem.duracao} Hora</p>
+
                 <p className='text-sm text-center'>Status: </p>
                 
                 <button className="mt-5 w-full py-2 px-4 bg-[var(--colorCyan)] text-white rounded-lg cursor-pointer hover:bg-[var(--colorDarkCyan)]">

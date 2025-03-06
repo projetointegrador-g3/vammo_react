@@ -27,10 +27,10 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/viagens" element={<ListaViagens />} />
           <Route path="/cadastrarviagem" element={<FormViagens />} />
-          {/* <Route path="/editarviagem/:id" element={<FormViagens />} />
+          <Route path="/editarviagem/:id" element={<FormViagens />} />
           <Route path="/deletarviagem/:id" element={<DeletarViagem />} />
-          <Route path="/consultarviagem/:origem" element={<ListarViagemsPorOrigem />} /> */} 
-          {/* <Route path="/consultarviagem/:historico" element={<ListarViagemsPorHistorico />} /> */} 
+          <Route path="/consultarviagem/:origem" element={<ListarViagensOrigem />} />
+          {/* <Route path="/consultarviagem/:historico" element={<ListarViagensHistorico />} />   */}
         </Routes>
       </AuthProvider>
     </>

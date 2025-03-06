@@ -1,4 +1,4 @@
-import { Search } from 'lucide-react';
+import { Search, Sidebar } from 'lucide-react';
 import { PieChart, Pie, Cell, Tooltip } from 'recharts';
 
 const Home = () => {
