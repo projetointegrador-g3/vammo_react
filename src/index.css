@@ -5,15 +5,15 @@
     --black: #212121;
     --white: #f6f5fa;
     --gainsboro: #E6E6E6;
-    --blue: #7524F3;
+    --purple: #7524F3;
     --yellow: #D8F505;
-    --green: #9CBABB;
+    --blue: #D8DFE9;
 }
 
 body {
     font-family: "Urbanist", sans-serif;
     background-color: var(--gainsboro);
-    color: #212121;
+    color: var(--black);
 }
 
 .bginitial{

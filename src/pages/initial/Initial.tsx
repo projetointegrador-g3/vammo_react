@@ -37,15 +37,15 @@ const Initial = () => {
                 
                 </section>
 
-                <section className="p-2 bg-[#E2F26B] rounded-full flex items-center gap-2">
+                <section className="p-2 bg-[var(--yellow)] text-[var(--black)] rounded-full flex items-center gap-2">
                     <div className='px-2 flex items-center flex-1 gap-2'>
                       Verificar Preços
                     </div>
-                <button type='submit' className='bg-[#212121] rounded-full px-5 py-2 flex items-center gap-2 cursor-pointer'>
-                  <Link to="/login">
+                
+                  <Link to="/login" className='bg-[#212121] rounded-full px-5 py-2 flex items-center gap-2 cursor-pointer'>
                     <ArrowRight className='size-5 text-[#F6F5FA]' />
                   </Link>
-                </button>
+                
                 </section>
             </form>
         </section>
