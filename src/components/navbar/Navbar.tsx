@@ -49,15 +49,23 @@ const Navbar = () => {
 
   if (location.pathname==="/home" || location.pathname==="/veiculo" || location.pathname==="/configuracoes" || location.pathname==="/perfil" || location.pathname==="/viagens")
   return(
-    <div className="flex pl-30 pt-8">
+    <div className="flex pl-30 pt-8 fixed">
       <div className="flex">
         <input type="text" placeholder="Buscar..." className="bg-black/5 pl-4 pr-30 py-2 rounded-full border-0 focus:outline-none"/>
         <MagnifyingGlass className="absolute ml-72 mt-3 cursor-pointer hover:scale-110"/>
       </div>
 
-      <div className="flex gap-8 pl-122 items-center">
+      <div className="flex gap-8 pl-230 items-center ">
         <Link to="notificacoes" className="hover:scale-110"><Bell/></Link>
-        <img src={usuario.foto} alt={`Foto de perfil de ${usuario.nome}`}></img>
+
+        <Link to="/perfil">
+        <img 
+          src={usuario.foto} 
+          alt={`Foto de perfil de ${usuario.nome}`} 
+          className="w-10 h-10 rounded-full cursor-pointer hover:scale-110 transition"
+        />
+      </Link>
+
         <div className="flex">
           <Link to="/" className="flex items-center gap-2 hover:scale-110 hover:underline">Sair<SignOut className="hover:scale-110"/></Link>
         </div>

@@ -45,7 +45,7 @@ function App() {
           <Route path="/deletarviagem/:id" element={<DeletarViagem />} />
           <Route path="/consultarviagem/:origem" element={<ListarViagensOrigem />} />
           {/* <Route path="/consultarviagem/:historico" element={<ListarViagensHistorico />} />   */}
-          <Route path="/veiculos" element={<ListaVeiculos />} />
+          <Route path="/veiculo" element={<ListaVeiculos />} />
           <Route path="/cadastrarveiculo" element={<FormVeiculo />} />
           <Route path="/editarveiculo/:id" element={<FormVeiculo />} />
           <Route path="/deletarveiculo/:id" element={<DeletarVeiculo />} />

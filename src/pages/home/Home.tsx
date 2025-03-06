@@ -33,10 +33,10 @@ const Home = () => {
   }, []);
 
   return (
-    <main className='flex-1 p-10 ml-[100px] '>
+    <main className='flex-1 p-10 ml-[100px] overflow-hidden'>
 
     {/* Pesquisa + mapa */}
-    <div className='flex gap-6'>
+    <div className='flex gap-6 my-15'>
   
       {/* Seção de pesquisa de viagens */}
       <div className='w-1/3 space-y-4' >
