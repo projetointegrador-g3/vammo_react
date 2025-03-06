@@ -1,12 +1,10 @@
 import { Github, Instagram, Linkedin } from 'lucide-react';
 import Footer from '../../components/footer/Footer';
-import NavbarHome from '../../components/navbar/Navbar';
 
 
 function Sobre() {
     return (
         <>
-        <NavbarHome />
             <section className='flex flex-col gap-10 items-center justify-center pl-20 p-10 '>
                 <div className='text-center'>
                     <h1 className='text-3xl font-bold'>Conheça nosso talentoso time</h1>

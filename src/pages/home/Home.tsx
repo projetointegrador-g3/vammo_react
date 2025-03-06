@@ -9,8 +9,7 @@ const Home = () => {
   ];
 
   return (
-    
-      <main className="flex-1 p-6">
+      <main className="flex-1 p-6 ml-25">
 
         {/* Seção de pesquisa de viagens */}
         <div className="mt-6 space-y-4">

@@ -9,10 +9,9 @@ import FormViagens from './components/viagens/formviagens/FormViagens'
 import Login from './pages/login/Login'
 import Register from './pages/register/Register'
 import Navbar from './components/navbar/Navbar'
-import { Sidebar } from 'lucide-react'
+import Sidebar from './components/sidebar/Sidebar'
 import DeletarViagem from './components/viagens/deletarviagens/DeletarViagens'
 import ListarViagensOrigem from './components/viagens/listarviagemorigem/ListarViagemOrigem'
-
 
 function App() {
   return (

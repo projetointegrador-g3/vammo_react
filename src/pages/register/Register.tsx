@@ -83,15 +83,15 @@ export default function AuthPage() {
 
         {/* Logo */}
       <div className='flex flex-col md:p-10'>
-        <div className='flex justify-end'>
+        <div className='flex'>
           <Link to='/' className=''>
                 <img 
                 src='https://ik.imagekit.io/grupo03/Vammo/vammoblack.png?updatedAt=1741184618721'
-                className='w-20 h-20' />
+                className='w-30' />
           </Link>
         </div>
 
-        <div className='flex flex-1  items-center justify-center'>
+        <div className='flex justify-center'>
           <div className='w-full max-w-xs'>
             <div className='flex flex-col items-center gap-2 text-center'>
               <h1 className='text-2xl font-bold'>Crie uma conta</h1>
@@ -101,7 +101,7 @@ export default function AuthPage() {
             </div>
 
             {/* Form */}
-            <form className={cn('flex flex-col gap-6')} onSubmit={cadastrarNovoUsuario}>
+            <form className={cn('flex flex-col w-100 gap-6 text-')} onSubmit={cadastrarNovoUsuario}>
 
               <div className='grid gap-2 b-0'>
                 <Label htmlFor='nome'>Nome</Label>
