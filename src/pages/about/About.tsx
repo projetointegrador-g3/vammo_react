@@ -1,18 +1,20 @@
 import { Github, Instagram, Linkedin } from 'lucide-react';
 import Footer from '../../components/footer/Footer';
+import NavbarHome from '../../components/navbar/Navbar';
 
 
 function Sobre() {
     return (
         <>
-            <section className='py-10 px-10 flex flex-col gap-10 items-center justify-center pl-30'>
+        <NavbarHome />
+            <section className='flex flex-col gap-10 items-center justify-center pl-20 p-10 '>
                 <div className='text-center'>
                     <h1 className='text-3xl font-bold'>Conheça nosso talentoso time</h1>
                     <p>Esse é o grupo de pessoas que transformou o Vammo em realidade, um time de <br />
                         desenvolvedores altamente capacitados com o para trazer benefícios para você e o seu negócio!</p>
                 </div>
 
-                <div className='grid grid-cols-2 gap-10 mt-12'>
+                <div className='grid grid-cols-2 gap-12 mt-12'>
                     {[
                         { nome: 'Andressa Ferreira', emoji: '💻', img: 'Andressa.png', desc: 'Desenvolvedora FullStack e estudante de Segurança da Informação.' },
                         { nome: 'Beatriz Rodrigues', emoji: '🚀', img: 'Beatriz.png', desc: 'Jornalista em transição para a área de tecnologia e atualmente estudo Desenvolvimento FullStack.' },
@@ -25,7 +27,7 @@ function Sobre() {
                     ].map((dev, index) => (
 
                         <section key={index} className='flex gap-5 items-start'>
-                            <img src={`https://ik.imagekit.io/grupo03/perfis/${dev.img}`} alt={`Foto de ${dev.nome}`} className='w-40 h-40 object-cover rounded-full' />
+                            <img src={`https://ik.imagekit.io/grupo03/perfis/${dev.img}`} alt={`Foto de ${dev.nome}`} className='w-40 h-40 object-cover rounded-4xl' />
                             <div className='w-full'>
                                 <h3 className='text-xl font-semibold mt-2'>{dev.nome}</h3>
                                 <p className='text-md font-medium'>{dev.emoji} Desenvolvedor(a) Full Stack JS/TS</p>
