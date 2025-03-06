@@ -8,17 +8,12 @@ import ListaViagens from './components/viagens/listarviagem/ListarViagem'
 import FormViagens from './components/viagens/formviagens/FormViagens'
 import Login from './pages/login/Login'
 import Register from './pages/register/Register'
-import Navbar from './components/navbar/Navbar'
-import { Sidebar } from 'lucide-react'
-
 
 function App() {
   return (
     <>
       <AuthProvider>
         <ToastContainer />
-        <Navbar/>
-        <Sidebar/>
       
         <Routes>
           <Route path="/" element={<Initial />} />
