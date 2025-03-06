@@ -1,10 +1,12 @@
 import { ArrowRight, Car, ListCheck, MapPin, Navigation, ShieldCheck, UserCheck } from 'lucide-react'
 import Footer from '../../components/footer/Footer';
+import NavbarHome from '../../components/navbarHome/NavbarHome';
 
 
 const Initial = () => {
   return (
     <div>
+      <NavbarHome />
       <main>
         <section className='bginitial flex flex-col items-center justify-center'>
           <h1 className='font-semibold text-4xl text-center'>Encontre um destino <br/>e vammo?</h1>
