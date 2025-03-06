@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import { Veiculo } from "../../../model/Veiculo"
 import { buscar, deletar } from "../../../services/Service"
 import { ToastAlert } from "../../../utils/ToastAlert"
+import { AuthContext } from "../../../contexts/AuthContext"
 
 function DeletarVeiculo() {
 
@@ -12,27 +13,27 @@ function DeletarVeiculo() {
 
     const {id} = useParams<{id: string}>()
 
-    /*const { usuario, handleLogout } = useContext(AuthContext)
-    const token = usuario.token*/
+    const { usuario, handleLogout } = useContext(AuthContext)
+    const token = usuario.token
 
     async function buscarPorId(id: string){
         try{
             await buscar(`/veiculos/${id}`,setVeiculo,{
-                /*headers: {
+                headers: {
                     Authorization: token,
-                },*/
+                },
             })
         } catch (error:any){
-            if(error.toString().includes('403')){ /* handleLogout() */ }
+            if(error.toString().includes('403')){  handleLogout()  }
         }
     }
 
-    /*useEffect(() => {
+    useEffect(() => {
         if (token === '') {
-            ToastAlerta('Você precisa estar logado', "info")
+            ToastAlert('Você precisa estar logado', "info")
             navigate('/');
         }
-    }, [token])*/
+    }, [token])
 
     useEffect(()=> {
         if (id !== undefined){
@@ -49,7 +50,7 @@ function DeletarVeiculo() {
             ToastAlert('Veiculo apagado com sucesso', "sucesso")
 
         } catch (error: any) {
-            if (error.toString().includes('403')) { /* handleLogout() */
+            if (error.toString().includes('403')) {  handleLogout() 
 
             }else {
                 ToastAlert('Erro ao deletar o Veiculo', "erro")

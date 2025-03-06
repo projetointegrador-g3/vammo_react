@@ -71,39 +71,39 @@ export default function AuthPage() {
   }
 
   return (
-    <div className='grid min-h-svh lg:grid-cols-2'>
+    <div className='grid h-screen lg:grid-cols-2 overflow-hidden'>
       {/* Background */}
-      <div className='relative hidden bg-muted lg:block'>
+      <div className='relative hidden bg-muted lg:block '>
         <img
           src='https://ik.imagekit.io/grupo03/Vammo/dirigindo.avif?updatedAt=1741186876235'
-          alt='Image'
+          alt='Imagem motorista'
           className='absolute inset-0 h-full w-full object-cover'
         />
       </div>
 
         {/* Logo */}
-      <div className='flex flex-col md:p-10'>
-        <div className='flex'>
+      <div className='flex flex-col md:p-10 justify-center md:justify-start mt-[-40px]'>
           <Link to='/' className=''>
                 <img 
                 src='https://ik.imagekit.io/grupo03/Vammo/vammoblack.png?updatedAt=1741184618721'
-                className='w-30' />
+                className='w-30'
+                id='Logo da Vammo!' />
           </Link>
-        </div>
+        
 
-        <div className='flex justify-center'>
+        <div className='flex justify-center mr-15'>
           <div className='w-full max-w-xs'>
             <div className='flex flex-col items-center gap-2 text-center'>
-              <h1 className='text-2xl font-bold'>Crie uma conta</h1>
-              <p className='text-balance text-sm text-muted-foreground mb-5'>
+              <h1 className='text-2xl font-bold ml-20'>Crie uma conta</h1>
+              <p className='text-sm mb-6 ml-20 whitespace-nowrap'>
                 Adicione algumas informações para sua nova conta
               </p>
             </div>
 
             {/* Form */}
-            <form className={cn('flex flex-col w-100 gap-6 text-')} onSubmit={cadastrarNovoUsuario}>
+            <form className={cn('flex flex-col w-100 gap-5')} onSubmit={cadastrarNovoUsuario}>
 
-              <div className='grid gap-2 b-0'>
+              <div className='grid gap-2'>
                 <Label htmlFor='nome'>Nome</Label>
                 <Input
                   id='nome'
@@ -170,9 +170,9 @@ export default function AuthPage() {
               </div>
             </form>
 
-            <div className='text-center text-sm'>
+            <div className='text-center text-sm ml-20'>
               Você já tem uma conta?{' '}
-              <Link to='/login' className='underline underline-offset-4 font-semibold'>
+              <Link to='/login' className='text-[#7524F3] hover:underline font-semibold'>
                 Entre!
               </Link>
             </div>
