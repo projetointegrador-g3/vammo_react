@@ -8,11 +8,8 @@ import ListaViagens from './components/viagens/listarviagem/ListarViagem'
 import FormViagens from './components/viagens/formviagens/FormViagens'
 import Login from './pages/login/Login'
 import Register from './pages/register/Register'
-<<<<<<< HEAD
-=======
-import Navbar from './components/navbar/Navbar'
-import Sidebar from './components/sidebar/Sidebar'
->>>>>>> c6b63d016b9bcd1412bb0048a99630895251f73b
+import DeletarViagem from './components/viagens/deletarviagens/DeletarViagens'
+import ListarViagensOrigem from './components/viagens/listarviagemorigem/ListarViagemOrigem'
 
 function App() {
   return (
