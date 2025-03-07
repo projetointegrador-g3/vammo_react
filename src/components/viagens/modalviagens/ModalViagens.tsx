@@ -1,7 +1,6 @@
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import './ModalViagens.css'
-import { PlusSquare } from '@phosphor-icons/react';
 import FormViagens from '../formviagens/FormViagens';
 import { useState } from 'react';
 import { ArrowRight } from 'lucide-react';

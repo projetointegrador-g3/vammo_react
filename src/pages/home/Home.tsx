@@ -1,13 +1,17 @@
-import { ArrowRight } from 'lucide-react';
-import { ChangeEvent, useEffect, useRef, useState } from 'react';
+import {  useEffect, useRef, useState } from 'react';
 import { PieChart, Pie, Cell, Tooltip } from 'recharts';
 import mapboxgl from 'mapbox-gl';
 import ModalViagens from '../../components/viagens/modalviagens/ModalViagens';
+import UsuarioLogin from '../../model/UsuarioLogin';
+
+interface UsuarioProps {
+  usuario: UsuarioLogin;
+}
 
 //Token para o Map
 mapboxgl.accessToken = 'pk.eyJ1IjoiZ3J1cG8wMy1qczA2IiwiYSI6ImNtN3htaW11YTAwb3Qya29md3pwNzJrd2MifQ.uB4DxvtKsao_3O9FPIYTFQ';
 
-const Home = () => {
+const Home = ({ usuario }: UsuarioProps) => {
 
   const mapContainerRef = useRef<HTMLDivElement | null>(null);
   
@@ -38,6 +42,7 @@ const Home = () => {
     { name: 'Not Started', value: 15, color: '#D3D3D3' },
   ];
 
+
   // Armazenar infos no inputs
   const [origem, setOrigem] = useState<string>('');
   const [destino, setDestino] = useState<string>('');
@@ -53,7 +58,6 @@ const Home = () => {
   }
   
 
-
   return (
     <main className='flex-1 p-10 ml-[100px] overflow-hidden mt-[-50px]'>
 
@@ -62,7 +66,7 @@ const Home = () => {
   
       {/* Seção de pesquisa de viagens */}
       <div className='w-1/3 space-y-4' >
-        <h2 className='text-xl font-bold'>Olá, Bob!</h2>
+        <h2 className='text-xl font-bold'>Olá, {usuario ? usuario.nome : 'Usuário'}!</h2>
         <p>Busque pelo seu destino com os melhores preços!</p>
 
         <div className='space-y-3'>
