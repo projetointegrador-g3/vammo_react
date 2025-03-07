@@ -1,4 +1,4 @@
-# Vammo - Front-End
+# Vammo! - Front-End
 
 ## 📚 Descrição
 O projeto consiste no desenvolvimento do Front-End de um aplicativo de carona utilizando TypeScript, HTML, CSS e React. O objetivo é criar uma User Interface (UI) responsiva, dinâmica e intuitiva que proporcione uma excelente User Experience (UX) para motoristas e passageiros.
@@ -18,6 +18,8 @@ O projeto consiste no desenvolvimento do Front-End de um aplicativo de carona ut
 - Perfil
 - Veículos
 - Viagens
+- UI
+- Utils
 
 ## Sobre
 
