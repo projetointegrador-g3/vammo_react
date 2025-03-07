@@ -58,8 +58,13 @@ const Navbar = () => {
               <Link to="/about" className="hover:scale-110 hover:underline">Sobre nós</Link>
             </>
           )}
+          <Link to="/login" className="transition-all delay-70 text-center font-semibold hover:underline text-[#212121]">Login</Link> |
+          
+          <Link to="/register" className="block py-2 my-5 bg-[#212121] hover:bg-[#D8F505] hover:text-[#212121] 
+          transition-all delay-70 rounded-full w-21 p-1 text-center text-[#f6f5fa]" 
+          onClick={() => setIsMenuOpen(false)}>Cadastrar</Link>
 
-          <Link to="/login" className="bg-[#212121] hover:bg-[#D8F505] hover:text-[#212121] transition-all delay-70 rounded-full w-20 p-1 text-center text-[#f6f5fa]">Login</Link>
+          <button className="absolute top-2 right-2 text-2xl text-[#D8F505] cursor-pointer" onClick={toggleMenu}></button>    
         </div>
 
         {isMenuOpen && (
@@ -88,7 +93,8 @@ const Navbar = () => {
               )}
 
               <Link to="/login" className="block py-2 ml-4 mt-2 mb-2 bg-[#212121] hover:bg-[#D8F505] hover:text-[#212121] transition-all delay-70 rounded-full w-21 p-1 text-center text-[#f6f5fa]" onClick={() => setIsMenuOpen(false)}>Login</Link>
-              <button className="absolute top-2 right-2 text-2xl text-[#D8F505] cursor-pointer" onClick={toggleMenu}>X</button>
+              <button className="absolute top-2 right-2 text-2xl text-[#D8F505] cursor-pointer" onClick={toggleMenu}></button>
+
             </div>
           </div>
         )}
