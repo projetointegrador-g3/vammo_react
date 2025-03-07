@@ -7,7 +7,7 @@ import { AuthContext } from "../../../contexts/AuthContext"
 
 function DeletarVeiculo() {
 
-    const navigate = useNavigate
+    const navigate = useNavigate();
 
     const[veiculo, setVeiculo] = useState<Veiculo>({} as Veiculo)
 
@@ -30,7 +30,7 @@ function DeletarVeiculo() {
 
     useEffect(() => {
         if (token === '') {
-            ToastAlert('Você precisa estar logado', "info")
+            ToastAlert('Você precisa estar logado', "info");
             navigate('/');
         }
     }, [token])

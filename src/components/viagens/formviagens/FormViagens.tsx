@@ -11,8 +11,17 @@ import { AuthContext } from "../../../contexts/AuthContext";
 import { Button } from "../../ui/button";
 
 interface FormViagensProps {
-  origem: string;
-  destino: string;
+    id: number;
+    data_ida?: string;
+    origem: string;
+    destino: string;
+    distancia: number;
+    velocidade: number;
+    preco: number;
+    duracao?: number;
+    status: string;
+    veiculo: Veiculo;  
+    usuario: Usuario;
 }
 
 function FormViagens({ origem, destino }: FormViagensProps) {
@@ -34,9 +43,9 @@ function FormViagens({ origem, destino }: FormViagensProps) {
     id: 0,
     origem: "",
     destino: "",
-    distancia: null,
-    velocidade: null,
-    preco: null,
+    distancia: 0,
+    velocidade: 0,
+    preco: 0,
     status: "", // Defina um valor inicial como string vazia
     veiculo: {} as Veiculo,
     usuario: {} as Usuario,

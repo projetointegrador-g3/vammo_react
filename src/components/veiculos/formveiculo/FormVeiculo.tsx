@@ -12,15 +12,7 @@ function FormVeiculo() {
     const token = usuario?.token || "";
 
     // Estado inicial corrigido
-    const [veiculo, setVeiculo] = useState<Veiculo>({
-        modelo: "",
-        placa: "",
-        cor: "",
-        ano_fabricacao: "",
-        observacao: "",
-        disponivel: "",
-        idViagem: "",
-    });
+    const [veiculo, setVeiculo] = useState<Veiculo>({} as Veiculo);
 
     // Verifica se o usuário está autenticado
     useEffect(() => {
@@ -143,21 +135,10 @@ function FormVeiculo() {
                 <div>
                     <label htmlFor="disponivel">Disponibilidade</label>
                     <input
-                        type="date"
+                        type="checkbox"
                         name="disponivel"
                         required
-                        value={veiculo.disponivel}
-                        onChange={atualizarEstado}
-                    />
-                </div>
-
-                <div>
-                    <label htmlFor="idViagem">ID da Viagem</label>
-                    <input
-                        type="text"
-                        placeholder="ID da Viagem"
-                        name="idViagem"
-                        value={viagem.id}
+                        checked={veiculo.disponivel}
                         onChange={atualizarEstado}
                     />
                 </div>

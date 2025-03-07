@@ -5,7 +5,6 @@ import ModalViagens from '../../components/viagens/modalviagens/ModalViagens';
 import { useNavigate } from 'react-router-dom';
 import { ToastAlert } from '../../utils/ToastAlert';
 import { AuthContext } from '../../contexts/AuthContext';
-import { Viagem } from '../../model/Viagem';
 
 //Token para o Map
 mapboxgl.accessToken = 'pk.eyJ1IjoiZ3J1cG8wMy1qczA2IiwiYSI6ImNtN3htaW11YTAwb3Qya29md3pwNzJrd2MifQ.uB4DxvtKsao_3O9FPIYTFQ';
@@ -50,7 +49,6 @@ const Home = () => {
   // Armazenar infos no inputs
   const [origem, setOrigem] = useState<string>('');
   const [destino, setDestino] = useState<string>('');
-  const [viagens, setViagens] = useState<Viagem[]>([]);
 
 
   return (
@@ -91,8 +89,8 @@ const Home = () => {
         {/* Informações da Corrida */}
         <div className='mt-6 p-4 bg-[#F2F2F2] rounded-4xl shadow'>
           <h3 className='text-lg font-bold'>Última corrida solicitada</h3>
-          <p><strong>Valor:</strong> {viagens.preco}</p>
-          <p><strong>Distância:</strong> {viagens.distancia}</p>
+          <p><strong>Valor:</strong> R$ 24.90</p>
+          <p><strong>Distância:</strong> 50 Km/h</p>
         </div>
 
         {/* Dashboard */}
