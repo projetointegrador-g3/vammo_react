@@ -37,7 +37,7 @@ function ListaVeiculos() {
     return (
         <div className="container mx-30 p-4 flex flex-col my-5">
             <h1 className="text-2xl font-bold text-gray-800">
-                Véiculos da Frota
+                Veiculos da Frota
             </h1>
 
             <Link to={`/cadastrarveiculo`}>

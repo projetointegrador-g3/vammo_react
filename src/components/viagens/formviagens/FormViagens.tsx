@@ -36,9 +36,9 @@ function FormViagens({ origem, destino }: FormViagensProps) {
     id: 0,
     origem: "",
     destino: "",
-    distancia: 0,
-    velocidade: 0,
-    preco: 0,
+    distancia: null,
+    velocidade: null,
+    preco: null,
     status: "", // Defina um valor inicial como string vazia
     veiculo: {} as Veiculo,
     usuario: {} as Usuario,
