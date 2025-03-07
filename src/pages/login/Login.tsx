@@ -43,7 +43,7 @@ export function Login({
             <img 
               src='https://ik.imagekit.io/grupo03/Vammo/vammoblack.png?updatedAt=1741184618721'
               className='w-30' 
-              alt="Logo"
+              alt="Logo da Vammo!"
               id='logo'
             />
           </NavLink>

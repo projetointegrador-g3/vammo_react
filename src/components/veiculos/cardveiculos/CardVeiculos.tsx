@@ -6,22 +6,18 @@ interface CardVeiculosProps{
 
 function CardVeiculos({veiculo}: CardVeiculosProps){
     return(
-        <div>principal
-            <div>Header
-                <img/>
+        <div className="bg-[var(--colorWhite)] p-4 rounded-lg shadow-2xl relative w-70">
+            <div >
                 <h3>
                     {veiculo.modelo}
                 </h3>
             </div>
-            <div>Body
-                <p>{veiculo.placa}</p>
-                <p>{veiculo.cor}</p>
-                <p>{veiculo.observacao}</p>
-                <p>{veiculo.disponivel}</p>
-            </div>
-            <div>
-                Botões
-            </div>
+            <main className="flex flex-col items-center gap-2">
+                <p className="font-bold mt-3 text-center">{veiculo.placa}</p>
+                <p className='text-[var(--colorGrey)] text-sm text-center'>{veiculo.cor}</p>
+                <p className='text-[var(--colorGrey)] text-sm text-center'>{veiculo.observacao}</p>
+                <p className='text-[var(--colorGrey)] text-sm text-center'>{veiculo.disponivel}</p>
+            </main>
         </div>
     )
 }

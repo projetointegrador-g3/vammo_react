@@ -3,14 +3,14 @@ import { Veiculo } from "./Veiculo";
 
 export interface Viagem {
     id: number;
-    data_ida: string;
+    data_ida?: string;
     origem: string;
     destino: string;
-    distancia: string;
-    velocidade: string;
+    distancia: number;
+    velocidade: number;
     preco: number;
-    duracao: string;
+    duracao?: number;
     status: string;
-    veiculo?: Veiculo | null;
-    usuario?: Usuario | null;
+    veiculo: Veiculo;  
+    usuario: Usuario;
 }

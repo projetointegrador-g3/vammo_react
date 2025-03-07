@@ -56,19 +56,21 @@ function DeletarViagem() {
       } else {
         ToastAlert("Erro ao deletar a viagem.", "erro");
       }
-      setIsLoading(false);
-      retornar();
     }
-    
+    setIsLoading(false);
+    retornar();
   }
+
+  
   function retornar() {
     navigate("/viagens");
   }
 
+
   return (
-    <div className="container w-2/4 mx-auto border rounded-lg p-4 mt-20">
+    <div className="container w-1/2 mx-auto border rounded-lg p-6 mt-70 content-center">
       <h1 className="text-3xl text-center my-4">Deletar Viagem</h1>
-      <p className="text-center mb-4">
+      <p className="text-center mb-4 text-lg ">
         Você tem certeza de que deseja apagar a viagem a seguir?
       </p>
 
@@ -79,13 +81,13 @@ function DeletarViagem() {
 
         <div className="flex gap-10">
           <button
-            className="flex justify-center text-center rounded-lg text-[var(--colorWhite)] bg-[var(--colorRed)] w-full py-2 hover:bg-[var(--colorRedDark)] cursor-pointer"
+            className="flex justify-center text-center rounded-lg text-white bg-red-600 w-full py-2 hover:bg-red-900 cursor-pointer"
             onClick={retornar}
           >
             Não
           </button>
           <button
-            className="flex justify-center text-center rounded-lg text-[var(--colorWhite)] bg-[var(--colorCyan)] w-full py-2 hover:bg-[var(--colorCyanDark)] cursor-pointer"
+            className="flex justify-center text-center rounded-lg text-white bg-green-600 w-full py-2 hover:bg-green-900 cursor-pointer"
             onClick={deletarViagem}
           >
             {isLoading ? (
