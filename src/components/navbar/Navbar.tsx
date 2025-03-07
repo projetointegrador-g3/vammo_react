@@ -15,7 +15,9 @@ const Navbar = () => {
         <a href="#service" className="hover:scale-110 hover:underline">Serviços</a>
         <Link to="/about" className="hover:scale-110 hover:underline">Sobre nós</Link>
         <Link to="/contact" className="hover:scale-110 hover:underline">Contato</Link>
-        <Link to="/login" className="bg-[#212121] hover:bg-[#D8F505] hover:text-[#212121] transition-all delay-70 rounded-full w-20 p-1 text-center text-[#f6f5fa]">Login</Link>
+        <Link to="/login" className="font-semibold hover:scale-110 hover:underline">Login</Link>
+        <span className="text-zinc-400 ">|</span>
+        <Link to="/register" className="bg-[#212121] hover:bg-[#D8F505] hover:text-[#212121] transition-all delay-70 rounded-full w-35 p-1 text-center text-[#f6f5fa] hover:font-medium">Cadastre-se</Link>
       </div>
     </div>
   )
@@ -28,7 +30,9 @@ const Navbar = () => {
         <div className="flex gap-5 pl-199 items-center">
           <Link to="/" className="hover:scale-110 hover:underline">Início</Link>
           <Link to="/contact" className="hover:scale-110 hover:underline">Contato</Link>
-          <Link to="/login" className="bg-[#212121] hover:bg-[#D8F505] hover:text-[#212121] transition-all delay-70 rounded-full w-20 p-1 text-center text-[#f6f5fa]">Login</Link>
+          <Link to="/login" className="font-semibold hover:scale-110 hover:underline">Login</Link>
+        <span className="text-zinc-400 ">|</span>
+        <Link to="/register" className="bg-[#212121] hover:bg-[#D8F505] hover:text-[#212121] transition-all delay-70 rounded-full w-35 p-1 text-center text-[#f6f5fa] hover:font-medium">Cadastre-se</Link>
         </div>
       </div>
     )
@@ -41,12 +45,14 @@ const Navbar = () => {
           <div className="flex gap-5 pl-195 items-center">
             <Link to="/" className="hover:scale-110 hover:underline">Início</Link>
             <Link to="/about" className="hover:scale-110 hover:underline">Sobre nós</Link>
-            <Link to="/login" className="bg-[#212121] hover:bg-[#D8F505] hover:text-[#212121] transition-all delay-70 rounded-full w-20 p-1 text-center text-[#f6f5fa]">Login</Link>
+            <Link to="/login" className="font-semibold hover:scale-110 hover:underline">Login</Link>
+        <span className="text-zinc-400 ">|</span>
+        <Link to="/register" className="bg-[#212121] hover:bg-[#D8F505] hover:text-[#212121] transition-all delay-70 rounded-full w-35 p-1 text-center text-[#f6f5fa] hover:font-medium">Cadastre-se</Link>
           </div>
         </div>
       )
 
-if (location.pathname==="/home" || location.pathname==="/veiculo" || location.pathname==="/configuracao" || location.pathname==="/perfil" || location.pathname==="/viagens")
+if (location.pathname==="/home" || location.pathname==="/veiculo" || location.pathname==="/configuracao" || location.pathname==="/perfil" || location.pathname.startsWith("/editarperfil/") || location.pathname==="/viagens")
   return(
     <div className="flex pl-30 pt-8 ">
       <div className="flex">
@@ -57,7 +63,7 @@ if (location.pathname==="/home" || location.pathname==="/veiculo" || location.pa
       <div className="flex gap-8 pl-230 items-center ">
         <Link to="notificacoes" className="hover:scale-110"><Bell/></Link>
         <Link to="/perfil">
-          <img className="w-10 rounded-full" src={usuario.foto} alt={`Foto de perfil de ${usuario.nome}`}></img>
+          <img className="w-10 rounded-full" src={usuario.foto || "https://i.pinimg.com/736x/3c/ae/07/3cae079ca0b9e55ec6bfc1b358c9b1e2.jpg"} alt={`Foto de perfil de ${usuario.nome}`}></img>
         </Link>
         <div className="flex">
           <Link to="/" className="flex items-center gap-2 hover:scale-110 hover:underline">Sair<SignOut className="hover:scale-110"/></Link>

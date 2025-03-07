@@ -59,10 +59,12 @@ body.dark {
     #icon {
       color: var(--black);
     }
-
     .bginitial{
       background-image: url(./pages/initial/fundo-dm.png);
       margin-top: 5rem;
+  }
+  #login{
+    border: #D8F505;
   }
     
   }
