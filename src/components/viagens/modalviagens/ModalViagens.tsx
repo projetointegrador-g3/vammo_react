@@ -8,8 +8,8 @@ import { ArrowRight } from 'lucide-react';
 // Prop para controlar a exibição do título
 interface ModalViagensProps {
     showTitle?: boolean; 
-    origem: string;
-    destino: string;
+    origem?: string;
+    destino?: string;
   }
 
 const ModalViagens: React.FC<ModalViagensProps> = ({ showTitle, origem, destino }) => {

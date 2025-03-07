@@ -11,20 +11,12 @@ import { AuthContext } from "../../../contexts/AuthContext";
 import { Button } from "../../ui/button";
 
 interface FormViagensProps {
-    id: number;
-    data_ida?: string;
-    origem: string;
-    destino: string;
-    distancia: number;
-    velocidade: number;
-    preco: number;
-    duracao?: number;
-    status: string;
-    veiculo: Veiculo;  
-    usuario: Usuario;
+    origem?: string;
+    destino?: string;
 }
 
 function FormViagens({ origem, destino }: FormViagensProps) {
+
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [veiculos, setVeiculos] = useState<Veiculo[]>([]);
