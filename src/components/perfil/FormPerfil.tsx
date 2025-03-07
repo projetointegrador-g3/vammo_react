@@ -69,7 +69,7 @@ function FormPerfil() {
           },
         });
 
-        ToastAlert("Usuário atualizado com sucesso! ✅", "sucesso");
+        ToastAlert("Usuário atualizado com sucesso!", "sucesso");
       } catch (error: any) {
         if (error.toString().includes("401")) {
           handleLogout();
@@ -93,10 +93,10 @@ function FormPerfil() {
   }
 
   return (
-    <div className="flex gap-8 text-[#212121] ml-30 gap-80">
+    <div className="flex items-center justify-center text-[#212121] ml-30 gap-80">
       {/* Seção de Perfil */}
-      <div className="flex flex-col w-100">
-        <h1 className="font-semibold text-2xl my-8">Editar Perfil</h1>
+      <div className="flex flex-col items-center w-150">
+        <h1 className="font-semibold text-3xl my-8 mt-12">Editar Perfil</h1>
 
         <form className="flex flex-col w-full gap-4" onSubmit={atualizarPerfil}>
           <Input
@@ -165,7 +165,7 @@ function FormPerfil() {
           />
 
           <div className="flex gap-4">
-            <Button type="submit" className="cursor-pointer">
+            <Button type="submit" className="cursor-pointer rounded-full px-5">
               {isLoading ? (
                 <RotatingLines strokeColor="white" strokeWidth="5" animationDuration="0.75" width="25" visible={true} />
               ) : (
@@ -173,9 +173,9 @@ function FormPerfil() {
               )}
             </Button>
 
-            <Button onClick={retornar} className="cursor-pointer">
+            <button onClick={retornar} className="bg-[var(--black)] text-white cursor-pointer rounded-full px-5 hover:scale-105">
               Voltar
-            </Button>
+            </button>
           </div>
         </form>
       </div>

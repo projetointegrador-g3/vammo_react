@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 import { ToastAlert } from "../../utils/ToastAlert";
 import { Button } from "../ui/button"; // Certifique-se de importar o Button corretamente
-import { Input } from "../ui/input";
+
 
 function PagePerfil() {
   const navigate = useNavigate();
@@ -17,7 +17,7 @@ function PagePerfil() {
   }, [usuario.token, navigate]);
 
   return (
-    <div className="flex gap-8 text-[#212121] ml-30 gap-80">
+    <div className="flex text-[#212121] ml-40 gap-80">
       {/* Seção de Perfil */}
       <div className="flex flex-col w-100">
         <h1 className="font-semibold text-2xl my-8">Perfil de {usuario.nome}</h1>
@@ -31,10 +31,10 @@ function PagePerfil() {
         <div className="flex flex-col mb-4">
           <p><strong>Nome:</strong> {usuario.nome}</p>
           <p><strong>Email:</strong> {usuario.usuario}</p>
-          <p><strong>Data de Nascimento:</strong> {usuario.data_aniversario}</p>
-          <p><strong>Gênero:</strong> {usuario.genero}</p>
-          <p><strong>Tipo de Usuário:</strong> {usuario.tipo_user}</p>
-          <p><strong>Avaliação:</strong> {usuario.avaliacao}</p>
+          <p><strong>Data de Nascimento:</strong> {usuario.data_aniversario || "Não informado"}</p>
+          <p><strong>Gênero:</strong> {usuario.genero || "Não informado"}</p>
+          <p><strong>Tipo de Usuário:</strong> {usuario.tipo_user || "Não informado"}</p>
+          <p><strong>Avaliação:</strong> {usuario.avaliacao || "Não informado"}</p>
           <Button onClick={() => navigate(`/editarperfil/${usuario.id}`)} className="mt-4 w-50 cursor-pointer">Editar</Button>
         </div>
       </div>
@@ -45,26 +45,29 @@ function PagePerfil() {
 
         {/* Cartão Cadastrado */}
         <div className="mb-6">
-          <h3 className="font-medium">Cartão Cadastrado</h3>
-          <div className="flex items-center mt-2">
-            <div className="w-80 h-40 bg-[var(--yellow)] rounded-2xl p-6 text-white font-bold transition duration-0.3 hover:scale-110">
+          <h3 className="font-medium">Cartão Atual</h3>
+          <div className="flex flex-col justify-start mt-2 gap-2">
+            <div className="w-80 h-40 bg-[var(--yellow)] rounded-2xl p-6 text-#212121 font-bold transition duration-0.3 hover:scale-110">
               <div>
                 <p className="font-semibold">Visa - **** **** **** 1234</p>
-                <p className="mt-10">Expira em 12/30</p>
+                <p className="mt-16">Expira em 12/30</p>
+              </div>
+            </div>
+
+            <h3 className="font-medium">Outros cartões</h3>
+            <div className="w-80 h-40 bg-[var(--purple)] rounded-2xl p-6 text-white font-bold transition duration-0.3 hover:scale-110">
+              <div>
+                <p className="font-semibold">Visa - **** **** **** 4321</p>
+                <p className="mt-16">Expira em 12/29</p>
               </div>
             </div>
           </div>
         </div>
 
         <div>
-          <h3 className="font-medium">Adicionar Novo Cartão</h3>
-          <form className="mt-2 flex flex-col gap-2.5">
-            <Input type="text" placeholder="Número do Cartão" />
-            <Input type="text" placeholder="Nome no Cartão" />
-            <Input type="text" placeholder="Data de Validade MM/AA" />
-            <Input type="text" placeholder="Código de Segurança 000" />
-            <Button type="submit" className="mt-4 cursor-pointer">Adicionar Cartão</Button>
-          </form>
+          
+            <button type="submit" className="bg-[var(--black)] text-white mt-4 cursor-pointer p-2 rounded-full px-5 hover:scale-110">Adicionar Cartão</button>
+         
         </div>
       </div>
     </div>

@@ -157,7 +157,7 @@ export default function AuthPage() {
                 />
               </div>
 
-              <Button type='submit'>
+              <Button type='submit' className='cursor-pointer'>
                 {isLoading ? (
                   <RotatingLines strokeColor='white' strokeWidth='5' animationDuration='0.75' width='24' visible />
                 ) : (
@@ -165,8 +165,8 @@ export default function AuthPage() {
                 )}
               </Button>
 
-              <div className='relative text-center text-sm after:absolute after:inset-0 after:items-center after:border-t pt-3.5'>
-                <span className='relative z-10 bg-background px-2 text-muted-foreground'>Or continue with</span>
+              <div>
+                <span></span>
               </div>
             </form>
 

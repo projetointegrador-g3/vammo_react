@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 
 const Sidebar = () => {
 
-  if (location.pathname==="/home" || location.pathname==="/perfil" || location.pathname==="/configuracao" || location.pathname==="/veiculo" || location.pathname==="/viagens")
+  if (location.pathname==="/home" || location.pathname==="/perfil" || location.pathname.startsWith("/editarperfil/") || location.pathname==="/configuracao" || location.pathname==="/veiculo" || location.pathname==="/viagens")
   return (
     <aside className="flex flex-col fixed w-25 h-full items-center top-0 pl-4 bg-[#212121] gap-10">
       <img src="https://ik.imagekit.io/grupo03/Vammo/VAMMO%20(1)%201.png?updatedAt=1741183646285" alt="Logo branco da Vammo!" className="w-25 mr-4 mt-3"></img>

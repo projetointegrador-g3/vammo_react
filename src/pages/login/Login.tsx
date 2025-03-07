@@ -102,7 +102,7 @@ export function Login({
               </div>
 
               {/* Botão de Login */}
-              <Button type='submit' className='w-full'>
+              <Button type='submit' className='w-full cursor-pointer'>
                 {isLoading ? (
                   <RotatingLines strokeColor="white" strokeWidth="5" animationDuration="0.75" width="24" visible={true} />
                 ) : (
@@ -111,12 +111,12 @@ export function Login({
               </Button>
 
               {/* Entrar com Google */}
-              <div className='relative text-center text-sm'>
+              <div className='flex flex-col relative text-center text-sm'>
                 <span className='relative z-10 px-2 text-muted-foreground'>Ou entre com</span>
                 <button>
                   <img 
                     src='https://ik.imagekit.io/grupo03/Vammo/google-sigh-up%20(1).png?updatedAt=1741185816536'
-                    className='w-10 mt-3 mx-auto cursor-pointer' 
+                    className='w-10 mt-3 mx-auto cursor-pointer border-[var(--purple)] hover:scale-105' 
                     alt="Entrar com Google"
                   />
                 </button>

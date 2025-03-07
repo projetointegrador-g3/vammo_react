@@ -53,6 +53,7 @@ const Initial = () => {
         <section className='mt-60'>
           <h2 id="service" className='font-semibold text-3xl text-center mb-10'>Nossos serviços</h2>
           <div className='bg-[#D8DFE9] p-30'>
+          <h2 id="service" className='font-semibold text-3xl text-center mb-10'>Nossos serviços</h2>
           <p id='card' className='text-center'>Escolha o Vammo perfeito para a sua viagem: </p>
             <div className='flex items-center justify-center gap-20 p-10'>
 
