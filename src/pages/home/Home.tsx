@@ -116,8 +116,8 @@ const Home = () => {
       </div>
 
       {/* Mapa */}
-      <div className='w-100 ml-20 my-15 '>
-          <div ref={mapContainerRef} className='w-200 h-70 rounded-4xl'></div>
+      <div className='w-150 ml-20 my-10 '>
+          <div ref={mapContainerRef} className='w-200 h-120 rounded-4xl'></div>
       </div>
     </div>
   </main>

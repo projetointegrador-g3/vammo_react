@@ -4,7 +4,6 @@ import Home from './pages/home/Home'
 import About from './pages/about/About'
 import Initial from './pages/initial/Initial'
 import { AuthProvider } from './contexts/AuthContext'
-import ListaViagens from './components/viagens/listarviagem/ListarViagem'
 import Login from './pages/login/Login'
 import Register from './pages/register/Register'
 import Navbar from './components/navbar/Navbar'
@@ -18,6 +17,7 @@ import Configuracao from './components/configuracoes/Configuracao'
 import PagePerfil from './components/perfil/PagePerfil'
 import FormPerfil from './components/perfil/FormPerfil'
 import FormViagens from './components/viagens/formviagens/FormViagens'
+import ListarViagem from './components/viagens/listarviagem/ListarViagem'
 
 function App() {
 
@@ -41,7 +41,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/home" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/viagens" element={<ListaViagens />} />
+          <Route path="/viagens" element={<ListarViagem />} />
           <Route path="/cadastrarviagem" element={<FormViagens />} />
           <Route path="/editarviagem/:id" element={<FormViagens />} />
           <Route path="/deletarviagem/:id" element={<DeletarViagem />} />

@@ -2,13 +2,12 @@ import { useContext, useEffect, useState } from "react";
 import { Viagem } from "../../../model/Viagem";
 import { buscar } from "../../../services/Service";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
-import ModalViagens from "../modalviagens/ModalViagens";
 import CardViagens from "../cardviagens/CardViagens";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthContext";
 import { ToastAlert } from "../../../utils/ToastAlert";
 
-function ListaViagens() {
+function ListarViagem() {
   const navigate = useNavigate();
   const [viagens, setViagens] = useState<Viagem[]>([]);
 
@@ -60,4 +59,4 @@ function ListaViagens() {
   );
 }
 
-export default ListaViagens;
+export default ListarViagem;

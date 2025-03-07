@@ -16,12 +16,12 @@ function CardViagens({ viagem }: CardViagensProps) {
       {/* Botões de editar e excluir */} 
       <div className="flex justify-end space-x-2 mr-3">
         <Link to={`/editarviagem/${viagem.id}`}>
-          <button className="text-gray-500 hover:text-[var(--colorCyan)] cursor-pointer hover:animate-bounce">
+          <button className="text-gray-500 cursor-pointer hover:animate-bounce">
             <SquarePen className="size-5"/>
           </button>
         </Link>
         <Link to={`/deletarviagem/${viagem.id}`}>
-          <button className="text-gray-500 hover:text-[var(--colorRed)] cursor-pointer hover:animate-bounce">
+          <button className="text-gray-500 cursor-pointer hover:animate-bounce">
             <Trash className="size-5" />
           </button>
         </Link>
@@ -59,7 +59,7 @@ function CardViagens({ viagem }: CardViagensProps) {
         </p>
         <p>
           <strong>Veículo: </strong>
-          {viagem.veiculo.modelo}
+          {viagem.veiculo?.modelo}
         </p>
 
         {/* Estrelas de Avaliação */}
