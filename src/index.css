@@ -56,4 +56,13 @@ body.dark {
     #card {
         color: var(--black);
     }
+    #icon {
+      color: var(--black);
+    }
+
+    .bginitial{
+      background-image: url(./pages/initial/fundo-dm.png);
+      margin-top: 5rem;
+  }
+    
   }

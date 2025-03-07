@@ -46,7 +46,7 @@ const Navbar = () => {
         </div>
       )
 
-  if (location.pathname==="/home" || location.pathname==="/veiculo" || location.pathname==="/configuracoes" || location.pathname==="/perfil" || location.pathname==="/viagens")
+  if (location.pathname==="/home" || location.pathname==="/veiculo" || location.pathname==="/configuracao" || location.pathname==="/perfil" || location.pathname==="/editarperfil/1" || location.pathname==="/viagens")
   return(
     <div className="flex pl-30 pt-8">
       <div className="flex">
@@ -56,7 +56,9 @@ const Navbar = () => {
 
       <div className="flex gap-8 pl-122 items-center">
         <Link to="notificacoes" className="hover:scale-110"><Bell/></Link>
-        <img src={usuario.foto} alt={`Foto de perfil de ${usuario.nome}`}></img>
+        <Link to="/perfil">
+          <img className="w-10 rounded-full" src={usuario.foto} alt={`Foto de perfil de ${usuario.nome}`}></img>
+        </Link>
         <div className="flex">
           <Link to="/" className="flex items-center gap-2 hover:scale-110 hover:underline">Sair<SignOut className="hover:scale-110"/></Link>
         </div>
