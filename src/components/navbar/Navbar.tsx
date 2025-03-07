@@ -15,7 +15,6 @@ const Navbar = () => {
         <a href="#service" className="hover:scale-110 hover:underline">Serviços</a>
         <Link to="/about" className="hover:scale-110 hover:underline">Sobre nós</Link>
         <Link to="/contact" className="hover:scale-110 hover:underline">Contato</Link>
-        <Link to="/veiculo" className="hover:scale-110 hover:underline">veiculo</Link>
         <Link to="/login" className="bg-[#212121] hover:bg-[#D8F505] hover:text-[#212121] transition-all delay-70 rounded-full w-20 p-1 text-center text-[#f6f5fa]">Login</Link>
       </div>
     </div>
@@ -47,7 +46,7 @@ const Navbar = () => {
         </div>
       )
 
-  if (location.pathname==="/home" || location.pathname==="/veiculo" || location.pathname==="/configuracao" || location.pathname==="/perfil" || location.pathname==="/editarperfil/1" || location.pathname==="/viagens")
+if (location.pathname==="/home" || location.pathname==="/veiculo" || location.pathname==="/configuracao" || location.pathname==="/perfil" || location.pathname==="/viagens")
   return(
     <div className="flex pl-30 pt-8 ">
       <div className="flex">
