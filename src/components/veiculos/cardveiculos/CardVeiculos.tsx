@@ -6,9 +6,10 @@ interface CardVeiculosProps{
 
 function CardVeiculos({veiculo}: CardVeiculosProps){
     return(
-        <div className="p-4 rounded-lg shadow relative w-100 mx-20 my-5">
+        <div className="container grid grid-cols-1 rounded-4xl bg-[#D8DFE9] relative
+         w-350 min-h-[250px] my-5">
             
-            <main className="flex flex-col items-center gap-2 text-sm tex-center">
+            <main className="flex flex-col mx-20 justify-center gap-2 text-sm tex-center bg-[#D8DFE9]">
                 <p><strong>Modelo: </strong>{veiculo.modelo}</p>
                 <p><strong>Placa:</strong> {veiculo.placa}</p>
                 <p><strong>Cor: </strong>{veiculo.cor}</p>

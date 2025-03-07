@@ -96,7 +96,7 @@ function FormVeiculo() {
         retornar();
     }
     return (
-        <div className=" flex flex-col items-center bg-#f6f5fa text-#212121">
+        <div className=" flex flex-col items-center">
             <h1 className="text-4xl text-center my-8">
                 {id !== undefined ? "Editar Veículo" : "Cadastrar Veículo"}</h1>
 

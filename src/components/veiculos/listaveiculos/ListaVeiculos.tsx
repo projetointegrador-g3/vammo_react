@@ -35,20 +35,20 @@ function ListaVeiculos() {
     }, [token]);
 
     return (
-        <div className="container mx-auto p-4">
-            <h1 className="text-2xl font-bold text-center text-gray-800 mb-6">
+        <div className="container mx-30 p-4">
+            <h1 className="text-2xl font-bold text-gray-800 mb-6">
                 Lista de Veículos
             </h1>
 
             <Link to={`/cadastrarveiculo`}>
-                <button className="px-4 py-2  flex mr-10 items-center gap-3 bg-[#d8f505] hover:bg-black hover:text-[#f6f5fa] transition-all delay-70 rounded-4xl
+                <button className="px-4 py-2 flex mr-10 items-center gap-3 bg-[#d8f505] hover:bg-black hover:text-[#f6f5fa] transition-all delay-70 rounded-4xl
                 ease-in-out cursor-pointer">
-                    <PlusSquare className='size-6'/>
-                    <p className="text-2xl font-semibold mr-8">Adicionar novo veículo</p>
+                    <PlusSquare className='size-5'/>
+                    <p className="text-sm font-semibold mr-8">Adicionar novo veículo</p>
                 </button>
             </Link>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <div className="flex flex-col sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 ">
                 {veiculos.length > 0 ? (
                     veiculos.map((veiculo) => (
                         <CardVeiculos key={veiculo.id} veiculo={veiculo} />
