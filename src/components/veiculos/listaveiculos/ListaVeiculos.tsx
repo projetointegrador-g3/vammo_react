@@ -35,16 +35,16 @@ function ListaVeiculos() {
     }, [token]);
 
     return (
-        <div className="container mx-30 p-4">
-            <h1 className="text-2xl font-bold text-gray-800 mb-6">
-                Lista de Veículos
+        <div className="container mx-30 p-4 flex flex-col my-5">
+            <h1 className="text-2xl font-bold text-gray-800">
+                Véiculos da Frota
             </h1>
 
             <Link to={`/cadastrarveiculo`}>
-                <button className="px-4 py-2 flex mr-10 items-center gap-3 bg-[#d8f505] hover:bg-black hover:text-[#f6f5fa] transition-all delay-70 rounded-4xl
-                ease-in-out cursor-pointer">
+                <button className="px-4 py-2 flex items-center gap-3 bg-[#d8f505] hover:bg-black hover:text-[#f6f5fa] transition-all delay-70 rounded-4xl
+                ease-in-out cursor-pointer ml-300">
                     <PlusSquare className='size-5'/>
-                    <p className="text-sm font-semibold mr-8">Adicionar novo veículo</p>
+                    <p className="text-sm font-semibold">Adicionar novo veículo</p>
                 </button>
             </Link>
 

@@ -6,6 +6,7 @@ export interface Veiculo {
     placa: string;
     cor: string;
     ano_fabricacao: string;
+    foto: string;
     observacao: string;
     disponivel: string;
     viagem?: Viagem | null;

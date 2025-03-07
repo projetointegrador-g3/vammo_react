@@ -40,8 +40,6 @@ function ListaViagens() {
 
   return (
     <>
-      
-
       {viagens.length === 0 && (
         <DotLottieReact
           src="https://lottie.host/70958752-1b0b-4adf-8615-e20fe98617c1/CtgELq1S7y.lottie"
