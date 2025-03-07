@@ -49,7 +49,7 @@ const Navbar = () => {
 
   if (location.pathname==="/home" || location.pathname==="/veiculo" || location.pathname==="/configuracoes" || location.pathname==="/perfil" || location.pathname==="/viagens")
   return(
-    <div className="flex pl-30 pt-8 fixed">
+    <div className="flex pl-30 pt-8 ">
       <div className="flex">
         <input type="text" placeholder="Buscar..." className="bg-black/5 pl-4 pr-30 py-2 rounded-full border-0 focus:outline-none"/>
         <MagnifyingGlass className="absolute ml-72 mt-3 cursor-pointer hover:scale-110"/>

@@ -7,8 +7,8 @@ import { atualizar, buscar, cadastrar } from "../../../services/Service";
 import { ToastAlert } from "../../../utils/ToastAlert";
 import { RotatingLines } from "react-loader-spinner";
 import { Input } from "../input";
-import { Button } from "../button";
 import { AuthContext } from "../../../contexts/AuthContext";
+import { Button } from "../../ui/button";
 
 function FormViagens() {
   const navigate = useNavigate();
@@ -103,7 +103,7 @@ function FormViagens() {
   }, [id]);
 
   useEffect(() => {
-    console.log("Usuário logado:", usuario);
+    console.log("Usuário logado: ", usuario);
     setViagem({
       ...viagem,
       veiculo: veiculo,
@@ -178,12 +178,12 @@ function FormViagens() {
 
   return (
     <>
-      <div className=" flex flex-col items-center bg-#f6f5fa text-#212121">
+      <div className=" flex flex-col items-center text-[#212121]">
         <h1 className="text-4xl text-center my-8">
           {id !== undefined ? "Editar Viagem" : "Cadastrar Viagem"}
         </h1>
 
-        <form className="flex flex-col w-1/2 gap-9" onSubmit={gerarNovaViagem}>
+        <form className="flex flex-col w-1/2 gap-5 " onSubmit={gerarNovaViagem}>
           {/* <div>
             <Input
               type="date"
@@ -255,7 +255,7 @@ function FormViagens() {
               onChange={(e: ChangeEvent<HTMLSelectElement>) => atualizarEstado(e)}
             >
               <option value="" disabled>
-                Selecione o Status
+                Selecione o status
               </option>
               <option value="Pendente">Pendente</option>
               <option value="Em Andamento">Em Andamento</option>
@@ -272,7 +272,7 @@ function FormViagens() {
               onChange={(e) => buscarVeiculoPorID(e.currentTarget.value)}
             >
               <option value="" selected disabled>
-                Selecione um Veículo
+                Selecione um veículo
               </option>
               {veiculos.map((veiculo) => (
                 <option key={veiculo.id} value={veiculo.id}>

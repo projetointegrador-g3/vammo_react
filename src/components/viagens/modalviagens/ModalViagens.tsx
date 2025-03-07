@@ -3,29 +3,45 @@ import 'reactjs-popup/dist/index.css';
 import './ModalViagens.css'
 import { PlusSquare } from '@phosphor-icons/react';
 import FormViagens from '../formviagens/FormViagens';
+import { useState } from 'react';
+import { ArrowRight } from 'lucide-react';
 
-function ModalViagens() {
+// Prop para controlar a exibição do título
+interface ModalViagensProps {
+    showTitle?: boolean; 
+  }
+
+function ModalViagens({showTitle = true}: ModalViagensProps) {
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const openModal = () => setIsModalOpen(true);
+    const closeModal = () => setIsModalOpen(false);
+    
     return (
-        <>
-            <Popup
-                trigger={
-                    <h2 className="text-3xl font-semibold mb-3 flex flex-col items-center sm:flex-row sm:justify-between gap-4 sm:gap-0 ml-30 mt-15">
-                        <span>Viagens / Corridas</span>
+    <>
+    {/* Condicional para mostrar o título "Viagens / Corridas" */}
+      {showTitle && (
+        <h2 className="text-3xl font-semibold flex flex-col items-center sm:flex-row sm:justify-between sm:gap-0 ml-32 mt-15">
+          <span>Viagens / Corridas</span>
+        </h2>
+      )}
 
-                        <button
-                            className="bg-green-300 px-4 py-2 rounded flex mr-10
-                                           items-center gap-3 hover:bg-green-400 hover:scale-105 ease-in-out cursor-pointer"
-                        >
-                            <PlusSquare className="size-6"/>
-                            <p className="text-2xl font-semibold mr-8">Adicionar nova viagem</p>
-                        </button>
-                    </h2>
-                }
-                modal
-            >
-                <FormViagens />
-            </Popup>
-        </>
+      {/* Botão para abrir a modal */}
+        <button
+            onClick={openModal}
+            className="w-full py-3 bg-[#d8f505] hover:bg-black hover:text-[#f6f5fa] transition-all delay-70 rounded-4xl flex justify-between px-4 font-semibold">
+            <span>Buscar viagem</span>
+                <ArrowRight color="#ffffff" className="bg-black rounded-4xl w-15" />
+        </button>
+
+      {/* Popup Modal */}
+      <Popup open={isModalOpen} onClose={closeModal} modal>
+        <div className="modal-content">
+          <FormViagens />
+        </div>
+      </Popup>
+    </>
     );
 }
 
