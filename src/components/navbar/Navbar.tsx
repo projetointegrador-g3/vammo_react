@@ -1,80 +1,122 @@
-import { Bell, MagnifyingGlass, SignOut } from "@phosphor-icons/react"
-import { useContext } from "react"
+import { Bell, MagnifyingGlass, SignOut, List } from "@phosphor-icons/react"
+import { useContext, useState } from "react"
 import { AuthContext } from "../../contexts/AuthContext"
 import { Link } from "react-router-dom"
+
 const Navbar = () => {
+  const { usuario } = useContext(AuthContext)
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
 
-  const {usuario}=useContext(AuthContext)
+  // Função para rolar até a seção
+  const scrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      // Verifica se está em um dispositivo desktop
+      if (window.innerWidth > 1024) {
+        // Rolar suavemente até a seção no layout desktop
+        section.scrollIntoView({ behavior: 'smooth' });
+        setTimeout(() => {
+          window.scrollBy(0, -100); // Ajuste após rolar para a seção
+        }, 500);
+      } else {
+        // Caso contrário, rolar de maneira normal no mobile
+        section.scrollIntoView();
+      }
+      setIsMenuOpen(false);
+    }
+  };
 
-  if (location.pathname==="/")
-  return (
-    <div className="flex pl-50">
-      <img id="logo" src="https://ik.imagekit.io/grupo03/Vammo/vammoblack.png?updatedAt=1741184618721" alt="Logo da Vammo!" className="w-25"></img>
-
-      <div className="flex gap-5 pl-170 items-center">
-        <a href="#service" className="hover:scale-110 hover:underline">Serviços</a>
-        <Link to="/about" className="hover:scale-110 hover:underline">Sobre nós</Link>
-        <Link to="/contact" className="hover:scale-110 hover:underline">Contato</Link>
-        <Link to="/login" className="font-semibold hover:scale-110 hover:underline">Login</Link>
-        <span className="text-zinc-400 ">|</span>
-        <Link to="/register" className="bg-[#212121] hover:bg-[#D8F505] hover:text-[#212121] transition-all delay-70 rounded-full w-35 p-1 text-center text-[#f6f5fa] hover:font-medium">Cadastre-se</Link>
-      </div>
-    </div>
-  )
-
-  if (location.pathname==="/about")
+  if (location.pathname === "/" || location.pathname === "/about" || location.pathname === "/contact") {
     return (
-      <div className="flex pl-18">
-        <img src="https://ik.imagekit.io/grupo03/Vammo/vammoblack.png?updatedAt=1741184618721" alt="Logo da Vammo!" className="w-25"></img>
-  
-        <div className="flex gap-5 pl-199 items-center">
-          <Link to="/" className="hover:scale-110 hover:underline">Início</Link>
-          <Link to="/contact" className="hover:scale-110 hover:underline">Contato</Link>
-          <Link to="/login" className="font-semibold hover:scale-110 hover:underline">Login</Link>
-        <span className="text-zinc-400 ">|</span>
-        <Link to="/register" className="bg-[#212121] hover:bg-[#D8F505] hover:text-[#212121] transition-all delay-70 rounded-full w-35 p-1 text-center text-[#f6f5fa] hover:font-medium">Cadastre-se</Link>
+      <div className="navbar flex justify-between items-center w-full pl-4 md:pl-8 lg:pl-12">
+        <img id="logo" src="https://ik.imagekit.io/grupo03/Vammo/vammoblack.png?updatedAt=1741184618721" alt="Logo da Vammo!" className="w-25" />
+
+        <div className="lg:hidden flex items-center cursor-pointer" onClick={toggleMenu}>
+          <List size={32} color="#212121" />
+        </div>
+
+        <div className="hidden lg:flex gap-5 justify-end flex-grow items-center pr-12">
+          {location.pathname === "/" && (
+            <>
+              <a href="#service" className="hover:scale-110 hover:underline" onClick={() => scrollToSection("service")}>Serviços</a>
+              <Link to="/about" className="hover:scale-110 hover:underline">Sobre nós</Link>
+              <Link to="/contact" className="hover:scale-110 hover:underline">Contato</Link>
+            </>
+          )}
+
+          {location.pathname === "/about" && (
+            <>
+              <Link to="/" className="hover:scale-110 hover:underline">Início</Link>
+              <Link to="/contact" className="hover:scale-110 hover:underline">Contato</Link>
+            </>
+          )}
+
+          {location.pathname === "/contact" && (
+            <>
+              <Link to="/" className="hover:scale-110 hover:underline">Início</Link>
+              <Link to="/about" className="hover:scale-110 hover:underline">Sobre nós</Link>
+            </>
+          )}
+
+          <Link to="/login" className="bg-[#212121] hover:bg-[#D8F505] hover:text-[#212121] transition-all delay-70 rounded-full w-20 p-1 text-center text-[#f6f5fa]">Login</Link>
+        </div>
+
+        {isMenuOpen && (
+          <div className="lg:hidden absolute top-0 left-0 right-0 bottom-0 bg-black/50 z-[9999] flex justify-center items-center">
+            <div className="bg-[#f6f5fa] p-4 rounded-lg w-[150px] sm:w-[300px] md:w-[350px] shadow-lg">
+              {location.pathname === "/" && (
+                <>
+                  <a href="#service" className="block py-2 pl-7 hover:scale-110" onClick={() => scrollToSection("service")}>Serviços</a>
+                  <Link to="/about" className="block py-2 pl-7 hover:scale-110" onClick={() => setIsMenuOpen(false)}>Sobre nós</Link>
+                  <Link to="/contact" className="block py-2 pl-7 hover:scale-110" onClick={() => setIsMenuOpen(false)}>Contato</Link>
+                </>
+              )}
+
+              {location.pathname === "/about" && (
+                <>
+                  <Link to="/" className="block py-2 pl-7 hover:scale-110" onClick={() => setIsMenuOpen(false)}>Início</Link>
+                  <Link to="/contact" className="block py-2 pl-7 hover:scale-110" onClick={() => setIsMenuOpen(false)}>Contato</Link>
+                </>
+              )}
+
+              {location.pathname === "/contact" && (
+                <>
+                  <Link to="/" className="block py-2 pl-7 hover:scale-110" onClick={() => setIsMenuOpen(false)}>Início</Link>
+                  <Link to="/about" className="block py-2 pl-7 hover:scale-110" onClick={() => setIsMenuOpen(false)}>Sobre nós</Link>
+                </>
+              )}
+
+              <Link to="/login" className="block py-2 ml-4 mt-2 mb-2 bg-[#212121] hover:bg-[#D8F505] hover:text-[#212121] transition-all delay-70 rounded-full w-21 p-1 text-center text-[#f6f5fa]" onClick={() => setIsMenuOpen(false)}>Login</Link>
+              <button className="absolute top-2 right-2 text-2xl text-[#D8F505] cursor-pointer" onClick={toggleMenu}>X</button>
+            </div>
+          </div>
+        )}
+      </div>
+    )
+  }
+
+  // Restante do código continua como estava
+  if (location.pathname === "/home" || location.pathname === "/veiculo" || location.pathname === "/configuracoes" || location.pathname === "/perfil" || location.pathname === "/viagens")
+    return (
+      <div className="flex justify-start items-center w-full pl-4 md:pl-[6rem] lg:pl-[8rem] pt-8">
+        <div className="relative w-[250px] md:w-[300px] lg:w-[350px]">
+          <input type="text" placeholder="Buscar..." className="bg-black/5 pl-4 pr-10 py-2 rounded-full border-0 focus:outline-none w-full" />
+          <MagnifyingGlass className="absolute right-4 top-1/2 transform -translate-y-1/2 cursor-pointer hover:scale-110" />
+        </div>
+
+        <div className="flex gap-8 pl-4 md:pl-8 lg:pl-12 items-center ml-auto mr-2 md:mr-5 lg:mr-10">
+          <Link to="notificacoes" className="hover:scale-110"><Bell /></Link>
+          <img src={usuario.foto} alt={`Foto de perfil de ${usuario.nome}`} />
+          <div className="flex">
+            <Link to="/" className="flex items-center gap-2 hover:scale-110 hover:underline">Sair<SignOut className="hover:scale-110" /></Link>
+          </div>
         </div>
       </div>
     )
 
-    if (location.pathname==="/contact")
-      return (
-        <div className="flex pl-18">
-          <img src="https://ik.imagekit.io/grupo03/Vammo/vammoblack.png?updatedAt=1741184618721" alt="Logo da Vammo!" className="w-25"></img>
-    
-          <div className="flex gap-5 pl-195 items-center">
-            <Link to="/" className="hover:scale-110 hover:underline">Início</Link>
-            <Link to="/about" className="hover:scale-110 hover:underline">Sobre nós</Link>
-            <Link to="/login" className="font-semibold hover:scale-110 hover:underline">Login</Link>
-        <span className="text-zinc-400 ">|</span>
-        <Link to="/register" className="bg-[#212121] hover:bg-[#D8F505] hover:text-[#212121] transition-all delay-70 rounded-full w-35 p-1 text-center text-[#f6f5fa] hover:font-medium">Cadastre-se</Link>
-          </div>
-        </div>
-      )
+  if (location.pathname === "/login" || location.pathname === "/register")
+    return <></>
+}
 
-if (location.pathname==="/home" || location.pathname==="/veiculo" || location.pathname==="/configuracao" || location.pathname==="/perfil" || location.pathname.startsWith("/editarperfil/") || location.pathname==="/viagens")
-  return(
-    <div className="flex pl-30 pt-8 ">
-      <div className="flex">
-        <input type="text" placeholder="Buscar..." className="bg-black/5 pl-4 pr-30 py-2 rounded-full border-0 focus:outline-none"/>
-        <MagnifyingGlass className="absolute ml-72 mt-3 cursor-pointer hover:scale-110"/>
-      </div>
-
-      <div className="flex gap-8 pl-230 items-center ">
-        <Link to="notificacoes" className="hover:scale-110"><Bell/></Link>
-        <Link to="/perfil">
-          <img className="w-10 rounded-full" src={usuario.foto || "https://i.pinimg.com/736x/3c/ae/07/3cae079ca0b9e55ec6bfc1b358c9b1e2.jpg"} alt={`Foto de perfil de ${usuario.nome}`}></img>
-        </Link>
-        <div className="flex">
-          <Link to="/" className="flex items-center gap-2 hover:scale-110 hover:underline">Sair<SignOut className="hover:scale-110"/></Link>
-        </div>
-      </div>
-    </div>
-  )
-
-  if (location.pathname==="/login" || location.pathname==="/register")
-  return(
-    <></>
-  )
-} 
 export default Navbar
