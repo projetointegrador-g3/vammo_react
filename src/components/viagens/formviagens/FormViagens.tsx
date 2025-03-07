@@ -10,7 +10,12 @@ import { Input } from "../input";
 import { AuthContext } from "../../../contexts/AuthContext";
 import { Button } from "../../ui/button";
 
-function FormViagens() {
+interface FormViagensProps {
+  origem: string;
+  destino: string;
+}
+
+function FormViagens({ origem, destino }: FormViagensProps) {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [veiculos, setVeiculos] = useState<Veiculo[]>([]);
@@ -176,11 +181,22 @@ function FormViagens() {
 
   const carregamentoDependencias = veiculo.modelo === "" || usuario.usuario === "";
 
+  // Preencher os campos automaticamente (origem, destino)
+  useEffect(() => {
+    setViagem((prevViagem) => ({
+        ...prevViagem,
+        origem: origem,
+        destino: destino
+    }));
+}, [origem, destino]);
+
+
+
   return (
     <>
       <div className=" flex flex-col items-center text-[#212121]">
         <h1 className="text-4xl text-center my-8">
-          {id !== undefined ? "Editar Viagem" : "Cadastrar Viagem"}
+          {id !== undefined ? "Editar viagem" : "Buscar viagem"}
         </h1>
 
         <form className="flex flex-col w-1/2 gap-5 " onSubmit={gerarNovaViagem}>

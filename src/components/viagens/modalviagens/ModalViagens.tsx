@@ -8,9 +8,11 @@ import { ArrowRight } from 'lucide-react';
 // Prop para controlar a exibição do título
 interface ModalViagensProps {
     showTitle?: boolean; 
+    origem: string;
+    destino: string;
   }
 
-function ModalViagens({showTitle = true}: ModalViagensProps) {
+const ModalViagens: React.FC<ModalViagensProps> = ({ showTitle, origem, destino }) => {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -37,7 +39,7 @@ function ModalViagens({showTitle = true}: ModalViagensProps) {
       {/* Popup Modal */}
       <Popup open={isModalOpen} onClose={closeModal} modal>
         <div className="modal-content">
-          <FormViagens />
+          <FormViagens origem={origem} destino={destino} />
         </div>
       </Popup>
     </>

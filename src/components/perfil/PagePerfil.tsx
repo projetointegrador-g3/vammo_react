@@ -17,7 +17,7 @@ function PagePerfil() {
   }, [usuario.token, navigate]);
 
   return (
-    <div className="flex gap-8 text-[#212121] ml-30 gap-80">
+    <div className="flex text-[#212121] mx-40 mt-8 gap-80 ">
       {/* Seção de Perfil */}
       <div className="flex flex-col w-100">
         <h1 className="font-semibold text-2xl my-8">Perfil de {usuario.nome}</h1>
@@ -29,12 +29,12 @@ function PagePerfil() {
         />
 
         <div className="flex flex-col mb-4">
-          <p><strong>Nome:</strong> {usuario.nome}</p>
-          <p><strong>Email:</strong> {usuario.usuario}</p>
-          <p><strong>Data de Nascimento:</strong> {usuario.data_aniversario}</p>
-          <p><strong>Gênero:</strong> {usuario.genero}</p>
-          <p><strong>Tipo de Usuário:</strong> {usuario.tipo_user}</p>
-          <p><strong>Avaliação:</strong> {usuario.avaliacao}</p>
+          <p><strong>Nome: </strong> {usuario.nome}</p>
+          <p><strong>Email: </strong> {usuario.usuario}</p>
+          <p><strong>Data de Nascimento: </strong> {usuario.data_aniversario}</p>
+          <p><strong>Gênero: </strong> {usuario.genero}</p>
+          <p><strong>Tipo de Usuário: </strong> {usuario.tipo_user}</p>
+          <p><strong>Avaliação: </strong> {usuario.avaliacao}</p>
           <Button onClick={() => navigate(`/editarperfil/${usuario.id}`)} className="mt-4 w-50 cursor-pointer">Editar</Button>
         </div>
       </div>

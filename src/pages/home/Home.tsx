@@ -1,24 +1,28 @@
-import {  useEffect, useRef, useState } from 'react';
+import {  useContext, useEffect, useRef, useState } from 'react';
 import { PieChart, Pie, Cell, Tooltip } from 'recharts';
 import mapboxgl from 'mapbox-gl';
 import ModalViagens from '../../components/viagens/modalviagens/ModalViagens';
-import UsuarioLogin from '../../model/UsuarioLogin';
-
-interface UsuarioProps {
-  usuario: UsuarioLogin;
-}
+import { useNavigate } from 'react-router-dom';
+import { ToastAlert } from '../../utils/ToastAlert';
+import { AuthContext } from '../../contexts/AuthContext';
+import { Viagem } from '../../model/Viagem';
 
 //Token para o Map
 mapboxgl.accessToken = 'pk.eyJ1IjoiZ3J1cG8wMy1qczA2IiwiYSI6ImNtN3htaW11YTAwb3Qya29md3pwNzJrd2MifQ.uB4DxvtKsao_3O9FPIYTFQ';
 
-const Home = ({ usuario }: UsuarioProps) => {
+const Home = () => {
 
   const mapContainerRef = useRef<HTMLDivElement | null>(null);
-  
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
+  const navigate = useNavigate();
+  const { usuario } = useContext(AuthContext);
+
+  useEffect(() => {
+    if (usuario.token === "") {
+      ToastAlert('Você precisa estar logado', 'info');
+      navigate("/");
+    }
+  }, [usuario.token, navigate]);
 
     // Configurações do mapa
     useEffect(() => {
@@ -46,17 +50,8 @@ const Home = ({ usuario }: UsuarioProps) => {
   // Armazenar infos no inputs
   const [origem, setOrigem] = useState<string>('');
   const [destino, setDestino] = useState<string>('');
+  const [viagens, setViagens] = useState<Viagem[]>([]);
 
-  function atualizarEstado(e: React.ChangeEvent<HTMLInputElement>) {
-    const { name, value } = e.target;
-    
-    if (name === "origem") {
-      setOrigem(value);
-    } else if (name === "destino") {
-      setDestino(value);
-    }
-  }
-  
 
   return (
     <main className='flex-1 p-10 ml-[100px] overflow-hidden mt-[-50px]'>
@@ -74,7 +69,7 @@ const Home = ({ usuario }: UsuarioProps) => {
             type='text'
             placeholder='Local de partida'
             value={origem}
-            onChange={atualizarEstado}
+            onChange={(e) => setOrigem(e.target.value)}
             className='w-full p-3 bg-[#F2F2F2]  rounded-4xl placeholder-[#212121]'
           />
 
@@ -82,22 +77,22 @@ const Home = ({ usuario }: UsuarioProps) => {
             type='text'
             placeholder='Destino'
             value={destino}
-            onChange={atualizarEstado}      
+            onChange={(e) => setDestino(e.target.value)}     
             className='w-full p-3 bg-[#F2F2F2] rounded-4xl placeholder-[#212121]'
           />
 
 <div>
       
       {/* Modal */}
-      <ModalViagens showTitle={false} />
+      <ModalViagens showTitle={false} origem={origem} destino={destino} />
     </div>
         </div>
 
         {/* Informações da Corrida */}
         <div className='mt-6 p-4 bg-[#F2F2F2] rounded-4xl shadow'>
-          <h3 className='text-lg font-bold'>Informações da corrida</h3>
-          <p><strong>Valor:</strong> R$24,90</p>
-          <p><strong>Distância:</strong> 5km</p>
+          <h3 className='text-lg font-bold'>Última corrida solicitada</h3>
+          <p><strong>Valor:</strong> {viagens.preco}</p>
+          <p><strong>Distância:</strong> {viagens.distancia}</p>
         </div>
 
         {/* Dashboard */}
