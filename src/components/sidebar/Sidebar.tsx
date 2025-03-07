@@ -1,5 +1,6 @@
 import { Car, Gear, House, MapTrifold } from "@phosphor-icons/react"
 import { Link } from "react-router-dom"
+import "./Sidebar.css"
 
 const Sidebar = () => {
 
