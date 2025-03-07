@@ -13,7 +13,7 @@ const Sidebar = () => {
       <Link to="/viagens" className="hover:scale-110"><MapTrifold size={24} className="text-white"/></Link>
       <Link to="/veiculo" className="hover:scale-110"><Car size={24} className="text-white"/></Link>
       <div className="pt-40">
-        <Link to="/configuracoes"><Gear size={24} className="hover:scale-110 cursor-pointer text-white"/></Link>
+        <Link to="/configuracao"><Gear size={24} className="hover:scale-110 cursor-pointer text-white"/></Link>
       </div>
       </nav>
     </aside>

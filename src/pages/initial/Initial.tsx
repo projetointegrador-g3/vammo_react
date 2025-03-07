@@ -20,7 +20,7 @@ const Initial = () => {
                   placeholder='Local de partida'
                   className='bg-transparent text-lg placeholder-[#212121] outline-none flex-1' 
                   />
-                  <Navigation />
+                  <Navigation id='icon'/>
                 </div>
         </section>
 
@@ -32,7 +32,7 @@ const Initial = () => {
                   placeholder='Destino'
                   className='bg-transparent text-lg placeholder-[#212121] outline-none flex-1' 
                   />
-                  <MapPin />
+                  <MapPin id='icon'/>
                 </div>
                 
                 </section>
@@ -51,8 +51,13 @@ const Initial = () => {
         </section>
 
         <section className='mt-60'>
+<<<<<<< HEAD
           <div className='bg-[#D8DFE9] p-10'>
           <h2 id="service" className='font-semibold text-2xl text-center'>Nossos serviços</h2>
+=======
+          <h2 id="service" className='font-semibold text-3xl text-center mb-10'>Nossos serviços</h2>
+          <div className='bg-[#D8DFE9] p-30'>
+>>>>>>> 5bde40416ab81721001175496d4ac2aeb5e9ebed
           <p id='card' className='text-center'>Escolha o Vammo perfeito para a sua viagem: </p>
             <div className='flex items-center justify-center gap-20 p-10'>
 

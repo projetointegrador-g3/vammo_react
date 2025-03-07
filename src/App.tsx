@@ -16,6 +16,8 @@ import ListaVeiculos from './components/veiculos/listaveiculos/ListaVeiculos'
 import FormVeiculo from './components/veiculos/formveiculo/FormVeiculo'
 import DeletarVeiculo from './components/veiculos/deletarveiculo/DeletarVeiculos'
 import Configuracao from './components/configuracoes/Configuracao'
+import PagePerfil from './components/perfil/PagePerfil'
+import FormPerfil from './components/perfil/FormPerfil'
 
 function App() {
 
@@ -50,6 +52,8 @@ function App() {
           <Route path="/editarveiculo/:id" element={<FormVeiculo />} />
           <Route path="/deletarveiculo/:id" element={<DeletarVeiculo />} />
           <Route path="/configuracao" element={<Configuracao />} />
+          <Route path="/perfil" element={<PagePerfil />} />
+          <Route path="/editarperfil/:id" element={<FormPerfil />} />
         </Routes>
       </AuthProvider>
     </>
