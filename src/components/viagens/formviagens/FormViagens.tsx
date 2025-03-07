@@ -26,9 +26,10 @@ function FormViagens({ origem, destino }: FormViagensProps) {
     modelo: "",
     placa: "",
     cor: "",
-    ano_fabricacao: 0,
+    ano_fabricacao: "",
+    foto: "",
     observacao: "",
-    disponivel: true,
+    disponivel: "",
   });
 
   const [viagem, setViagem] = useState<Viagem>({
