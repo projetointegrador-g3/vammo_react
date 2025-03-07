@@ -1,7 +1,7 @@
 export interface Usuario {
     id: number;
     tipo_user?: string;
-    nome: string ;
+    nome: string;
     data_aniversario: string;
     genero?: string;
     usuario: string;

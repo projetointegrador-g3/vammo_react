@@ -8,14 +8,13 @@ const Navbar = () => {
 
   if (location.pathname==="/")
   return (
-    <div className="flex pl-18">
+    <div className="flex pl-50">
       <img id="logo" src="https://ik.imagekit.io/grupo03/Vammo/vammoblack.png?updatedAt=1741184618721" alt="Logo da Vammo!" className="w-25"></img>
 
       <div className="flex gap-5 pl-170 items-center">
         <a href="#service" className="hover:scale-110 hover:underline">Serviços</a>
         <Link to="/about" className="hover:scale-110 hover:underline">Sobre nós</Link>
         <Link to="/contact" className="hover:scale-110 hover:underline">Contato</Link>
-        <Link to="/veiculo" className="hover:scale-110 hover:underline">veiculo</Link>
         <Link to="/login" className="bg-[#212121] hover:bg-[#D8F505] hover:text-[#212121] transition-all delay-70 rounded-full w-20 p-1 text-center text-[#f6f5fa]">Login</Link>
       </div>
     </div>

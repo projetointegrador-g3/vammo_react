@@ -50,9 +50,9 @@ const Initial = () => {
             </form>
         </section>
 
-        <section className='mt-20'>
-          <h2 id="service" className='font-semibold text-2xl text-center'>Nossos serviços</h2>
+        <section className='mt-60'>
           <div className='bg-[#D8DFE9] p-10'>
+          <h2 id="service" className='font-semibold text-2xl text-center'>Nossos serviços</h2>
           <p id='card' className='text-center'>Escolha o Vammo perfeito para a sua viagem: </p>
             <div className='flex items-center justify-center gap-20 p-10'>
 
@@ -86,7 +86,7 @@ const Initial = () => {
 
         <section className='p-8'>
           
-          <div className='flex items-center justify-center gap-10 p-8'>
+          <div className='flex items-center justify-center gap-10 p-15'>
           <div className='flex flex-col gap-2'>
           <h2 className='font-semibold text-4xl text-center'>Na Vammo você encontra: </h2>
           <p id='topicos'>
