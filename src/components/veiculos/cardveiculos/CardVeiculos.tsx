@@ -6,17 +6,15 @@ interface CardVeiculosProps{
 
 function CardVeiculos({veiculo}: CardVeiculosProps){
     return(
-        <div className="bg-[var(--colorWhite)] p-4 rounded-lg shadow-2xl relative w-70">
-            <div >
-                <h3>
-                    {veiculo.modelo}
-                </h3>
-            </div>
-            <main className="flex flex-col items-center gap-2">
-                <p className="font-bold mt-3 text-center">{veiculo.placa}</p>
-                <p className='text-[var(--colorGrey)] text-sm text-center'>{veiculo.cor}</p>
-                <p className='text-[var(--colorGrey)] text-sm text-center'>{veiculo.observacao}</p>
-                <p className='text-[var(--colorGrey)] text-sm text-center'>{veiculo.disponivel}</p>
+        <div className="p-4 rounded-lg shadow relative w-100 mx-20 my-5">
+            
+            <main className="flex flex-col items-center gap-2 text-sm tex-center">
+                <p><strong>Modelo: </strong>{veiculo.modelo}</p>
+                <p><strong>Placa:</strong> {veiculo.placa}</p>
+                <p><strong>Cor: </strong>{veiculo.cor}</p>
+                <p><strong>Ano: </strong>{veiculo.ano_fabricacao}</p>
+                <p><strong>Observação: </strong>{veiculo.observacao}</p>
+                <p >{veiculo.disponivel}</p>
             </main>
         </div>
     )

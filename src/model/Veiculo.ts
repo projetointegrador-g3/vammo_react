@@ -5,8 +5,8 @@ export interface Veiculo {
     modelo: string;
     placa: string;
     cor: string;
-    ano_fabricacao: number;
+    ano_fabricacao: string;
     observacao: string;
-    disponivel: boolean;
+    disponivel: string;
     viagem?: Viagem | null;
 }

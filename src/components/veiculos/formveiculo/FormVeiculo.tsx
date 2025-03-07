@@ -4,38 +4,48 @@ import { Veiculo } from "../../../model/Veiculo";
 import { atualizar, buscar, cadastrar } from "../../../services/Service";
 import { ToastAlert } from "../../../utils/ToastAlert";
 import { AuthContext } from "../../../contexts/AuthContext";
+import { RotatingLines } from "react-loader-spinner";
 
 function FormVeiculo() {
+
     const navigate = useNavigate();
+
     const { id } = useParams<{ id: string }>();
     const { usuario, handleLogout } = useContext(AuthContext);
-    const token = usuario?.token || "";
-
-    // Estado inicial corrigido
+    const token = usuario.token;
+    const [isLoading, setIsLoading] = useState<boolean>(false);
     const [veiculo, setVeiculo] = useState<Veiculo>({} as Veiculo);
 
-    // Verifica se o usuário está autenticado
+    async function buscarPorId(id: string) {
+
+        try {
+            await buscar(`/veiculo/${id}`, setVeiculo, {
+                headers: { Authorization: token }
+            })
+
+        } catch (error: any) {
+            if (error.toString().includes('401')) {
+                handleLogout()
+            }
+        }
+    }
+
     useEffect(() => {
-        if (!token) {
+        if (token === "") {
             ToastAlert("Você precisa estar logado", "info");
             navigate("/");
         }
-    }, [token, navigate]);
+    }, [token]);
 
-    // Busca os dados do veículo se houver um ID
     useEffect(() => {
-        if (id && token) {
-            buscar(`/veiculos/${id}`, setVeiculo, {
-                headers: { Authorization: token },
-            }).catch((error) => {
-                if (error.toString().includes("403")) {
-                    handleLogout();
-                }
-            });
+        if (id !== undefined) {
+            buscarPorId(id)
         }
-    }, [id, token, handleLogout]);
+    }, [id]);
+
 
     function atualizarEstado(e: ChangeEvent<HTMLInputElement>) {
+       
         setVeiculo({
             ...veiculo,
             [e.target.name]: e.target.value,
@@ -48,36 +58,49 @@ function FormVeiculo() {
 
     async function gerarNovoVeiculo(e: ChangeEvent<HTMLFormElement>) {
         e.preventDefault();
+        setIsLoading(true);
 
-        try {
-            if (id) {
-                await atualizar(`/veiculos`, veiculo, setVeiculo, {
+        if (id !== undefined) {
+            try {
+
+                await atualizar(`/veiculo`, veiculo, setVeiculo, {
                     headers: { Authorization: token },
                 });
                 ToastAlert("Veículo atualizado com sucesso", "sucesso");
-            } else {
-                await cadastrar(`/veiculos`, veiculo, setVeiculo, {
+            }
+
+            catch (error: any) {
+                if (error.toString().includes("401")) {
+                    handleLogout();
+                } else {
+                    ToastAlert("Erro ao salvar o veículo", "erro");
+                }
+            }
+        } else {
+            try {
+                await cadastrar(`/veiculo`, veiculo, setVeiculo, {
                     headers: { Authorization: token },
                 });
                 ToastAlert("Veículo cadastrado com sucesso", "sucesso");
             }
-        } catch (error: any) {
-            if (error.toString().includes("403")) {
-                handleLogout();
-            } else {
-                ToastAlert("Erro ao salvar o veículo", "erro");
-            }
+
+            catch (error: any) {
+                if (error.toString().includes("401")) {
+                    handleLogout();
+                } else {
+                    ToastAlert("Erro ao salvar o veículo", "erro");
+                }
+            } 
         }
+        setIsLoading(false)
         retornar();
     }
-
     return (
-        <div className="flex flex-col items-center bg-[#f6f5fa] text-[#212121]">
+        <div className=" flex flex-col items-center bg-#f6f5fa text-#212121">
             <h1 className="text-4xl text-center my-8">
-                {id ? "Editar Veículo" : "Cadastrar Veículo"}
-            </h1>
+                {id !== undefined ? "Editar Veículo" : "Cadastrar Veículo"}</h1>
 
-            <form className="flex flex-col w-1/2 gap-4" onSubmit={gerarNovoVeiculo}>
+            <form className="flex flex-col w-1/2 gap-9"   onSubmit={gerarNovoVeiculo}> 
                 <div>
                     <label htmlFor="modelo">Modelo do Veículo</label>
                     <input
@@ -86,7 +109,7 @@ function FormVeiculo() {
                         name="modelo"
                         required
                         value={veiculo.modelo}
-                        onChange={atualizarEstado}
+                        onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
                     />
                 </div>
                 <div>
@@ -97,7 +120,7 @@ function FormVeiculo() {
                         name="placa"
                         required
                         value={veiculo.placa}
-                        onChange={atualizarEstado}
+                        onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
                     />
                 </div>
                 <div>
@@ -108,17 +131,18 @@ function FormVeiculo() {
                         name="cor"
                         required
                         value={veiculo.cor}
-                        onChange={atualizarEstado}
+                        onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
                     />
                 </div>
                 <div>
                     <label htmlFor="ano_fabricacao">Ano de Fabricação</label>
                     <input
-                        type="date"
+                        type="text"
                         name="ano_fabricacao"
+                        placeholder="Ex.:2022"
                         required
                         value={veiculo.ano_fabricacao}
-                        onChange={atualizarEstado}
+                        onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
                     />
                 </div>
                 <div>
@@ -129,26 +153,41 @@ function FormVeiculo() {
                         name="observacao"
                         required
                         value={veiculo.observacao}
-                        onChange={atualizarEstado}
+                        onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
                     />
                 </div>
                 <div>
                     <label htmlFor="disponivel">Disponibilidade</label>
                     <input
-                        type="checkbox"
+                        type="text"
                         name="disponivel"
+                        placeholder="ex.: Sim/Não"
+                        value={veiculo.disponivel} // Use 'checked' para checkboxes  
                         required
-                        checked={veiculo.disponivel}
-                        onChange={atualizarEstado}
+                        onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
                     />
                 </div>
 
-                <button type="submit">
-                    <span>{id ? "Atualizar" : "Cadastrar"}</span>
+                <button type='submit'
+                    className='rounded text-white bg-indigo-400 
+                     hover:bg-indigo-900 w-1/2 py-2 mx-auto 
+                     flex justify-center'>
+                    {isLoading ?
+                        <RotatingLines
+                            strokeColor="white"
+                            strokeWidth="5"
+                            animationDuration="0.75"
+                            width="24"
+                            visible={true} />
+                        :
+                        <span> {id !== undefined ? 'Atualizar' : 'Cadastrar'}</span>
+                    }
+
                 </button>
             </form>
         </div>
     );
 }
 
-export default FormVeiculo;
+
+export default FormVeiculo
