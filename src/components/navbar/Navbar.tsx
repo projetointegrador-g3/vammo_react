@@ -97,7 +97,8 @@ const Navbar = () => {
   }
 
   // Restante do código continua como estava
-  if (location.pathname === "/home" || location.pathname === "/veiculo" || location.pathname === "/configuracoes" || location.pathname === "/perfil" || location.pathname === "/viagens")
+  if (location.pathname === "/home" || location.pathname === "/veiculo" || location.pathname === "/configuracao" || location.pathname === "/perfil" || location.pathname === "/viagens" 
+    || location.pathname.startsWith("/editarperfil/"))
     return (
       <div className="flex justify-start items-center w-full pl-4 md:pl-[6rem] lg:pl-[8rem] pt-8">
         <div className="relative w-[250px] md:w-[300px] lg:w-[350px]">
@@ -107,8 +108,13 @@ const Navbar = () => {
 
         <div className="flex gap-8 pl-4 md:pl-8 lg:pl-12 items-center ml-auto mr-2 md:mr-5 lg:mr-10">
           <Link to="notificacoes" className="hover:scale-110"><Bell /></Link>
-          <img src={usuario.foto} alt={`Foto de perfil de ${usuario.nome}`} />
-          <div className="flex">
+
+            <Link to='/perfil'>
+            <img src={usuario.foto} 
+            className="w-15 rounded-full cursor-pointer"
+            alt={`Foto de perfil de ${usuario.nome}`} />
+            </Link>
+            <div className="flex">
             <Link to="/" className="flex items-center gap-2 hover:scale-110 hover:underline">Sair<SignOut className="hover:scale-110" /></Link>
           </div>
         </div>

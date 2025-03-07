@@ -22,7 +22,6 @@ const Configuracao = () => {
     jp: { settings: "設定", mode: "表示モード", light: "ライトモード", dark: "ダークモード", lang: "言語", select: "言語を選択：" },
   };
 
-
     return(
             <div className="flex flex-col gap-8 p-20 transition-all ml-15">
                 <h1 className="text-3xl font-semibold">

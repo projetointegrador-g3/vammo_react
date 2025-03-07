@@ -17,7 +17,7 @@ function PagePerfil() {
   }, [usuario.token, navigate]);
 
   return (
-    <div className="flex text-[#212121] mx-40 mt-8 gap-80 ">
+    <div className="flex text-[#212121] mx-40 gap-80 ">
       {/* Seção de Perfil */}
       <div className="flex flex-col w-100">
         <h1 className="font-semibold text-2xl my-8">Perfil de {usuario.nome}</h1>
@@ -25,7 +25,7 @@ function PagePerfil() {
         <img
           src={usuario.foto || "https://i.pinimg.com/736x/3c/ae/07/3cae079ca0b9e55ec6bfc1b358c9b1e2.jpg"}
           alt="Foto de perfil"
-          className="w-24 h-24 rounded-full object-cover mb-4"
+          className="w-30 rounded-full object-cover mb-4"
         />
 
         <div className="flex flex-col mb-4">
@@ -40,8 +40,8 @@ function PagePerfil() {
       </div>
 
       {/* Seção de Dados de Pagamento */}
-      <div className="w-1/3 mt-10">
-        <h2 className="font-semibold text-xl mb-4">Dados de Pagamento</h2>
+      <div className="w-1/3">
+        <h2 className="font-semibold text-xl mt-8 mb-4">Dados de Pagamento</h2>
 
         {/* Cartão Cadastrado */}
         <div className="mb-6">

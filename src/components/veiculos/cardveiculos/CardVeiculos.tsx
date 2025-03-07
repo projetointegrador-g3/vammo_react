@@ -26,7 +26,7 @@ function CardVeiculos({veiculo}: CardVeiculosProps){
             </div>
 
             {/* Imagem do veículo */}
-            <img className="w-32 h-32 object-cover rounded-lg" 
+            <img className="w-90 h-50 object-cover rounded-lg" 
             src={veiculo.foto} alt={veiculo.modelo}/>
             
             {/* Conteúdo cards */}
