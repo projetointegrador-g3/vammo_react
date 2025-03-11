@@ -18,6 +18,7 @@ import PagePerfil from './components/perfil/PagePerfil'
 import FormPerfil from './components/perfil/FormPerfil'
 import FormViagens from './components/viagens/formviagens/FormViagens'
 import ListarViagem from './components/viagens/listarviagem/ListarViagem'
+import Contact from './pages/contact/Contact'
 
 function App() {
 
@@ -41,6 +42,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/home" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="/viagens" element={<ListarViagem />} />
           <Route path="/cadastrarviagem" element={<FormViagens />} />
           <Route path="/editarviagem/:id" element={<FormViagens />} />
