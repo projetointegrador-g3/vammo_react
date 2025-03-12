@@ -117,7 +117,9 @@ export function Login({
               {/* Botão entrar com Google */}
               <div className='flex flex-col relative text-center text-sm'>
                 <span className='relative z-10 px-2 text-muted-foreground'>Ou entre com</span>
+                
                 <GoogleLoginButton />
+                
               </div>
             </div>
 
