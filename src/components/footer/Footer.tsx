@@ -1,11 +1,12 @@
 import { Facebook, Instagram, Linkedin, Youtube } from "lucide-react";
+import './Footer.css'
 
 function FooterInitial(){
     return(
-        <footer className='bg-[#212121] text-[#F6F5FA] flex items-center justify-around gap-5 py-10 px-20'>
-                <div className='flex flex-col '>
+        <footer className='bg-[#212121] text-[#F6F5FA] flex items-center justify-around gap-5 py-10 px-20 resp-footer'>
+                <div className='flex flex-col'>
                     <a href="#">
-                    <img className='w-15' src="https://ik.imagekit.io/grupo03/Vammo/VAMMO%20(1)%201.png?updatedAt=1741183646285" alt="" />
+                    <img className='w-15 resp-footer-img' src="https://ik.imagekit.io/grupo03/Vammo/VAMMO%20(1)%201.png?updatedAt=1741183646285" alt="" />
                     </a>
                     
                     <p> Escolha um destino e vammo?</p>
@@ -17,7 +18,7 @@ function FooterInitial(){
                     <p><a href="" className='hover:underline'>Trabalhe Conosco</a></p>
                 </div>
 
-                <div className='flex gap-5'>
+                <div className='flex gap-5 resp-footer-icons'>
                     <Facebook className='size-6 cursor-pointer transition duration-0.3 hover:scale-115'/>
                     <Instagram className='size-6 cursor-pointer transition duration-0.3 hover:scale-115'/>
                     <Linkedin className='size-6 cursor-pointer transition duration-0.3 hover:scale-115'/>

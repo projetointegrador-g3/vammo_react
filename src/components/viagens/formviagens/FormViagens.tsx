@@ -6,8 +6,8 @@ import { Viagem } from "../../../model/Viagem";
 import { atualizar, buscar, cadastrar } from "../../../services/Service";
 import { ToastAlert } from "../../../utils/ToastAlert";
 import { RotatingLines } from "react-loader-spinner";
-import { Input } from "../input";
 import { AuthContext } from "../../../contexts/AuthContext";
+import { Input } from "../../ui/input";
 import { Button } from "../../ui/button";
 
 interface FormViagensProps {
@@ -267,7 +267,7 @@ function FormViagens({ origem, destino }: FormViagensProps) {
             <select
               name="status"
               id="status"
-              className="flex h-10 w-full rounded-md border border-stone-400 bg-background px-3 py-2 text-sm"
+              className="flex h-10 w-full rounded-full border border-stone-400 bg-background px-3 py-2 text-sm"
               required
               value={viagem.status || ""}
               onChange={(e: ChangeEvent<HTMLSelectElement>) => atualizarEstado(e)}
@@ -286,7 +286,7 @@ function FormViagens({ origem, destino }: FormViagensProps) {
             <select
               name="veiculo"
               id="veiculo"
-              className="flex h-10 w-full rounded-md border border-stone-400 bg-background px-3 py-2 text-sm"
+              className="flex h-10 w-full rounded-full border border-stone-400 bg-background px-3 py-2 text-sm"
               onChange={(e) => buscarVeiculoPorID(e.currentTarget.value)}
             >
               <option value="" selected disabled>

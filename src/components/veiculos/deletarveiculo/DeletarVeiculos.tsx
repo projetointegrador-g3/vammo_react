@@ -4,12 +4,13 @@ import { Veiculo } from "../../../model/Veiculo"
 import { buscar, deletar } from "../../../services/Service"
 import { ToastAlert } from "../../../utils/ToastAlert"
 import { AuthContext } from "../../../contexts/AuthContext"
+import { RotatingLines } from "react-loader-spinner"
 
 function DeletarVeiculo() {
 
     const navigate = useNavigate();
-
-    const[veiculo, setVeiculo] = useState<Veiculo>({} as Veiculo)
+    const[veiculo, setVeiculo] = useState<Veiculo>({} as Veiculo);
+    const [isLoading, setIsLoading] = useState<boolean>(false);
 
     const {id} = useParams<{id: string}>()
 
@@ -18,7 +19,7 @@ function DeletarVeiculo() {
 
     async function buscarPorId(id: string){
         try{
-            await buscar(`/veiculos/${id}`,setVeiculo,{
+            await buscar(`/veiculo/${id}`,setVeiculo,{
                 headers: {
                     Authorization: token,
                 },
@@ -42,9 +43,9 @@ function DeletarVeiculo() {
     },[id])
 
     async function deletarVeiculo() {
-
+        setIsLoading(true);
         try {
-            await deletar(`/veiculos/${id}`, {
+            await deletar(`/veiculo/${id}`, {
             })
 
             ToastAlert('Veiculo apagado com sucesso', "sucesso")
@@ -60,33 +61,48 @@ function DeletarVeiculo() {
     }
 
     function retornar() {
-        navigate("/veiculos")
+        navigate("/veiculo")
     }
 
     return (
-        <div >
-            <h1>Deletar Veiculo</h1>
-
-            <p >Você tem certeza de que deseja apagar o veiculo a seguir? </p>
-
-            <div>
-                <header >
-                    Veiculo
-                </header>
-                <div >
-                    <p >{veiculo.modelo}</p>
-                </div>
-                <div >
-                    <button onClick={retornar}>
-                        Não
-                    </button>
-                    <button onClick={deletarVeiculo}>                       
-                        <span>Sim</span>
-                    </button>
-                </div>
+        <div className="container w-1/2 mx-auto border rounded-4xl p-8 mt-40 content-center">
+          <h1 className="text-3xl text-center my-4">Deletar Veículo</h1>
+          <p className="text-center mb-4 text-lg ">
+            Você tem certeza de que deseja apagar o veículo a seguir?
+          </p>
+    
+          <div className="flex flex-col overflow-hidden justify-between">
+            <p className="text-2xl h-full text-center p-6 relative">
+              {veiculo.modelo}
+            </p>
+    
+            <div className="flex gap-10">
+              <button
+                className="flex justify-center text-center rounded-lg bg-[var(--yellow)] w-full py-2 hover:bg-[var(--yellowDark)] cursor-pointer"
+                onClick={retornar}
+              >
+                Não
+              </button>
+              <button
+                className="flex justify-center text-center rounded-lg text-white bg-[var(--purple)] w-full py-2 hover:bg-[var(--purpleDark)]  cursor-pointer"
+                onClick={deletarVeiculo}
+              >
+                {isLoading ? (
+                  <RotatingLines
+                    strokeColor="white"
+                    strokeWidth="5"
+                    animationDuration="0.75"
+                    width="24"
+                    visible={true}
+                  />
+                ) : (
+                  <span>Sim</span>
+                )}
+              </button>
             </div>
+          </div>
         </div>
-    )
+      );
 
 }
 export default DeletarVeiculo

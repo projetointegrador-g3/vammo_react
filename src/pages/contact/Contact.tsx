@@ -6,7 +6,7 @@ import { Input } from "../../components/ui/input"
 function Contact(){
     return(
         <>
-        <section className='flex flex-col gap-10 items-center justify-center pl-20 p-10 '>
+        <section className='flex flex-col gap-10 items-center justify-center h-[70vh]'>
                         <div className='text-center'>
                             <h1 className='text-3xl font-bold'>Contato</h1>
                             <p>Precisa de ajuda, suporte ou gostaria de deixar um comentário?<br />
@@ -23,9 +23,9 @@ function Contact(){
 
                             <label htmlFor="mensagem" className="ml-2">Mensagem</label>
                             <br />
-                            <textarea name="message" id="mensagem" placeholder="Digite aqui a sua mensagem" className="border border-zinc-400 rounded-4xl w-80 p-3"></textarea>
+                            <textarea name="message" id="mensagem" placeholder="Digite aqui a sua mensagem" className="border border-zinc-400 rounded-4xl w-80 p-3 mb-3"></textarea>
                             <br />
-                            <button className="border rounded-full bg-[var(--black)] text-[var(--white)] p-2 px-3 w-80 cursor-pointer transition duration-0.3 hover:scale-105 mb-4">Enviar</button>
+                            <button className="border rounded-full bg-[var(--black)] text-[var(--white)] p-2 px-3 w-80 cursor-pointer transition duration-0.3 hover:scale-105">Enviar</button>
                         </form>
         
                         

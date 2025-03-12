@@ -1,0 +1,11 @@
+
+@media (max-width: 768px) {
+    .resp-config{
+        padding: 2rem 1rem;
+        
+    }
+    .resp-radio{
+        display: flex;
+        flex-direction: row;
+    }
+}

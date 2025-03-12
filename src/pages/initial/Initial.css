@@ -1,0 +1,35 @@
+
+@media (max-width: 759px) {
+    .icons-input{
+        display: flex;
+        flex-direction: row;
+        padding-left: 1rem;
+    }
+    .icons-input-b{
+        display: flex;
+        flex-direction: row;
+        text-align: start;
+        padding-left: 1rem;
+    }
+    .text-initial{
+        text-align: center;
+        padding: 1rem;
+    }
+    .sec-2 {
+        margin-top: 10rem;
+    }
+    .sec-2-img{
+        padding: 3rem;
+    }
+    #topicos{
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+    .p-align{
+        text-align: center;
+    }
+    .p-icon{
+        width: 2rem;
+    }
+}

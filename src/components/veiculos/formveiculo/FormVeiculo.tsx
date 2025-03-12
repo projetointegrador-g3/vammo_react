@@ -5,6 +5,8 @@ import { atualizar, buscar, cadastrar } from "../../../services/Service";
 import { ToastAlert } from "../../../utils/ToastAlert";
 import { AuthContext } from "../../../contexts/AuthContext";
 import { RotatingLines } from "react-loader-spinner";
+import { Input } from "../../ui/input";
+import { Button } from "../../ui/button";
 
 function FormVeiculo() {
 
@@ -88,7 +90,7 @@ function FormVeiculo() {
                 if (error.toString().includes("401")) {
                     handleLogout();
                 } else {
-                    ToastAlert("Erro ao salvar o veículo", "erro");
+                    ToastAlert("Erro ao cadastrar o veículo", "erro");
                 }
             } 
         }
@@ -96,14 +98,14 @@ function FormVeiculo() {
         retornar();
     }
     return (
-        <div className=" flex flex-col items-center">
-            <h1 className="text-4xl text-center my-8">
+        <div className=" flex flex-col items-center mt-10">
+            <h1 className="text-3xl font-bold">
                 {id !== undefined ? "Editar Veículo" : "Cadastrar Veículo"}</h1>
 
-            <form className="flex flex-col w-1/2 gap-9"   onSubmit={gerarNovoVeiculo}> 
+            <form className="flex flex-col w-1/2 gap-5 w-150"   onSubmit={gerarNovoVeiculo}> 
                 <div>
                     <label htmlFor="modelo">Modelo do Veículo</label>
-                    <input
+                    <Input
                         type="text"
                         placeholder="Modelo"
                         name="modelo"
@@ -114,7 +116,7 @@ function FormVeiculo() {
                 </div>
                 <div>
                     <label htmlFor="placa">Placa do Veículo</label>
-                    <input
+                    <Input
                         type="text"
                         placeholder="Placa"
                         name="placa"
@@ -125,7 +127,7 @@ function FormVeiculo() {
                 </div>
                 <div>
                     <label htmlFor="cor">Cor do Veículo</label>
-                    <input
+                    <Input
                         type="text"
                         placeholder="Cor"
                         name="cor"
@@ -136,7 +138,7 @@ function FormVeiculo() {
                 </div>
                 <div>
                     <label htmlFor="ano_fabricacao">Ano de Fabricação</label>
-                    <input
+                    <Input
                         type="text"
                         name="ano_fabricacao"
                         placeholder="Ex.:2022"
@@ -147,7 +149,7 @@ function FormVeiculo() {
                 </div>
                 <div>
                     <label htmlFor="observacao">Observações</label>
-                    <input
+                    <Input
                         type="text"
                         placeholder="Observação"
                         name="observacao"
@@ -158,7 +160,7 @@ function FormVeiculo() {
                 </div>
                 <div>
                     <label htmlFor="disponivel">Disponibilidade</label>
-                    <input
+                    <Input
                         type="text"
                         name="disponivel"
                         placeholder="ex.: Sim/Não"
@@ -168,10 +170,8 @@ function FormVeiculo() {
                     />
                 </div>
 
-                <button type='submit'
-                    className='rounded text-white bg-indigo-400 
-                     hover:bg-indigo-900 w-1/2 py-2 mx-auto 
-                     flex justify-center'>
+                <Button type='submit'
+                    className='cursor-pointer'>
                     {isLoading ?
                         <RotatingLines
                             strokeColor="white"
@@ -183,7 +183,7 @@ function FormVeiculo() {
                         <span> {id !== undefined ? 'Atualizar' : 'Cadastrar'}</span>
                     }
 
-                </button>
+                </Button>
             </form>
         </div>
     );

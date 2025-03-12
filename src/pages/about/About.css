@@ -1,0 +1,10 @@
+
+@media (max-width: 759px) {
+    .resp-about{
+        padding: 2.5rem;
+    }
+    .resp-icons-about{
+        display: flex;
+        flex-direction: row;
+    }
+}

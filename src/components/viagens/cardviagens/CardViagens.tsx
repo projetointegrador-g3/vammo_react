@@ -59,8 +59,9 @@ function CardViagens({ viagem }: CardViagensProps) {
         </p>
         <p>
           <strong>Veículo: </strong>
-          {viagem.veiculo?.modelo}
+          {viagem.veiculo?.modelo} - {viagem.veiculo?.cor}
         </p>
+        <img src={viagem.veiculo?.foto} alt="Foto do automóvel dispnível" className="w-60" />
 
         {/* Estrelas de Avaliação */}
         <div className="flex gap-1 mt-3 cursor-pointer mb-8 ml-15">

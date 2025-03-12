@@ -1,11 +1,11 @@
 import { Github, Instagram, Linkedin } from 'lucide-react';
 import Footer from '../../components/footer/Footer';
-
+import './About.css'
 
 function Sobre() {
     return (
         <>
-            <section className='flex flex-col gap-10 items-center justify-center pl-20 p-10 '>
+            <section className='flex flex-col gap-10 items-center justify-center pl-25 p-10 resp-about'>
                 <div className='text-center'>
                     <h1 className='text-3xl font-bold'>Conheça nosso talentoso time</h1>
                     <p>Esse é o grupo de pessoas que transformou o Vammo em realidade, um time de <br />
@@ -30,7 +30,7 @@ function Sobre() {
                                 <h3 className='text-xl font-semibold mt-2'>{dev.nome}</h3>
                                 <p className='text-md font-medium'>{dev.emoji} Desenvolvedor(a) Full Stack JS/TS</p>
                                 <p className='text-sm'>{dev.desc}</p>
-                                <div className='flex gap-2 mt-3'>
+                                <div className='flex gap-2 mt-3 resp-icons-about'>
                                     <Linkedin className='hover:text-[#7524f3] size-6 cursor-pointer' />
                                     <Instagram className='hover:text-[#7524f3] size-6 cursor-pointer' />
                                     <Github className='hover:text-[#7524f3] size-6 cursor-pointer' />

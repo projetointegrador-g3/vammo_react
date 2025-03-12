@@ -1,0 +1,14 @@
+
+@media (max-width: 759px) {
+    .resp-footer{
+        text-align: center;
+    }
+    .resp-footer-img{
+        margin: 0 auto;
+        width: 7rem;
+    }
+    .resp-footer-icons{
+        flex-direction: row;
+        gap: 1rem;
+    }
+}

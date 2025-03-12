@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-
+import './Configuracao.css'
 
 const Configuracao = () => {
     const [darkMode, setDarkMode] = useState(false);
@@ -23,7 +23,7 @@ const Configuracao = () => {
   };
 
     return(
-            <div className="flex flex-col gap-8 p-20 transition-all ml-15">
+            <div className="flex flex-col gap-8 p-20 transition-all ml-15 resp-config">
                 <h1 className="text-3xl font-semibold">
                     {textos[language].settings}
                 </h1>
@@ -31,7 +31,7 @@ const Configuracao = () => {
                 <p>{textos[language].mode}</p>
 
                 {/* Modo claro/escuro */}
-                <div className="flex gap-2 items-center">
+                <div className="flex gap-2 items-center resp-radio">
                     <input type="radio" className='accent-[var(--yellow)]' 
                     checked={!darkMode} onChange={() => setDarkMode(false)} />
                     <label className="mr-10" htmlFor="">{textos[language].light}</label>

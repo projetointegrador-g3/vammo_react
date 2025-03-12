@@ -1,6 +1,7 @@
 import { ArrowRight, Car, ListCheck, MapPin, Navigation, ShieldCheck, UserCheck } from 'lucide-react'
 import Footer from '../../components/footer/Footer';
 import { Link } from 'react-router-dom'
+import './Initial.css'
 
 
 const Initial = () => {
@@ -9,11 +10,11 @@ const Initial = () => {
       <main>
         <section className='bginitial flex flex-col items-center justify-center'>
           <h1 className='font-semibold text-4xl text-center'>Encontre um destino <br/>e vammo?</h1>
-          <p>Conectando você ao seu próximo destino de forma rápida e segura. <br/>Vammo simplifica sua jornada com caronas acessíveis e confiáveis.</p>
+          <p className='text-initial'>Conectando você ao seu próximo destino de forma rápida e segura. <br/>Vammo simplifica sua jornada com caronas acessíveis e confiáveis.</p>
 
             <form className="flex flex-col gap-5 mt-5 w-80">
-        <section className="p-3 bg-[#D8DFE9] rounded-full flex items-center gap-2">
-          <div className='px-2 flex items-center flex-1 gap-2'>
+        <section className="p-3 bg-[#D8DFE9] rounded-full flex items-center gap-2 ">
+          <div className='px-2 flex items-center flex-1 gap-2 icons-input'>
                   <input 
                   type="text" 
                   name='origem' 
@@ -25,7 +26,7 @@ const Initial = () => {
         </section>
 
         <section className="p-3 bg-[#D8DFE9] rounded-full flex items-center gap-2">
-        <div className='px-2 flex items-center flex-1 gap-2'>
+        <div className='px-2 flex items-center flex-1 gap-2 icons-input'>
                   <input 
                   type="text" 
                   name='origem' 
@@ -37,8 +38,8 @@ const Initial = () => {
                 
                 </section>
 
-                <section className="p-2 bg-[var(--yellow)] text-[var(--black)] rounded-full flex items-center gap-2">
-                    <div className='px-2 flex items-center flex-1 gap-2'>
+                <section className="p-2 bg-[var(--yellow)] text-[var(--black)] rounded-full flex items-center gap-2 icons-input">
+                    <div className='px-2 flex items-center flex-1 gap-2 icons-input-b'>
                       Verificar Preços
                     </div>
                 <Link to="/login">
@@ -50,8 +51,8 @@ const Initial = () => {
             </form>
         </section>
 
-        <section className='mt-60'>
-          <div className='bg-[#D8DFE9] p-30'>
+        <section className='sec-2 mt-60'>
+          <div className='bg-[#D8DFE9] p-30 sec-2-img'>
           <h2 id="service" className='font-semibold text-3xl text-center '>Nossos serviços</h2>
           <p id='card' className='text-center'>Escolha o Vammo perfeito para a sua viagem: </p>
             <div className='flex items-center justify-center gap-20 p-10'>
@@ -84,29 +85,29 @@ const Initial = () => {
 
         </section>
 
-        <section className='p-8'>
+        <section>
           
-          <div className='flex items-center justify-center gap-10 p-15'>
+          <div className='flex items-center justify-center gap-10 p-20'>
           <div className='flex flex-col gap-2'>
           <h2 className='font-semibold text-4xl text-center'>Na Vammo você encontra: </h2>
-          <p id='topicos'>
+          <p id='topicos'className='p-align'>
             <UserCheck /> Motoristas bem avaliados
           </p>
 
-          <p id='topicos'>
-            <Car /> Carros  atuais e em ótimo estado
+          <p id='topicos' className='p-align'>
+            <Car className='p-icon'/> Carros novos, revisados e em estado de conservação excelente
           </p>
 
-          <p id='topicos'>
+          <p id='topicos' className='p-align'>
             <ListCheck /> Histórico de viagens
           </p>
 
-          <p id='topicos'>
+          <p id='topicos' className='p-align'>
             <ShieldCheck /> Segurança do início ao fim
           </p>
           </div>
           
-            <img className='w-150' src="https://ik.imagekit.io/grupo03/Vammo/assets%20-%20initial%20page/couple-car.png?updatedAt=1741188804186" alt="" />
+            <img className='img-size w-150' src="https://ik.imagekit.io/grupo03/Vammo/assets%20-%20initial%20page/couple-car.png?updatedAt=1741188804186" alt="Ilustração de um homem de swetter verde e uma mulher moletom amarelo dentro de um carro" />
           
           </div>
         </section>

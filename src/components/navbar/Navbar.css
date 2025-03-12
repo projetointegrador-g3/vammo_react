@@ -1,0 +1,17 @@
+
+@media (max-width: 768px) {
+    .resp-busca{
+        margin-left: 50px;
+        width: 13rem;
+    }
+    .resp-navbar{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    .resp-elementos-navbar{
+        display: flex;
+        flex-direction: row;
+        
+    }
+}
