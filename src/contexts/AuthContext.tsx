@@ -2,11 +2,13 @@ import { createContext, ReactNode, useState } from "react"
 import { login } from "../services/Service"
 import UsuarioLogin from "../model/UsuarioLogin"
 import { ToastAlert } from "../utils/ToastAlert"
+import axios from "axios"
 
 interface AuthContextProps {
     usuario: UsuarioLogin
     handleLogout(): void
     handleLogin(usuario: UsuarioLogin): Promise<void>
+    handleGoogleLogin(token: string): Promise<void>;
     isLoading: boolean
 }
 
@@ -45,6 +47,26 @@ export function AuthProvider({ children }: AuthProviderProps) {
         setIsLoading(false)
     }
 
+    // API Google Login
+    async function handleGoogleLogin(token: string) {
+        setIsLoading(true);
+        try {
+          const apiUrl = `${import.meta.env.VITE_API_URL}/usuarios/googlelogin`;
+          console.log("URL de requisição:", apiUrl);
+
+          const response = await axios.get(apiUrl, {
+            headers: { Authorization: `Bearer ${token}` },
+          });
+          
+          setUsuario(response.data); // Assumindo que a API retorna os dados do usuário
+          ToastAlert("Login com Google efetuado com sucesso!", "sucesso");
+        } catch (error) {
+          console.error("Erro ao fazer login com Google:", error);
+          ToastAlert("Erro ao fazer login com Google!", "erro");
+        }
+        setIsLoading(false);
+      }
+
     function handleLogout() {
         setUsuario({
             id: 0,
@@ -61,7 +83,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     }
 
     return (
-        <AuthContext.Provider value={{ usuario, handleLogin, handleLogout, isLoading }}>
+        <AuthContext.Provider value={{ usuario, handleLogin, handleLogout, handleGoogleLogin, isLoading }}>
             {children}
         </AuthContext.Provider>
     )
