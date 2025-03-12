@@ -1,10 +1,17 @@
 
-@media (max-width: 759px) {
+@media (max-width: 768px) {
     .resp-about{
-        padding: 2.5rem;
+        flex-direction: column;
+        padding: 2rem;
     }
     .resp-icons-about{
         display: flex;
         flex-direction: row;
+    }
+    .resp-dev{
+        display: flex;
+        flex-direction: column;
+        
+        
     }
 }

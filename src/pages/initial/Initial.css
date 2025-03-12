@@ -1,17 +1,6 @@
 
 @media (max-width: 759px) {
-    .icons-input{
-        display: flex;
-        flex-direction: row;
-        padding-left: 1rem;
-    }
-    .icons-input-b{
-        display: flex;
-        flex-direction: row;
-        text-align: start;
-        padding-left: 1rem;
-    }
-    .text-initial{
+        .text-initial{
         text-align: center;
         padding: 1rem;
     }
@@ -31,5 +20,26 @@
     }
     .p-icon{
         width: 2rem;
+    }
+
+    .w-form{
+        width: 20rem;
+    }
+    .p-input{
+        padding: 0;
+    }
+
+    .resp-init{
+        display: flex;
+        flex-direction: row;
+        padding: .75rem 1rem;
+    }
+    .resp-icons{
+        display: flex;
+        flex-direction: column;
+    }
+    .resp-init-button{
+        display: flex;
+        flex-direction: row;
     }
 }
