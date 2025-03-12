@@ -1,13 +1,26 @@
 import { Bell, MagnifyingGlass, SignOut, List } from "@phosphor-icons/react"
 import { useContext, useState } from "react"
 import { AuthContext } from "../../contexts/AuthContext"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import './Navbar.css'
+import { ToastAlert } from "../../utils/ToastAlert"
 
 const Navbar = () => {
-  const { usuario } = useContext(AuthContext)
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
+  const navigate = useNavigate();
+  const { usuario } = useContext(AuthContext);
+
+  // Para desconectar o User
+  const {handleLogout} = useContext(AuthContext);
+
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+
+  const logout = () => {
+    handleLogout()
+    ToastAlert('O usuário foi desconectado!', 'info')
+    navigate('/')
+  }
 
   // Função para rolar até a seção
   const scrollToSection = (sectionId: string) => {
@@ -122,7 +135,7 @@ const Navbar = () => {
             alt={`Foto de perfil de ${usuario.nome}`} />
             </Link>
             <div className="flex">
-            <Link to="/" className="flex items-center gap-2 hover:scale-110 hover:underline">Sair<SignOut className="hover:scale-110" /></Link>
+            <Link to="/" className="flex items-center gap-2 hover:scale-110 hover:underline" onClick={logout}>Sair<SignOut className="hover:scale-110" /></Link>
           </div>
         </div>
       </div>

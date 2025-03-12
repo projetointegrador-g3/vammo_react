@@ -6,14 +6,11 @@ import { useNavigate } from 'react-router-dom';
 import { ToastAlert } from '../../utils/ToastAlert';
 import { AuthContext } from '../../contexts/AuthContext';
 
-//Token para o Map
-mapboxgl.accessToken = 'pk.eyJ1IjoiZ3J1cG8wMy1qczA2IiwiYSI6ImNtN3htaW11YTAwb3Qya29md3pwNzJrd2MifQ.uB4DxvtKsao_3O9FPIYTFQ';
 
 const Home = () => {
 
-  const mapContainerRef = useRef<HTMLDivElement | null>(null);
-
   const navigate = useNavigate();
+
   const { usuario } = useContext(AuthContext);
 
   useEffect(() => {
@@ -23,20 +20,6 @@ const Home = () => {
     }
   }, [usuario.token, navigate]);
 
-    // Configurações do mapa
-    useEffect(() => {
-      if (!mapContainerRef.current) return;
-  
-      const mapa = new mapboxgl.Map({
-        container: mapContainerRef.current as HTMLElement, 
-        style: 'mapbox://styles/grupo03-js06/cm7xnwys8025701qo64fhadmp',
-        center: [-46.633308, -23.55052], // Posição inicial (SP)
-        zoom: 12,
-      });
-  
-      return () => mapa.remove() // limpar mapa
-  
-    }, []);
 
   // Dados para gráfico
   const data = [
@@ -117,7 +100,7 @@ const Home = () => {
 
       {/* Mapa */}
       <div className='w-150 ml-20 my-10 '>
-          <div ref={mapContainerRef} className='w-200 h-120 rounded-4xl'></div>
+          <div className='w-200 h-120 rounded-4xl'></div>
       </div>
     </div>
   </main>

@@ -19,13 +19,18 @@ import FormPerfil from './components/perfil/FormPerfil'
 import FormViagens from './components/viagens/formviagens/FormViagens'
 import ListarViagem from './components/viagens/listarviagem/ListarViagem'
 import Contact from './pages/contact/Contact'
+import { GoogleOAuthProvider } from '@react-oauth/google'
 
 function App() {
 
-  const location=useLocation()
+  const location=useLocation();
+
+  // Importando o ID Google
+  const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
 
   return (
     <>
+    <GoogleOAuthProvider clientId={clientId}>
       <AuthProvider>
         <ToastContainer />
 
@@ -57,6 +62,7 @@ function App() {
           <Route path="/editarperfil/:id" element={<FormPerfil />} />
         </Routes>
       </AuthProvider>
+    </GoogleOAuthProvider>
     </>
   );
 }

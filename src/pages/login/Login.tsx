@@ -7,15 +7,19 @@ import { Label } from "../../components/ui/label";
 import { Input } from "../../components/ui/input";
 import { Button } from "../../components/ui/button";
 import { RotatingLines } from 'react-loader-spinner';
+import { GoogleOAuthProvider } from '@react-oauth/google';
+import { ToastAlert } from '../../utils/ToastAlert';
+import GoogleLoginButton from '../../utils/GoogleLoginButton';
 
 export function Login({
   className,
   ...props
 }: React.ComponentPropsWithoutRef<'form'>) {
+
   const navigate = useNavigate();
   const { usuario, handleLogin, isLoading } = useContext(AuthContext);
   const [usuarioLogin, setUsuarioLogin] = useState<UsuarioLogin>({} as UsuarioLogin);
-
+  
   useEffect(() => {
     if (usuario.token !== "") {
       navigate('/home');
@@ -110,16 +114,10 @@ export function Login({
                 )}
               </Button>
 
-              {/* Entrar com Google */}
+              {/* Botão entrar com Google */}
               <div className='flex flex-col relative text-center text-sm'>
                 <span className='relative z-10 px-2 text-muted-foreground'>Ou entre com</span>
-                <button>
-                  <img 
-                    src='https://ik.imagekit.io/grupo03/Vammo/google-sigh-up%20(1).png?updatedAt=1741185816536'
-                    className='w-10 mt-3 mx-auto cursor-pointer border-[var(--purple)] hover:scale-105' 
-                    alt="Entrar com Google"
-                  />
-                </button>
+                <GoogleLoginButton />
               </div>
             </div>
 
