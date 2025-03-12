@@ -12,9 +12,9 @@ const Initial = () => {
           <h1 className='font-semibold text-4xl text-center'>Encontre um destino <br/>e vammo?</h1>
           <p className='text-initial'>Conectando você ao seu próximo destino de forma rápida e segura. <br/>Vammo simplifica sua jornada com caronas acessíveis e confiáveis.</p>
 
-            <form className="flex flex-col gap-5 mt-5 w-80">
-        <section className="p-3 bg-[#D8DFE9] rounded-full flex items-center gap-2 ">
-          <div className='px-2 flex items-center flex-1 gap-2 icons-input'>
+            <form className="flex flex-col gap-5 mt-5 w-80 w-form">
+        <section className="p-3 bg-[#D8DFE9] rounded-full flex items-center gap-2 p-input">
+          <div className='px-2 flex items-center flex-1 gap-2 resp-init'>
                   <input 
                   type="text" 
                   name='origem' 
@@ -25,8 +25,8 @@ const Initial = () => {
                 </div>
         </section>
 
-        <section className="p-3 bg-[#D8DFE9] rounded-full flex items-center gap-2">
-        <div className='px-2 flex items-center flex-1 gap-2 icons-input'>
+        <section className="p-3 bg-[#D8DFE9] rounded-full flex items-center gap-2 p-input">
+        <div className='px-2 flex items-center flex-1 gap-2 resp-init'>
                   <input 
                   type="text" 
                   name='origem' 
@@ -38,8 +38,8 @@ const Initial = () => {
                 
                 </section>
 
-                <section className="p-2 bg-[var(--yellow)] text-[var(--black)] rounded-full flex items-center gap-2 icons-input">
-                    <div className='px-2 flex items-center flex-1 gap-2 icons-input-b'>
+                <section className="p-2 bg-[var(--yellow)] text-[var(--black)] rounded-full flex items-center gap-2 resp-init-button">
+                    <div className='px-2 flex flex-1 gap-2'>
                       Verificar Preços
                     </div>
                 <Link to="/login">
@@ -55,7 +55,7 @@ const Initial = () => {
           <div className='bg-[#D8DFE9] p-30 sec-2-img'>
           <h2 id="service" className='font-semibold text-3xl text-center '>Nossos serviços</h2>
           <p id='card' className='text-center'>Escolha o Vammo perfeito para a sua viagem: </p>
-            <div className='flex items-center justify-center gap-20 p-10'>
+            <div className='flex items-center justify-center gap-20 p-10 resp-icons'>
 
             <div id='card' className='text-center'>
               <img className='transition duration-0.3 hover:scale-110' src="https://ik.imagekit.io/grupo03/Vammo/assets%20-%20initial%20page/car1.png" alt="" />
@@ -87,7 +87,7 @@ const Initial = () => {
 
         <section>
           
-          <div className='flex items-center justify-center gap-10 p-20'>
+          <div className='flex items-center justify-center gap-10 p-20 resp-icons'>
           <div className='flex flex-col gap-2'>
           <h2 className='font-semibold text-4xl text-center'>Na Vammo você encontra: </h2>
           <p id='topicos'className='p-align'>
