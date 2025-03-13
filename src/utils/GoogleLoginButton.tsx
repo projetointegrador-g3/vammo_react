@@ -1,33 +1,41 @@
-import { GoogleLogin, useGoogleLogin } from '@react-oauth/google';
+import { GoogleLogin, googleLogout } from '@react-oauth/google';
+import { jwtDecode } from 'jwt-decode';
+import { useNavigate } from 'react-router-dom';
 import { ToastAlert } from './ToastAlert';
-import { useContext } from 'react';
-import { AuthContext } from '../contexts/AuthContext';
+import axios from 'axios';
 
 const GoogleLoginButton = () => {
-    const { handleGoogleLogin } = useContext(AuthContext);
+   const navigate = useNavigate();
+    // const { handleGoogleLogin } = useContext(AuthContext);
 
-    const login = useGoogleLogin({
-      onSuccess: async (tokenResponse) => {
-        if (tokenResponse && tokenResponse.access_token) {
-          await handleGoogleLogin(tokenResponse.access_token);
-        } else {
-          ToastAlert('Erro ao obter token do Google', 'erro');
-        }
+     const login = GoogleLogin({
+
+      onSuccess: async tokenResponse => {
+        console.log(tokenResponse);
+        
+        const userInfo = await axios
+          .get('https://www.googleapis.com/oauth2/v3/userinfo', {
+            headers: { Authorization: `Bearer ${tokenResponse.access_token}` },
+          })
+          .then(res => res.data);
+  
+        console.log(userInfo);
       },
-      onError: () => {
-        ToastAlert('Erro ao fazer login com Google', 'erro');
-      },
+      // flow: 'implicit', // implicit is the default
     });
     
   return (
-    <button 
-      onClick={() => login()}>
-      <img 
-        src='https://ik.imagekit.io/grupo03/Vammo/google-sigh-up%20(1).png?updatedAt=1741185816536' 
-        alt='Google Logo' 
-        className='w-15 cursor-pointer mx-43 mt-2'
+    <>
+      <GoogleLogin
+      onSuccess={(credentialResponse) => {
+        console.log('Google Login com sucesso:', credentialResponse);
+        console.log(jwtDecode(credentialResponse.credential));
+        navigate('/home')
+      }}
+      onError={() => console.log('Login falhou!')} 
+      auto_select={true}
       />
-    </button>
+    </>
 
   );
 };
