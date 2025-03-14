@@ -7,7 +7,6 @@ import { Label } from "../../components/ui/label";
 import { Input } from "../../components/ui/input";
 import { Button } from "../../components/ui/button";
 import { RotatingLines } from 'react-loader-spinner';
-import { GoogleOAuthProvider } from '@react-oauth/google';
 import { ToastAlert } from '../../utils/ToastAlert';
 import GoogleLoginButton from '../../utils/GoogleLoginButton';
 

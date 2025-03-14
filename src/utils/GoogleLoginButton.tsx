@@ -25,23 +25,16 @@ const GoogleLoginButton = () => {
   };
     
   return (
-    <>
-      {/* <GoogleLogin
-      onSuccess={(credentialResponse) => {
-        console.log('Google Login com sucesso:', credentialResponse);
-        console.log(jwtDecode(credentialResponse.credential));
-        navigate('/home')
-      }}
-      onError={() => console.log('Login falhou!')} 
-      auto_select={true}
-      /> */}
-
+    <div id='customBtn'>
       <GoogleOAuthProvider clientId={CLIENT_ID}>
           <GoogleLogin
-            onSuccess={handleSuccess}
-            onError={() => console.log('Erro no login')}/>
+            onSuccess={(handleSuccess => {
+              navigate('/home')
+              console.log(jwtDecode(handleSuccess.credential))
+            })}
+            onError={() => console.log('Erro no login')} />
       </GoogleOAuthProvider>
-    </>
+    </div>
 
   );
 };

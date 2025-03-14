@@ -23,6 +23,7 @@ body {
     background-image: url(./pages/initial/fundo.png);
     margin-top: 5rem;
 }
+
 #topicos {
    display: flex;
    align-items: center;
@@ -65,10 +66,24 @@ body.dark {
       background-image: url(./pages/initial/fundo-dm.png);
       margin-top: 5rem;
   }
+
   #login{
     border: #D8F505;
   }
     
-  }
+}
 
-  
+#customBtn {
+    display: inline-block;
+    background: white;
+    margin-left: 100px;
+    width: 190px;
+    border-radius: 50px;
+    white-space: nowrap;
+
+    :hover {
+      transition: background-color 0.3s ease;
+      border-color: var(--purpleDark);
+    }
+    
+}
