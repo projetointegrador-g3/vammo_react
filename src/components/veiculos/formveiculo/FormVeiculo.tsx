@@ -98,11 +98,11 @@ function FormVeiculo() {
         retornar();
     }
     return (
-        <div className=" flex flex-col items-center mt-10">
+        <div className=" flex flex-col items-center mt-10 form-edit">
             <h1 className="text-3xl font-bold">
                 {id !== undefined ? "Editar Veículo" : "Cadastrar Veículo"}</h1>
 
-            <form className="flex flex-col w-1/2 gap-5 w-150"   onSubmit={gerarNovoVeiculo}> 
+            <form className="flex flex-col gap-5 form-input" onSubmit={gerarNovoVeiculo}> 
                 <div>
                     <label htmlFor="modelo">Modelo do Veículo</label>
                     <Input

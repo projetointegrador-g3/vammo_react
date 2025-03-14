@@ -1,7 +1,9 @@
 
 @media (max-width: 759px) {
     .resp-perfil{
-        margin: 0 5rem 5rem;   
+        flex-direction: column;
+        margin: 0 5rem 5rem; 
+        gap: 1rem;  
     }
     .separador{
         border-bottom: 1px solid #D3D3D3;
