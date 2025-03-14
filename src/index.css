@@ -70,20 +70,45 @@ body.dark {
   #login{
     border: #D8F505;
   }
-    
 }
 
-#customBtn {
-    display: inline-block;
-    background: white;
-    margin-left: 100px;
-    width: 190px;
-    border-radius: 50px;
-    white-space: nowrap;
+  @media (max-width: 768px) {
+  .pmobile{
+    padding: 0.65rem;
+  }
+  .resp-viagens{
+    margin: 0 auto;
 
-    :hover {
-      transition: background-color 0.3s ease;
-      border-color: var(--purpleDark);
+    .pmobile{
+      padding: 0.65rem;
     }
-    
-}
+  }
+
+  .card-resp{
+    padding: 1rem;
+    width: 17rem;
+  }
+  .resp-veiculos{
+    display: flex;
+    flex-direction: column;
+  }
+  .img-veiculos{
+    padding: 1.75rem;
+  }
+  .veiculos-mobile{
+    margin: 0 auto;
+  }
+  .txt-veiculo{
+    padding-left: 4rem;
+  }
+
+  .form-edit{
+    margin: 0 auto;
+    padding: 3rem;
+
+    .form-input{
+      width: 22rem;
+      margin-left: 3rem;
+    }
+  }
+  }

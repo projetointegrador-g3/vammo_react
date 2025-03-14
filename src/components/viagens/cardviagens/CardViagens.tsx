@@ -12,7 +12,7 @@ function CardViagens({ viagem }: CardViagensProps) {
   const [rating, setRating] = useState<number>(0); // Estado para armazenar a nota
   
   return (
-    <div className="bg-[#f6f5fa] p-3 w-80 rounded-4xl shadow ml-10 mb-5 ">
+    <div className="bg-[#f6f5fa] p-3 w-80 rounded-4xl shadow ml-10 mb-5 resp-viagens">
       {/* Botões de editar e excluir */} 
       <div className="flex justify-end space-x-2 mr-3">
         <Link to={`/editarviagem/${viagem.id}`}>
@@ -27,7 +27,7 @@ function CardViagens({ viagem }: CardViagensProps) {
         </Link>
       </div>
 
-      <main className="flex flex-col gap-3 ml-5">
+      <main className="flex flex-col gap-3 ml-5 pmobile">
       <p className="font-bold mt-3 mb-2 text-center text-2xl mr-5">Informações da viagem </p>
 
         <p>

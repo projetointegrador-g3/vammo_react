@@ -1,0 +1,11 @@
+
+
+@media (max-width: 768px) {
+    .resp-home{
+        padding: 0;
+        margin-left: 5rem;
+    }
+    .input-home{
+        width: 20rem;
+    }
+}

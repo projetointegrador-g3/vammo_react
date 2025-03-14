@@ -35,9 +35,9 @@ function ListaVeiculos() {
     }, [token]);
 
     return (
-        <div className="container mx-30 p-4 flex flex-col my-5">
+        <div className="container mx-30 p-4 flex flex-col my-5 veiculos-mobile">
             <div className="flex items-center justify-between mb-2">
-                <h1 className="text-2xl font-bold">
+                <h1 className="text-2xl font-bold txt-veiculo">
                     Veiculos da Frota
                 </h1>
 

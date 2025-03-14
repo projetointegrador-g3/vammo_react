@@ -5,7 +5,7 @@ import ModalViagens from '../../components/viagens/modalviagens/ModalViagens';
 import { useNavigate } from 'react-router-dom';
 import { ToastAlert } from '../../utils/ToastAlert';
 import { AuthContext } from '../../contexts/AuthContext';
-
+import './Home.css'
 
 const Home = () => {
 
@@ -35,13 +35,13 @@ const Home = () => {
 
 
   return (
-    <main className='flex-1 p-10 ml-[100px] overflow-hidden mt-[-50px]'>
+    <main className='flex-1 p-10 ml-[100px] overflow-hidden mt-[-50px] resp-home'>
 
     {/* Pesquisa + mapa */}
     <div className='flex gap-6 my-15'>
   
       {/* Seção de pesquisa de viagens */}
-      <div className='w-1/3 space-y-4' >
+      <div className='w-1/3 space-y-4 input-home' >
         <h2 className='text-xl font-bold'>Olá, {usuario ? usuario.nome : 'Usuário'}!</h2>
         <p>Busque pelo seu destino com os melhores preços!</p>
 

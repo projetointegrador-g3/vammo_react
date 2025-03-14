@@ -19,6 +19,7 @@ import FormPerfil from './components/perfil/FormPerfil'
 import FormViagens from './components/viagens/formviagens/FormViagens'
 import ListarViagem from './components/viagens/listarviagem/ListarViagem'
 import Contact from './pages/contact/Contact'
+import BuscaGeral from './components/buscageral/BuscaGeral'
 
 function App() {
 
@@ -55,6 +56,8 @@ function App() {
           <Route path="/configuracao" element={<Configuracao />} />
           <Route path="/perfil" element={<PagePerfil />} />
           <Route path="/editarperfil/:id" element={<FormPerfil />} />
+          <Route path="/editarperfil/:id" element={<FormPerfil />} />
+          <Route path="/consultarnome/:termoBusca" element={<BuscaGeral />} />
         </Routes>
       </AuthProvider>
     </>
