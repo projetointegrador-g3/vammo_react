@@ -1,5 +1,5 @@
 import { Bell, MagnifyingGlass, SignOut, List } from "@phosphor-icons/react"
-import { useContext, useState } from "react"
+import { ChangeEvent, FormEvent, useContext, useState } from "react"
 import { AuthContext } from "../../contexts/AuthContext"
 import { Link, useNavigate } from "react-router-dom"
 import './Navbar.css'
@@ -9,9 +9,10 @@ const Navbar = () => {
   const navigate = useNavigate();
   const { usuario } = useContext(AuthContext);
 
-  // Para desconectar o User
-  const {handleLogout} = useContext(AuthContext);
+  const [termoBusca, setTermoBusca] = useState<string>("");
 
+  // Para desconectar o User
+  const { handleLogout } = useContext(AuthContext);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
@@ -20,6 +21,16 @@ const Navbar = () => {
     handleLogout()
     ToastAlert('O usuário foi desconectado!', 'info')
     navigate('/')
+  }
+
+  function handleBuscarTodosComponentes(e: ChangeEvent<HTMLInputElement>) {
+    setTermoBusca(e.target.value);
+  }
+
+  function buscarTodosComponentes(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    navigate(`/consultarnome/${termoBusca}`);
+    setTermoBusca('');
   }
 
   // Função para rolar até a seção
@@ -118,14 +129,19 @@ const Navbar = () => {
 
   // Restante do código continua como estava
   if (location.pathname === "/home" || location.pathname === "/veiculo" || location.pathname === "/configuracao" || location.pathname === "/perfil" || location.pathname === "/viagens" 
-    || location.pathname.startsWith("/editarperfil/") || location.pathname.startsWith("/cadastrarveiculo") || location.pathname.startsWith("/editarveiculo/") || location.pathname.startsWith("/deletarveiculo/") || location.pathname.startsWith("/deletarviagem/") || location.pathname.startsWith("/editarviagem/")) 
+    || location.pathname.startsWith("/editarperfil/") || location.pathname.startsWith("/cadastrarveiculo") || location.pathname.startsWith("/editarveiculo/") || location.pathname.startsWith("/deletarveiculo/") || location.pathname.startsWith("/deletarviagem/") || location.pathname.startsWith("/editarviagem/") || location.pathname.startsWith("/consultarnome/")) 
+
+    
     return (
       <div className="flex justify-start items-center w-full pl-4 md:pl-[6rem] lg:pl-[8rem] pt-8 resp-navbar">
+        
         <div className="relative w-[250px] md:w-[300px] lg:w-[350px]">
-          <input type="text" placeholder="Buscar..." className="bg-black/5 pl-4 pr-10 py-2 rounded-full border-0 focus:outline-none w-full resp-busca" />
-          <MagnifyingGlass className="absolute right-4 top-1/2 transform -translate-y-1/2 cursor-pointer hover:scale-110" />
+        <form onSubmit={buscarTodosComponentes}>
+          <input type="text" placeholder="Buscar..." value={termoBusca} onChange={handleBuscarTodosComponentes} className="bg-black/5 pl-4 pr-10 py-2 rounded-full border-0 focus:outline-none w-full resp-busca" />
+          <MagnifyingGlass className="absolute right-4 top-1/2 transform -translate-y-1/2 cursor-pointer hover:scale-110" onClick={() => document.querySelector('form')?.dispatchEvent(new Event('submit', {cancelable: true, bubbles: true}))}/>
+          </form>
         </div>
-
+        
         <div className="flex gap-8 pl-4 md:pl-8 lg:pl-12 items-center ml-auto mr-2 md:mr-5 lg:mr-10 resp-elementos-navbar">
           <Link to="notificacoes" className="hover:scale-110"><Bell /></Link>
 
@@ -139,13 +155,10 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-
-
-
     )
 
   if (location.pathname === "/login" || location.pathname === "/register")
     return <></>
 }
 
-export default Navbar
+export default Navbar;
