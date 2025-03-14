@@ -112,3 +112,18 @@ body.dark {
     }
   }
   }
+
+  #customBtn {
+    display: inline-block;
+    background: white;
+    margin-left: 100px;
+    width: 190px;
+    border-radius: 50px;
+    white-space: nowrap;
+
+    :hover {
+      transition: background-color 0.3s ease;
+      border-color: var(--purpleDark);
+    }
+    
+}
