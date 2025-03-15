@@ -76,10 +76,7 @@ body.dark {
   }
   .resp-viagens{
     margin: 0 auto;
-
-    .pmobile{
-      padding: 0.65rem;
-    }
+    width: 295px;
   }
 
   .card-resp{
@@ -105,8 +102,32 @@ body.dark {
     padding: 3rem;
 
     .form-input{
-      width: 22rem;
+      width: 20rem;
       margin-left: 3rem;
     }
   }
+  .mob-button{
+    display: flex;
+    font-size: small;
+    margin: 0.75rem;
+    padding: 0.15rem 0.25rem;
   }
+  .button-resize{
+    padding: 0.25rem 1rem;
+    line-height: 0;
+  }
+
+  .p-login{
+    padding: 2rem;
+  }
+  }
+
+@media (max-width: 768px) {
+  .content {
+    width: 100%;
+    padding: 0 16px;
+  }
+  .iframe-container {
+    width: 100%;
+  }
+}

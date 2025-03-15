@@ -39,7 +39,7 @@ export function Login({
   }
 
   return (
-    <div className='grid h-screen lg:grid-cols-2'>
+    <div className='grid h-screen max-w-full lg:grid-cols-2'>
       {/* Coluna Esquerda */}
       <div className='flex flex-col gap-4 p-6 md:p-5'>
         <div className='flex justify-center gap-2 md:justify-start'>
@@ -54,11 +54,11 @@ export function Login({
         </div>
 
         {/* Formulário de Login */}
-        <div className='flex flex-1 items-center justify-center'>
-          <form className={cn('flex flex-col w-100 gap-6', className)} {...props} onSubmit={login}>
+        <div className='flex flex-1 items-center justify-center px-40 p-login'>
+        <form className={cn('flex flex-col w-full gap-6', className)} {...props} onSubmit={login}>
             <div className='flex flex-col items-center gap-2 text-center'>
               <h1 className='text-2xl font-bold'>Boas-vindas!</h1>
-              <p className='text-sm'>Entre com seu email e senha para ter acesso</p>
+              <p className='text-sm'>Entre com seu email e senha para ter acesso </p>
             </div>
 
             {/* Campos do Formulário */}
@@ -135,7 +135,7 @@ export function Login({
       </div>
 
       {/* Coluna Direita - Imagem */}
-      <div className='relative hidden bg-muted lg:block w-[50vw] h-[100vh]'>
+      <div className='relative hidden bg-muted lg:block w-full h-full max-w-[50vw] max-h-[100vh]'>
         <img
           src='https://ik.imagekit.io/grupo03/Vammo/car.png?updatedAt=1741184620379'
           alt='Imagem de Carro'

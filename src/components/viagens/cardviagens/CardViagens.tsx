@@ -27,7 +27,7 @@ function CardViagens({ viagem }: CardViagensProps) {
         </Link>
       </div>
 
-      <main className="flex flex-col gap-3 ml-5 pmobile">
+      <main className="flex flex-col gap-3 ml-5">
       <p className="font-bold mt-3 mb-2 text-center text-2xl mr-5">Informações da viagem </p>
 
         <p>

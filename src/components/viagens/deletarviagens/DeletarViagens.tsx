@@ -89,7 +89,7 @@ function DeletarViagem() {
               Não
             </button>
             <button
-              className="flex justify-center text-center rounded-lg text-white bg-[var(--purple)] w-full py-2 hover:bg-[var(--purpleDark)]  cursor-pointer"
+              className="flex justify-center text-center rounded-lg text-white bg-[var(--purple)] w-full py-2 hover:bg-[var(--purpleDark)] cursor-pointer"
               onClick={deletarViagem}
             >
               {isLoading ? (

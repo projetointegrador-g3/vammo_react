@@ -42,10 +42,10 @@ function ListaVeiculos() {
                 </h1>
 
              <Link to={`/cadastrarveiculo`}>
-                 <button className="px-4 py-2 flex items-center gap-3 bg-[#d8f505] hover:bg-black hover:text-[#f6f5fa] transition-all    delay-70 rounded-4xl
-                    ease-in-out cursor-pointer ">
+                 <button className="px-4 py-2 flex items-center gap-3 bg-[#d8f505] hover:bg-black hover:text-[#f6f5fa] transition-all delay-70 rounded-4xl
+                    ease-in-out cursor-pointer mob-button button-resize">
                         <PlusSquare className='size-5'/>
-                        <p className="text-sm font-semibold">Adicionar novo veículo</p>
+                        <p className="text-sm font-semibold">Adicionar novo</p>
                  </button>
                 </Link>
             </div>

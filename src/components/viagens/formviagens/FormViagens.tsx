@@ -201,7 +201,7 @@ function FormViagens({ origem, destino }: FormViagensProps) {
           {id !== undefined ? "Editar viagem" : "Buscar viagem"}
         </h1>
 
-        <form className="flex flex-col w-1/2 gap-5 " onSubmit={gerarNovaViagem}>
+        <form className="flex flex-col w-1/2 gap-5 inputsize" onSubmit={gerarNovaViagem}>
           {/* <div>
             <Input
               type="date"
