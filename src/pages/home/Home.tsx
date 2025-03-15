@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { ToastAlert } from '../../utils/ToastAlert';
 import { AuthContext } from '../../contexts/AuthContext';
 import './Home.css'
+import Dashboard from '../../components/dashboard/Dashboard';
 
 const Home = () => {
 
@@ -20,15 +21,6 @@ const Home = () => {
     }
   }, [usuario.token, navigate]);
 
-
-  // Dados para gráfico
-  const data = [
-    { name: 'Completed', value: 55, color: '#E2F26B' },
-    { name: 'In Progress', value: 30, color: '#565656' },
-    { name: 'Not Started', value: 15, color: '#D3D3D3' },
-  ];
-
-
   // Armazenar infos no inputs
   const [origem, setOrigem] = useState<string>('');
   const [destino, setDestino] = useState<string>('');
@@ -42,7 +34,7 @@ const Home = () => {
   
       {/* Seção de pesquisa de viagens */}
       <div className='w-1/3 space-y-4 input-home' >
-        <h2 className='text-xl font-bold'>Olá, {usuario ? usuario.nome : 'Usuário'}!</h2>
+        <h2 className='text-2xl font-bold mb-4'>Olá, {usuario ? usuario.nome : 'Usuário'}!</h2>
         <p>Busque pelo seu destino com os melhores preços!</p>
 
         <div className='space-y-3'>
@@ -69,33 +61,8 @@ const Home = () => {
     </div>
         </div>
 
-        {/* Informações da Corrida */}
-        <div className='mt-6 p-4 bg-[#F2F2F2] rounded-4xl shadow'>
-          <h3 className='text-lg font-bold'>Última corrida solicitada</h3>
-          <p><strong>Valor:</strong> R$ 24.90</p>
-          <p><strong>Distância:</strong> 50 Km/h</p>
-        </div>
-
         {/* Dashboard */}
-        <div className='mt-10'>
-          <h3 className='text-lg font-bold'>Dashboard</h3>
-          <div className='flex items-center justify-between'>
-            <div className='mb-10'>
-              <p><strong>Gastos do mês:</strong> R$424,90</p>
-              <p><strong>Distância Percorrida:</strong> 89.5km</p>
-            </div>
-
-            {/* Gráfico */}
-            <PieChart width={150} height={150}>
-              <Pie data={data} cx='50%' cy='50%' outerRadius={50} fill='#8884d8' dataKey='value'>
-                {data.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={entry.color} />
-                ))}
-              </Pie>
-              <Tooltip />
-            </PieChart> 
-            </div>
-          </div>
+        <Dashboard />
       </div>
 
       {/* Mapa */}
