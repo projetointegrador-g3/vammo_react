@@ -23,6 +23,7 @@ body {
     background-image: url(./pages/initial/fundo.png);
     margin-top: 5rem;
 }
+
 #topicos {
    display: flex;
    align-items: center;
@@ -65,6 +66,7 @@ body.dark {
       background-image: url(./pages/initial/fundo-dm.png);
       margin-top: 5rem;
   }
+
   #login{
     border: #D8F505;
   }
