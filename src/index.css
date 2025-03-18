@@ -201,3 +201,7 @@ body.dark {
     transition: border-bottom 0.3s ease;
   }
 }
+
+.map{
+  height: 100vh;
+}

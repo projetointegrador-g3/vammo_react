@@ -1,12 +1,11 @@
 import {  useContext, useEffect, useRef, useState } from 'react';
-import { PieChart, Pie, Cell, Tooltip } from 'recharts';
-import mapboxgl from 'mapbox-gl';
 import ModalViagens from '../../components/viagens/modalviagens/ModalViagens';
 import { useNavigate } from 'react-router-dom';
 import { ToastAlert } from '../../utils/ToastAlert';
 import { AuthContext } from '../../contexts/AuthContext';
 import './Home.css'
 import Dashboard from '../../components/dashboard/Dashboard';
+import GoogleMaps from '../../utils/GoogleMaps';
 
 const Home = () => {
 
@@ -67,7 +66,9 @@ const Home = () => {
 
       {/* Mapa */}
       <div className='w-150 ml-20 my-10 '>
-          <div className='w-200 h-120 rounded-4xl'></div>
+          <div className='w-200 h-120 rounded-4xl'>
+            <GoogleMaps />
+          </div>
       </div>
     </div>
   </main>
