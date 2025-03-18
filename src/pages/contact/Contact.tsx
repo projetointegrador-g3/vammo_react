@@ -12,7 +12,7 @@ function Contact(){
                             <p>Precisa de ajuda, suporte ou gostaria de deixar um comentário?<br />
                                 Entre em contato com o nosso time </p>
                         </div>
-                        <form action="">
+                        <form action="" className="my-5">
                             <label htmlFor="nome" className="ml-2">Nome</label>
                             <br />
                             <Input type="text" name="nome" placeholder="Informe o seu nome" className="w-80 mb-2"/>
@@ -25,18 +25,11 @@ function Contact(){
                             <br />
                             <textarea name="message" id="mensagem" placeholder="Digite aqui a sua mensagem" className="border border-zinc-400 rounded-4xl w-80 p-3 mb-3"></textarea>
                             <br />
-                            <button className="border rounded-full bg-[var(--black)] text-[var(--white)] p-2 px-3 w-80 cursor-pointer transition duration-0.3 hover:scale-105">Enviar</button>
-                        </form>
-        
-                        
-                        
+                            <button className="border rounded-full mb-5 bg-[var(--black)] text-[var(--white)] p-2 px-3 w-80 cursor-pointer transition duration-0.3 hover:scale-105">Enviar</button>
+                        </form>                       
         </section>
-        <Footer />
-
+            <Footer />
         </>
-        
-        
-
     )
 }
 export default Contact

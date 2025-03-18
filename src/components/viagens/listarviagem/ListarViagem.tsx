@@ -46,9 +46,9 @@ function ListarViagem() {
           autoplay
         />
       )}
-      <div className="flex justify-center my-4 ml-18 p-1 m-10">
+      <div className="flex justify-center ml-18 p-1 m-10">
         <div className="container flex flex-col mx-2">
-          <div className="container mx-auto my-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {viagens.map((viagem) => (
               <CardViagens key={viagem.id} viagem={viagem} />
             ))}

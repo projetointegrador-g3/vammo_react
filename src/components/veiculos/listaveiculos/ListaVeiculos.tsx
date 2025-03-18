@@ -35,9 +35,9 @@ function ListaVeiculos() {
     }, [token]);
 
     return (
-        <div className="container mx-30 p-4 flex flex-col my-5 veiculos-mobile">
+        <div className="container p-4 flex flex-col my-5 veiculos-mobile">
             <div className="flex items-center justify-between mb-2">
-                <h1 className="text-2xl font-bold txt-veiculo">
+                <h1 className="text-2xl mx-30 font-bold txt-veiculo">
                     Veiculos da Frota
                 </h1>
 
@@ -45,11 +45,11 @@ function ListaVeiculos() {
                  <button className="px-4 py-2 flex items-center gap-3 bg-[#d8f505] hover:bg-black hover:text-[#f6f5fa] transition-all delay-70 rounded-4xl
                     ease-in-out cursor-pointer mob-button button-resize">
                         <PlusSquare className='size-5'/>
-                        <p className="text-sm font-semibold">Adicionar novo</p>
+                        <p className="text-sm font-semibold">Adicionar novo veiculo</p>
                  </button>
                 </Link>
             </div>
-            <div className="flex flex-col sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 pl-16">
+            <div className="flex flex-col w-400 mx-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 pl-16">
                 {veiculos.length > 0 ? (
                     veiculos.map((veiculo) => (
                         <CardVeiculos key={veiculo.id} veiculo={veiculo} />
