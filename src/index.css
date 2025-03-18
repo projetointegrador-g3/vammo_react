@@ -205,3 +205,11 @@ body.dark {
 .map{
   height: 100vh;
 }
+
+.map-marker{
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  margin-top: -35px;
+  margin-left: -50px;
+}

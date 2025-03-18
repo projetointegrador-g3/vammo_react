@@ -65,8 +65,8 @@ const Home = () => {
       </div>
 
       {/* Mapa */}
-      <div className='w-150 ml-20 my-10 '>
-          <div className='w-200 h-120 rounded-4xl'>
+      <div className='w-150 ml-15 '>
+          <div className='w-200  rounded-4xl'>
             <GoogleMaps />
           </div>
       </div>

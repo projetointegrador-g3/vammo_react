@@ -4,7 +4,7 @@ const GoogleMaps = () => {
 
     const { isLoaded } = useJsApiLoader({
         id: 'google-map-script',
-        googleMapsApiKey: 'AIzaSyDwNu2RcPwr0GOzzLv4Xv890k6J40AnsDk',
+        googleMapsApiKey: 'AIzaSyDZfwkfAwqIuSqptD4P4grrdwWFwc6rRKk',
     });
 
     const position = {
@@ -12,11 +12,12 @@ const GoogleMaps = () => {
       lng: -46.626646,
     }
 
+
     return (
     <div className='map'>
     {isLoaded ? (
       <GoogleMap
-        mapContainerStyle={{width: '100%', height: '100%'}}
+        mapContainerStyle={{width: '100%', height: '80%'}}
         center={position}
         zoom={15}
       >
@@ -25,7 +26,6 @@ const GoogleMaps = () => {
             text: 'Posição inicial',
             fontSize: '16px',
             fontWeight: 'bold',
-            fontFamily: 'Arial, sans-serif',
             className: 'map-marker',
           }
           
