@@ -32,7 +32,7 @@ function PagePerfil() {
   }
 
   return (
-    <div className="flex text-[#212121] mx-40 gap-80 resp-perfil">
+    <div className="flex text-[#212121] mx-40 gap-80 resp-perfil perfildark">
       <div className="flex flex-col w-100">
         <h1 className="font-semibold text-2xl my-8">Perfil de {usuarioCompleto.nome}</h1>
 
@@ -63,7 +63,7 @@ function PagePerfil() {
           <h3 className="font-medium">Cartão Atual</h3>
           <div className="flex flex-col justify-start mt-2 gap-2">
             <div className="w-80 h-40 bg-[var(--yellow)] rounded-2xl p-6 text-#212121 font-bold transition duration-0.3 hover:scale-110 paysize">
-              <div>
+              <div className="darkhome">
                 <p className="font-semibold">Visa - **** **** **** 1234</p>
                 <p className="mt-16">Expira em 12/30</p>
               </div>
@@ -71,7 +71,7 @@ function PagePerfil() {
 
             <h3 className="font-medium">Outros cartões</h3>
             <div className="w-80 h-40 bg-[var(--purple)] rounded-2xl p-6 text-white font-bold transition duration-0.3 hover:scale-110 paysize">
-              <div>
+              <div className="darkhome">
                 <p className="font-semibold">Visa - **** **** **** 4321</p>
                 <p className="mt-16">Expira em 12/29</p>
               </div>
@@ -81,7 +81,7 @@ function PagePerfil() {
 
         <div>
           
-            <button type="submit" className="bg-[var(--black)] text-white mt-4 cursor-pointer p-2 rounded-full px-5 hover:scale-110 resp-button-perfil">Adicionar Cartão</button>
+            <button type="submit" className="bg-[var(--black)] text-white mt-4 cursor-pointer p-2 rounded-full px-5 hover:scale-110 resp-button-perfil homeinput darkhome">Adicionar Cartão</button>
          
         </div>
       </div>

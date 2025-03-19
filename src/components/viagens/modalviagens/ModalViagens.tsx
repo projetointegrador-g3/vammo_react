@@ -31,7 +31,7 @@ const ModalViagens: React.FC<ModalViagensProps> = ({ showTitle, origem, destino 
       {/* Botão para abrir a modal */}
         <button
             onClick={openModal}
-            className="w-full py-3 bg-[#d8f505] hover:bg-black hover:text-[#f6f5fa] transition-all delay-70 rounded-4xl flex justify-between px-4 font-semibold">
+            className="w-full py-3 bg-[#d8f505] hover:bg-black hover:text-[#f6f5fa] transition-all delay-70 rounded-4xl flex justify-between px-4 font-semibold darkhome">
             <span>Buscar viagem</span>
                 <ArrowRight color="#ffffff" className="bg-black rounded-4xl w-15" />
         </button>

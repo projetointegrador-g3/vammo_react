@@ -68,7 +68,7 @@ function DeletarViagem() {
 
 
   return (
-      <div className="container w-1/2 mx-auto border rounded-4xl p-8 mt-40 content-center">
+      <div className="container w-1/2 mx-auto border rounded-4xl p-8 mt-40 content-center perfildark">
         <h1 className="text-3xl text-center my-4">Deletar Viagem</h1>
         <p className="text-center mb-4 text-lg ">
           Você tem certeza de que deseja apagar a viagem a seguir?

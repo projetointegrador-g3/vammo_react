@@ -26,7 +26,7 @@ const Home = () => {
 
 
   return (
-    <main className='flex-1 p-10 ml-[100px] overflow-hidden mt-[-50px] resp-home'>
+    <main className='flex-1 p-10 ml-[100px] overflow-hidden mt-[-50px] resp-home '>
 
     {/* Pesquisa + mapa */}
     <div className='flex gap-6 my-15'>
@@ -42,7 +42,7 @@ const Home = () => {
             placeholder='Local de partida'
             value={origem}
             onChange={(e) => setOrigem(e.target.value)}
-            className='w-full p-3 bg-[#F2F2F2]  rounded-4xl placeholder-[#212121]'
+            className='w-full p-3 bg-[#F2F2F2]  rounded-4xl placeholder-[#212121] homeinput'
           />
 
           <input
@@ -50,7 +50,7 @@ const Home = () => {
             placeholder='Destino'
             value={destino}
             onChange={(e) => setDestino(e.target.value)}     
-            className='w-full p-3 bg-[#F2F2F2] rounded-4xl placeholder-[#212121]'
+            className='w-full p-3 bg-[#F2F2F2] rounded-4xl placeholder-[#212121] homeinput'
           />
 
 <div>

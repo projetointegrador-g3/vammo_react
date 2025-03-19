@@ -70,6 +70,24 @@ body.dark {
   #login{
     border: #D8F505;
   }
+  .darkhome{
+    color: #212121;
+  }
+  .darkhome1{
+    color: #212121;
+  }
+  .darkhome1:hover{
+    color: #E6E6E6;
+  }
+  .homeinput{
+    background-color: #E6E6E6;
+  }
+  .homeinput1{
+    background-color: #E6E6E615;
+  }
+  .perfildark{
+    color: #E6E6E6;
+  }
 }
 
 /*Responsividade*/
@@ -199,6 +217,10 @@ body.dark {
   :hover {
     border-color: var(--purple);
     transition: border-bottom 0.3s ease;
+  }
+  .resp-dash{
+    display: flex;
+    flex-direction: column;
   }
 }
 

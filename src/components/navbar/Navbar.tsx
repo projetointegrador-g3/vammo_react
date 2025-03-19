@@ -83,10 +83,10 @@ const Navbar = () => {
               <Link to="/about" className="hover:scale-110 hover:underline">Sobre nós</Link>
             </>
           )}
-          <Link to="/login" className="transition-all delay-70 text-center font-semibold hover:underline text-[#212121]">Login</Link> |
+          <Link to="/login" className="transition-all delay-70 text-center font-semibold hover:underline text-[#212121] logindmtxt">Login</Link> |
           
           <Link to="/register" className="block py-2 my-5 bg-[#212121] hover:bg-[#D8F505] hover:text-[#212121] 
-          transition-all delay-70 rounded-full w-21 p-1 text-center text-[#f6f5fa]" 
+          transition-all delay-70 rounded-full w-21 p-1 text-center text-[#f6f5fa] logindm" 
           onClick={() => setIsMenuOpen(false)}>Cadastrar</Link>
 
           <button className="absolute top-2 right-2 text-2xl text-[#D8F505] cursor-pointer" onClick={toggleMenu}></button>    
@@ -117,7 +117,7 @@ const Navbar = () => {
                 </>
               )}
 
-              <Link to="/login" className="block py-2 ml-4 mt-2 mb-2 bg-[#212121] hover:bg-[#D8F505] hover:text-[#212121] transition-all delay-70 rounded-full w-21 p-1 text-center text-[#f6f5fa]" onClick={() => setIsMenuOpen(false)}>Login</Link>
+              <Link to="/login" className="block py-2 ml-4 mt-2 mb-2 bg-[#212121] hover:bg-[#D8F505] hover:text-[#212121] transition-all delay-70 rounded-full w-21 p-1 text-center text-[#f6f5fa] perfildark" onClick={() => setIsMenuOpen(false)}>Login</Link>
               <button className="absolute top-2 right-2 text-2xl text-[#D8F505] cursor-pointer" onClick={toggleMenu}></button>
 
             </div>
@@ -137,7 +137,7 @@ const Navbar = () => {
         
         <div className="relative w-[250px] md:w-[300px] lg:w-[350px]">
         <form onSubmit={buscarTodosComponentes}>
-          <input type="text" placeholder="Buscar..." value={termoBusca} onChange={handleBuscarTodosComponentes} className="bg-black/5 pl-4 pr-10 py-2 rounded-full border-0 focus:outline-none w-full resp-busca" />
+          <input type="text" placeholder="Buscar..." value={termoBusca} onChange={handleBuscarTodosComponentes} className="bg-black/5 pl-4 pr-10 py-2 rounded-full border-0 focus:outline-none w-full resp-busca homeinput1" />
           <MagnifyingGlass className="absolute right-4 top-1/2 transform -translate-y-1/2 cursor-pointer hover:scale-110" onClick={() => document.querySelector('form')?.dispatchEvent(new Event('submit', {cancelable: true, bubbles: true}))}/>
           </form>
         </div>

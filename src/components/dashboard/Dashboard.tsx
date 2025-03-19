@@ -43,11 +43,11 @@ export default function Dashboard() {
   const ultimaViagem = viagens.length > 0 ? viagens[viagens.length - 1] : null;
 
   return (
-    <div className="p-4">
+    <div className="p-4 darkhome">
       <h1 className="text-2xl font-bold mb-4">Dashboard</h1>
       
       {/* Cards */}
-      <div className="grid grid-cols-3 gap-4 mb-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
         <div className="bg-gray-100 p-4 rounded-3xl shadow-md">
           <h2 className="text-lg font-semibold">Total de Viagens</h2>
           <p className="text-2xl">{totalViagens}</p>

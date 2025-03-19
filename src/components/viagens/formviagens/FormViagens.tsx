@@ -196,7 +196,7 @@ function FormViagens({ origem, destino }: FormViagensProps) {
 
   return (
     <>
-      <div className=" flex flex-col items-center text-[#212121]">
+      <div className=" flex flex-col items-center text-[#212121] perfildark">
         <h1 className="text-4xl text-center my-8">
           {id !== undefined ? "Editar viagem" : "Buscar viagem"}
         </h1>

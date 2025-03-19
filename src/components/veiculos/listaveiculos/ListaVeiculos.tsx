@@ -43,13 +43,13 @@ function ListaVeiculos() {
 
              <Link to={`/cadastrarveiculo`}>
                  <button className="px-4 py-2 flex items-center gap-3 bg-[#d8f505] hover:bg-black hover:text-[#f6f5fa] transition-all delay-70 rounded-4xl
-                    ease-in-out cursor-pointer mob-button button-resize">
+                    ease-in-out cursor-pointer mob-button button-resize darkhome1 hover:darkhome1">
                         <PlusSquare className='size-5'/>
                         <p className="text-sm font-semibold">Adicionar novo veiculo</p>
                  </button>
                 </Link>
             </div>
-            <div className="flex flex-col w-400 mx-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 pl-16">
+            <div className="flex flex-col w-400 mx-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 pl-16 darkhome">
                 {veiculos.length > 0 ? (
                     veiculos.map((veiculo) => (
                         <CardVeiculos key={veiculo.id} veiculo={veiculo} />
