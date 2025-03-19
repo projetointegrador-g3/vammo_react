@@ -9,7 +9,7 @@ interface CardVeiculosProps{
 function CardVeiculos({veiculo}: CardVeiculosProps){
     return(
         <div className="container grid grid-cols-1 rounded-4xl shadow bg-[#f6f5fa] relative
-         w-[93%] my-3 mr-3 card-resp">
+         w-[90%] my-3 mr-3 card-resp">
 
             {/* Botões de editar e excluir */} 
             <div className="flex justify-end space-x-2 mr-3 mt-5">
