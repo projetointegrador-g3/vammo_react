@@ -6,6 +6,7 @@ interface Viagem {
   id: number;
   distancia: number;
   preco: number;
+  destino: string; // Adicionando o campo "destino"
 }
 
 export default function Dashboard() {
@@ -18,7 +19,11 @@ export default function Dashboard() {
   useEffect(() => {
     async function buscarViagens() {
       try {
-        await buscar(`/viagens`, setViagens, {
+        await buscar(`/viagens`, (dados) => {
+          // Ordenar viagens pelo id em ordem crescente
+          const viagensOrdenadas = dados.sort((a: Viagem, b: Viagem) => a.id - b.id);
+          setViagens(viagensOrdenadas);
+        }, {
           headers: { authorization: usuario.token },
         });
       } catch (error: any) {
@@ -39,7 +44,7 @@ export default function Dashboard() {
     }
   }, [viagens]);
 
-  // Última viagem
+  // Última viagem (sempre será a última no array ordenado)
   const ultimaViagem = viagens.length > 0 ? viagens[viagens.length - 1] : null;
 
   return (
@@ -67,6 +72,7 @@ export default function Dashboard() {
         <h3 className="text-lg font-bold">Última corrida solicitada</h3>
         {ultimaViagem ? (
           <>
+            <p><strong>Destino:</strong> {ultimaViagem.destino}</p>
             <p><strong>Valor:</strong> R$ {ultimaViagem.preco.toFixed(2)}</p>
             <p><strong>Distância:</strong> {ultimaViagem.distancia} km</p>
           </>

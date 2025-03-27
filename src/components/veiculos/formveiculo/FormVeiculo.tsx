@@ -98,11 +98,11 @@ function FormVeiculo() {
         retornar();
     }
     return (
-        <div className=" flex flex-col items-center mt-10 form-edit">
-            <h1 className="text-3xl font-bold">
+        <div className="flex flex-col items-center mt-10 form-edit">
+            <h1 className="text-4xl text-center">
                 {id !== undefined ? "Editar Veículo" : "Cadastrar Veículo"}</h1>
 
-            <form className="flex flex-col gap-5 form-input" onSubmit={gerarNovoVeiculo}> 
+            <form className="flex flex-col w-1/2 gap-5 inputsize" onSubmit={gerarNovoVeiculo}> 
                 <div>
                     <label htmlFor="modelo">Modelo do Veículo</label>
                     <Input
@@ -144,6 +144,18 @@ function FormVeiculo() {
                         placeholder="Ex.:2022"
                         required
                         value={veiculo.ano_fabricacao}
+                        onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+                    />
+                </div>
+
+                <div>
+                    <label htmlFor="foto">Foto do veículo</label>
+                    <Input
+                        type="text"
+                        name="foto"
+                        placeholder="https://exemplo.png"
+                        required
+                        value={veiculo.foto}
                         onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
                     />
                 </div>
